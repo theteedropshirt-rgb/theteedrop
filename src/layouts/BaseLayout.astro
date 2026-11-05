@@ -164,24 +164,13 @@ const orgSchema = {
     nav.main-nav {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 26px;
       font-size: 0.92rem;
       font-weight: 600;
       color: #334155;
     }
     nav.main-nav a:hover {
       color: var(--blue-primary);
-    }
-    .nav-badge {
-      background: #ef4444;
-      color: #ffffff;
-      font-size: 0.65rem;
-      padding: 2px 6px;
-      border-radius: 999px;
-      font-weight: 800;
-      vertical-align: middle;
-      margin-left: 4px;
-      text-transform: uppercase;
     }
 
     /* Header Actions */
@@ -302,7 +291,7 @@ const orgSchema = {
 
   <!-- Promo Banner -->
   <div class="promo-bar">
-    <span>LIMITED RUN EVENT: Free US & EU Delivery on Orders Over $50</span>
+    <span>FREE US & EUROPE DELIVERY ON ORDERS OVER $50</span>
     <span>Use Code: <strong class="promo-code">DROP20</strong> for 20% Off</span>
   </div>
 
@@ -317,12 +306,11 @@ const orgSchema = {
       </div>
 
       <nav class="main-nav">
-        <a href="/#drops">Today's Drops <span class="nav-badge">Live</span></a>
-        <a href="/collections">All Collections</a>
-        <a href="/collections/spooky-dark-humor">Spooky & Occult</a>
-        <a href="/collections/gym-pump-covers">Gym Pump Covers</a>
-        <a href="/blog">The Journal</a>
+        <a href="/#drops">Today's Drops</a>
+        <a href="/collections">Collections</a>
         <a href="/size-guide">Size Chart</a>
+        <a href="/blog">The Journal</a>
+        <a href={MAYZING_DEFAULT} target="_blank" rel="noopener">Mayzing Store</a>
       </nav>
 
       <div class="header-actions">
@@ -336,7 +324,7 @@ const orgSchema = {
 
   <slot />
 
-  <!-- Professional E-Commerce Footer with Complete Internal Linking -->
+  <!-- Clean Professional E-Commerce Footer -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -345,29 +333,25 @@ const orgSchema = {
           <p>Direct-to-consumer graphic streetwear brand crafting limited-edition drops on custom 240+ GSM combed ringspun cotton. Printed on demand and fulfilled locally across the United States, Canada, UK, and European Union.</p>
         </div>
         <div class="footer-col">
-          <h5>Collections Hubs</h5>
+          <h5>Store Directory</h5>
           <ul>
-            <li><a href="/collections/spooky-dark-humor">Spooky & Occult Tees</a></li>
-            <li><a href="/collections/anime-cyberpunk">Japanese Ukiyo-e & Anime</a></li>
-            <li><a href="/collections/gym-pump-covers">Gym Pump Covers & Lifting</a></li>
-            <li><a href="/collections/nurses-healthcare">Healthcare & Nurse Tees</a></li>
-            <li><a href="/collections/vintage-streetwear">90s Vintage Streetwear</a></li>
-            <li><a href="/collections/coffee-obsessed">Coffee & Caffeine Culture</a></li>
-            <li><a href="/collections/milestone-birthdays">Milestone Birthday Tees</a></li>
-            <li><a href="/collections">All Topic Hubs Directory →</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#drops">Today's Drops</a></li>
+            <li><a href="/collections">Collections Catalog</a></li>
+            <li><a href="/size-guide">Garment Sizing & Fit Guide</a></li>
+            <li><a href="/blog">The Journal & Apparel Care</a></li>
+            <li><a href={MAYZING_DEFAULT} target="_blank" rel="noopener">Mayzing Direct Storefront →</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Guides & Policies</h5>
+          <h5>Specs & Policies</h5>
           <ul>
-            <li><a href="/size-guide">Garment Sizing & Fit Chart</a></li>
-            <li><a href="/blog">The Journal: Fabric & Care</a></li>
+            <li><a href="/size-guide">Size Chart (Inches & CM)</a></li>
             <li><a href="/#fabric">240+ GSM Heavyweight Specs</a></li>
-            <li><a href="/#faq">Order Shipping & US/EU Delivery</a></li>
+            <li><a href="/#faq">Order Shipping & Local Transit</a></li>
             <li><a href="/#faq">30-Day Free Reprint Guarantee</a></li>
             <li><a href="/sitemap.xml">XML Sitemap Index</a></li>
-            <li><a href="/llms.txt" target="_blank">LLMs & GEO Knowledge</a></li>
-            <li><a href={MAYZING_DEFAULT} target="_blank">Mayzing Direct Storefront</a></li>
+            <li><a href="/llms.txt" target="_blank">LLMs & AI Entity Context</a></li>
           </ul>
         </div>
         <div class="footer-col newsletter-box">

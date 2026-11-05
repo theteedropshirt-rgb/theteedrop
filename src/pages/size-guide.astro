@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import categories from '../data/categories.json';
 
 const BASE_URL = "https://theteedrop.com";
+const MAYZING_STORE = "https://store.theteedrop.com/store/MNye";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -99,16 +100,17 @@ const breadcrumbSchema = {
 
     <!-- Internal Linking to All Collections -->
     <aside class="size-related-hubs">
-      <h3>Explore Our Heavyweight Collections</h3>
-      <p>Now that you know your exact size, browse our curated graphic apparel hubs:</p>
+      <h3>Ready to Order?</h3>
+      <p>Now that you know your exact size, check out our current drops or visit our official storefront:</p>
       <div class="related-pills">
+        <a href={MAYZING_STORE} target="_blank" rel="noopener" class="related-pill pill-highlight">Visit Mayzing Storefront →</a>
         {categories.map((c) => (
           <a href={`/collections/${c.slug}`} class="related-pill">
             {c.name}
           </a>
         ))}
-        <a href="/collections" class="related-pill pill-highlight">All Collections Directory →</a>
-        <a href="/blog" class="related-pill">The Journal & Care Guides</a>
+        <a href="/collections" class="related-pill">All Collections Directory</a>
+        <a href="/" class="related-pill">Return to Home</a>
       </div>
     </aside>
   </div>

@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import categories from '../../data/categories.json';
-import products from '../../data/products.json';
 
 const BASE_URL = "https://theteedrop.com";
+const MAYZING_STORE = "https://store.theteedrop.com/store/MNye";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -29,28 +29,39 @@ const breadcrumbSchema = {
 
     <div class="collections-header">
       <span class="badge">Topic Catalog</span>
-      <h1>All Topic Collections</h1>
-      <p>Browse our curated collections organized by profession, passion, gym lifting, and milestone events. Every design is printed on our signature heavyweight combed cotton.</p>
+      <h1>Collections & Apparel Hubs</h1>
+      <p>Browse our curated collections printed on our signature 240+ GSM heavyweight combed cotton blanks.</p>
     </div>
 
-    <div class="collections-grid">
-      {categories.map((c) => {
-        const matchingCount = products.filter(p => p.category_slug === c.slug).length;
-        return (
+    {categories.length > 0 ? (
+      <div class="collections-grid">
+        {categories.map((c) => (
           <a href={`/collections/${c.slug}`} class="collection-card">
             <div class="card-content">
               <span class="card-badge">{c.badge}</span>
               <h3>{c.name}</h3>
               <p>{c.intro.slice(0, 130)}...</p>
               <div class="card-footer">
-                <span class="card-count">{matchingCount > 0 ? `${matchingCount} Live Drops` : 'New Batch Queued'}</span>
                 <span class="card-link">View Hub →</span>
               </div>
             </div>
           </a>
-        );
-      })}
-    </div>
+        ))}
+      </div>
+    ) : (
+      <div class="empty-collections-card">
+        <span class="empty-badge">CATALOG READY</span>
+        <h2>No Collections Published Yet</h2>
+        <p>
+          New curated collections will automatically populate here once you add your product drops from Mayzing. In the meantime, you can review our garment sizing charts or visit our storefront.
+        </p>
+        <div class="empty-actions">
+          <a href={MAYZING_STORE} target="_blank" rel="noopener" class="btn-empty-primary">Visit Mayzing Storefront →</a>
+          <a href="/size-guide" class="btn-empty-secondary">View Sizing Guide</a>
+          <a href="/" class="btn-empty-outline">Return to Home</a>
+        </div>
+      </div>
+    )}
 
     <!-- Additional Essential Guides Internal Links -->
     <aside class="guides-crosslink-box">
@@ -69,7 +80,7 @@ const breadcrumbSchema = {
   .collections-header {
     text-align: center;
     max-width: 750px;
-    margin: 20px auto 60px;
+    margin: 20px auto 50px;
   }
   .badge {
     display: inline-block;
@@ -143,21 +154,87 @@ const breadcrumbSchema = {
     flex-grow: 1;
   }
   .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     border-top: 1px solid var(--border);
     padding-top: 16px;
-  }
-  .card-count {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-muted);
   }
   .card-link {
     font-size: 0.88rem;
     font-weight: 700;
     color: var(--blue-primary);
+  }
+
+  /* Empty State */
+  .empty-collections-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 60px 30px;
+    text-align: center;
+    max-width: 800px;
+    margin: 20px auto 60px;
+    box-shadow: var(--shadow-sm);
+  }
+  .empty-badge {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue-hover);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  .empty-collections-card h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .empty-collections-card p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 620px;
+    margin: 0 auto 30px;
+  }
+  .empty-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-empty-primary {
+    background: var(--blue-primary);
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .btn-empty-primary:hover {
+    background: var(--blue-hover);
+  }
+  .btn-empty-secondary {
+    background: var(--bg-soft);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .btn-empty-secondary:hover {
+    border-color: var(--blue-primary);
+    color: var(--blue-primary);
+  }
+  .btn-empty-outline {
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
   }
 
   .guides-crosslink-box {

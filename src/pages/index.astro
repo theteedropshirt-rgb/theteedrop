@@ -1,12 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProductCard from '../components/ProductCard.astro';
-import ArticleCard from '../components/ArticleCard.astro';
 import products from '../data/products.json';
 import categories from '../data/categories.json';
-import articles from '../data/articles.json';
 
 const BASE_URL = "https://theteedrop.com";
+const MAYZING_STORE = "https://store.theteedrop.com/store/MNye";
 
 const itemListSchema = products.length > 0 ? {
   "@context": "https://schema.org",
@@ -61,36 +60,36 @@ const pageSchema = {
 ---
 
 <BaseLayout
-  title="The Tee Drop | Premium Heavyweight Graphic Tees & Streetwear"
-  description="Limited-edition graphic tees and pump covers crafted from 240+ GSM combed ringspun cotton. Printed on demand with water-based DTG inks. Local US & Europe delivery."
+  title="The Tee Drop | Premium Heavyweight Graphic Apparel"
+  description="DTC graphic apparel printed on demand on custom 240+ GSM combed ringspun cotton blanks. Local US & European fulfillment."
   schema={pageSchema}
 >
-  <!-- Wicked Clothes Style Impact Hero -->
+  <!-- Hero Section -->
   <section class="wicked-hero">
     <div class="container hero-content-wrapper">
       <div class="hero-text-block">
         <div class="scarcity-pill">
-          <span class="pulsing-dot"></span> DAILY LIMITED DROPS • 240+ GSM HEAVYWEIGHT
+          <span class="pulsing-dot"></span> HEAVYWEIGHT GRAPHIC APPAREL • 240+ GSM
         </div>
         <h1>GRAPHIC TEES FOR PEOPLE WHO HATE THIN SHIRTS.</h1>
         <p class="hero-lead">
-          Crafted from dense, custom-knitted 240+ GSM combed ringspun cotton. Printed with soft-touch, fade-resistant water-based inks that penetrate deep into the fibers instead of peeling like plastic stickers.
+          Custom-knitted 240+ GSM combed ringspun cotton. Printed on demand with water-based, non-toxic inks that penetrate deep into natural fibers instead of cracking or peeling.
         </p>
 
         <div class="hero-cta-cluster">
-          <a href="#drops" class="btn-hero-primary">EXPLORE LIVE DROPS</a>
-          <a href="/collections" class="btn-hero-secondary">BROWSE ALL TOPICS →</a>
+          <a href={MAYZING_STORE} target="_blank" rel="noopener" class="btn-hero-primary">VISIT STOREFRONT</a>
+          <a href="/size-guide" class="btn-hero-secondary">VIEW SIZE CHART →</a>
         </div>
 
         <div class="hero-proof-stats">
           <div class="stat-item">
-            <strong>42,000+</strong>
-            <span>Satisfied Buyers</span>
+            <strong>240+ GSM</strong>
+            <span>Heavy Combed Cotton</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat-item">
-            <strong>4.96 / 5.0</strong>
-            <span>Average Review Rating</span>
+            <strong>100% Cotton</strong>
+            <span>Ringspun & Pre-Shrunk</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat-item">
@@ -102,40 +101,42 @@ const pageSchema = {
     </div>
   </section>
 
-  <!-- Sticky Topic / Collection Filter Bar (Wicked Clothes Style) -->
-  <section class="topic-filter-bar">
-    <div class="container">
-      <div class="filter-flex-row">
-        <span class="filter-title">Filter by Topic:</span>
-        <div class="filter-pills-scroll">
-          <a href="/collections" class="filter-pill active">All Collections</a>
-          {categories.map((c) => (
-            <a href={`/collections/${c.slug}`} class="filter-pill">
-              {c.name}
-            </a>
-          ))}
+  <!-- Category Filter Bar (Only shown when categories exist) -->
+  {categories.length > 0 && (
+    <section class="topic-filter-bar">
+      <div class="container">
+        <div class="filter-flex-row">
+          <span class="filter-title">Filter by Topic:</span>
+          <div class="filter-pills-scroll">
+            <a href="/collections" class="filter-pill active">All Collections</a>
+            {categories.map((c) => (
+              <a href={`/collections/${c.slug}`} class="filter-pill">
+                {c.name}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 
-  <!-- Main Catalog Grid -->
+  <!-- Main Drops Container -->
   <main class="container" id="drops">
     <div class="catalog-header-row">
       <div>
-        <h2>LIVE LIMITED-RUN DROPS</h2>
-        <p>Each drop is produced in small print runs. When the timer expires, designs archive into our vault.</p>
+        <h2>CURRENT RELEASES</h2>
+        <p>Heavyweight graphic drops printed on demand and fulfilled via Mayzing.</p>
       </div>
       <div class="sort-indicator">
         {products.length > 0 ? (
-          <span>Showing <strong>{products.length} Exclusive Releases</strong></span>
+          <span>Showing <strong>{products.length} Products</strong></span>
         ) : (
-          <span>Batch Queue <strong>In Progress</strong></span>
+          <span>Storefront Status: <strong>Ready for Listings</strong></span>
         )}
       </div>
     </div>
 
-    <!-- Product Grid or High-Converting Empty State -->
+    <!-- Product Grid or Zero-Listing State -->
     {products.length > 0 ? (
       <div class="pro-grid-4col">
         {products.map((p) => (
@@ -144,91 +145,31 @@ const pageSchema = {
       </div>
     ) : (
       <div class="empty-state-card">
-        <span class="empty-state-badge">CURATING NEW DROPS</span>
-        <h3>Next Limited Apparel Batches In Production</h3>
+        <span class="empty-state-badge">STOREFRONT READY</span>
+        <h3>Zero Listings Live Yet</h3>
         <p>
-          We are currently staging new artist illustrations across our 7 core topic hubs. All shirts feature our custom 240+ GSM heavyweight combed cotton blanks with lay-flat collars and water-based DTG printing.
+          Your storefront framework is configured and ready to receive your products from Mayzing. Once you add your drops, they will appear right here with high-resolution imagery and direct checkout links.
         </p>
         <div class="empty-state-actions">
-          <a href="/collections" class="btn-empty-hero">Browse All 7 Topic Hubs</a>
-          <a href="/size-guide" class="btn-empty-outline">View Garment Size Guide</a>
+          <a href={MAYZING_STORE} target="_blank" rel="noopener" class="btn-empty-hero">Open Mayzing Storefront →</a>
+          <a href="/size-guide" class="btn-empty-outline">Check Sizing & Fit Specs</a>
         </div>
       </div>
     )}
   </main>
-
-  <!-- Topic Hubs Showcase (Internal Backlink Matrix) -->
-  <section class="topic-showcase-section">
-    <div class="container">
-      <div class="showcase-header">
-        <span class="sub-label">Internal Catalog Hubs</span>
-        <h2>EXPLORE DROPS BY PASSION & SUBCULTURE</h2>
-        <p>Direct access to each curated subculture hub. Interlinked for easy navigation across our catalog.</p>
-      </div>
-
-      <div class="topic-showcase-grid">
-        {categories.map((c) => (
-          <a href={`/collections/${c.slug}`} class="topic-card">
-            <span class="topic-badge">{c.badge}</span>
-            <h3>{c.name}</h3>
-            <p>{c.intro.slice(0, 115)}...</p>
-            <span class="topic-link">Explore Collection →</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Social Proof & UGC Section (As Seen On TikTok) -->
-  <section class="ugc-social-section">
-    <div class="container">
-      <div class="ugc-header">
-        <span class="sub-label">#TheTeeDrop Community</span>
-        <h2>WORN BY OVER 42,000+ CREATORS NATIONWIDE</h2>
-        <p>From powerlifting gyms to late-night emergency room shifts, see why our heavy blanks went viral.</p>
-      </div>
-
-      <div class="ugc-cards-grid">
-        <div class="ugc-card">
-          <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&auto=format&fit=crop&q=80" alt="Gym Pump Cover Review" loading="lazy" />
-          <div class="ugc-card-body">
-            <div class="stars-text">Verified 5-Star Review</div>
-            <p>"The only gym pump cover that doesn't shrink into a baby tee after one hot wash. The 240 GSM weight is real."</p>
-            <span class="ugc-buyer">@marcus_lifts • Verified Buyer (Austin, TX)</span>
-          </div>
-        </div>
-        <div class="ugc-card">
-          <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80" alt="Nurse Tee Review" loading="lazy" />
-          <div class="ugc-card-body">
-            <div class="stars-text">Verified 5-Star Review</div>
-            <p>"Got this for my night shift crew in the ER. So soft under scrubs and the print doesn't peel in hospital wash."</p>
-            <span class="ugc-buyer">@sarah_rn • Verified Buyer (Chicago, IL)</span>
-          </div>
-        </div>
-        <div class="ugc-card">
-          <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&auto=format&fit=crop&q=80" alt="Ukiyo-e Streetwear Review" loading="lazy" />
-          <div class="ugc-card-body">
-            <div class="stars-text">Verified 5-Star Review</div>
-            <p>"The ukiyo-e Japanese line art is so sharp. Feels like an authentic Tokyo streetwear drop but arrived in 3 days."</p>
-            <span class="ugc-buyer">@kyle_street • Verified Buyer (Seattle, WA)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Fabric & Craftsmanship Authority Section -->
   <section class="fabric-authority-section" id="fabric">
     <div class="container">
       <div class="authority-box">
         <div class="authority-text">
-          <span class="quality-tag">THE 240+ GSM DIFFERENCE</span>
+          <span class="quality-tag">THE 240+ GSM STANDARD</span>
           <h2>WHY CHEAP T-SHIRTS RUIN YOUR WARDROBE</h2>
           <p>
             Most print-on-demand sellers cut corners with cheap 140–160 GSM blanks because they cost less to ship. After two washes, the seams twist, the collar wrinkles like bacon, and the shirt clings awkwardly.
           </p>
           <p>
-            We custom knits our combed ringspun cotton at <strong>240+ grams per square meter</strong>. The fabric holds its boxy structure, breathes effortlessly, and drapes cleanly over your frame.
+            We custom knit our combed ringspun cotton at <strong>240+ grams per square meter</strong>. The fabric holds its boxy structure, breathes effortlessly, and drapes cleanly over your frame.
           </p>
 
           <div class="spec-badges-row">
@@ -240,7 +181,7 @@ const pageSchema = {
 
           <div class="authority-actions">
             <a href="/size-guide" class="btn-learn-sizing">View Exact Size & Measurement Chart →</a>
-            <a href="/collections" class="btn-learn-secondary">Explore All Collections →</a>
+            <a href={MAYZING_STORE} target="_blank" rel="noopener" class="btn-learn-secondary">Go to Mayzing Store →</a>
           </div>
         </div>
 
@@ -251,32 +192,7 @@ const pageSchema = {
     </div>
   </section>
 
-  <!-- Editorial Journal Section (E-E-A-T) -->
-  <section class="container" style="margin-top: 90px; margin-bottom: 90px;">
-    <div class="catalog-header-row">
-      <div>
-        <h2>THE TEE DROP JOURNAL</h2>
-        <p>In-depth guides on fabric longevity, styling oversized drops, and apparel care.</p>
-      </div>
-      <a href="/blog" class="view-all-link">Read all articles →</a>
-    </div>
-
-    {articles.length > 0 ? (
-      <div class="journal-3col">
-        {articles.slice(0, 3).map((a) => (
-          <ArticleCard article={a} />
-        ))}
-      </div>
-    ) : (
-      <div class="empty-journal-card">
-        <p>
-          New fabric longevity guides, wash care protocols, and styling playbooks are publishing shortly. Check our <a href="/size-guide">Sizing & Measurement Guide</a> or browse all <a href="/collections">Topic Collections</a> in the meantime.
-        </p>
-      </div>
-    )}
-  </section>
-
-  <!-- AEO FAQ Section -->
+  <!-- FAQ Section -->
   <section class="faq-container-section" id="faq">
     <div class="container">
       <div class="faq-header-block">
@@ -303,7 +219,7 @@ const pageSchema = {
         <details class="pro-faq-item">
           <summary>How do The Tee Drop shirts fit? Should I size up?</summary>
           <div class="faq-body">
-            Our shirts are cut with an intentional modern relaxed streetwear silhouette featuring slightly dropped shoulders and a flat-laying 1-inch ribbed collar. If you want a comfortable everyday relaxed fit, order your normal true-to-size. If you prefer a pronounced oversized skate look or gym pump cover fit, we recommend ordering one size up. Check our <a href="/size-guide" style="color: var(--blue-primary); text-decoration: underline;">Size Guide</a> for exact measurements.
+            Our shirts are cut with an intentional modern relaxed streetwear silhouette featuring slightly dropped shoulders and a flat-laying 1-inch ribbed collar. If you want a comfortable everyday relaxed fit, order your normal true-to-size. If you prefer an oversized boxy drape or gym pump cover fit, we recommend ordering one size up. Check our <a href="/size-guide" style="color: var(--blue-primary); text-decoration: underline;">Size Guide</a> for exact measurements.
           </div>
         </details>
 
@@ -582,133 +498,6 @@ const pageSchema = {
     color: var(--blue-primary);
   }
 
-  /* Topic Showcase Section */
-  .topic-showcase-section {
-    background: var(--bg-soft);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 80px 0;
-  }
-  .showcase-header {
-    text-align: center;
-    max-width: 750px;
-    margin: 0 auto 50px;
-  }
-  .topic-showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 24px;
-  }
-  .topic-card {
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 26px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.25s ease;
-  }
-  .topic-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--blue-primary);
-  }
-  .topic-badge {
-    align-self: flex-start;
-    background: var(--blue-light);
-    color: var(--blue-hover);
-    font-size: 0.72rem;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 4px;
-    margin-bottom: 12px;
-  }
-  .topic-card h3 {
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin-bottom: 8px;
-    color: var(--text);
-  }
-  .topic-card p {
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin-bottom: 18px;
-  }
-  .topic-link {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--blue-primary);
-  }
-
-  /* UGC Section */
-  .ugc-social-section {
-    padding: 80px 0;
-    background: #ffffff;
-  }
-  .ugc-header {
-    text-align: center;
-    max-width: 750px;
-    margin: 0 auto 50px;
-  }
-  .sub-label {
-    display: inline-block;
-    color: var(--blue-primary);
-    font-size: 0.82rem;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .ugc-header h2 {
-    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    margin-bottom: 12px;
-  }
-  .ugc-header p {
-    color: var(--text-muted);
-    font-size: 1rem;
-  }
-  .ugc-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
-  }
-  .ugc-card {
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-  }
-  .ugc-card img {
-    width: 100%;
-    height: 340px;
-    object-fit: cover;
-  }
-  .ugc-card-body {
-    padding: 22px;
-  }
-  .stars-text {
-    color: #f59e0b;
-    font-weight: 700;
-    font-size: 0.85rem;
-    margin-bottom: 10px;
-  }
-  .ugc-card-body p {
-    font-size: 0.95rem;
-    color: #1e293b;
-    font-style: italic;
-    line-height: 1.5;
-    margin-bottom: 14px;
-  }
-  .ugc-buyer {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    font-weight: 600;
-  }
-
   /* Fabric Authority */
   .fabric-authority-section {
     background: #0f172a;
@@ -800,33 +589,6 @@ const pageSchema = {
     width: 100%;
     height: 480px;
     object-fit: cover;
-  }
-
-  /* Journal Section */
-  .view-all-link {
-    color: var(--blue-primary);
-    font-weight: 700;
-    font-size: 0.95rem;
-  }
-  .journal-3col {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 32px;
-  }
-  .empty-journal-card {
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 30px;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-  .empty-journal-card a {
-    color: var(--blue-primary);
-    font-weight: 700;
-    text-decoration: underline;
   }
 
   /* FAQ */
