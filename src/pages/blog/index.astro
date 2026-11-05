@@ -2,76 +2,220 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import articles from '../../data/articles.json';
+import categories from '../../data/categories.json';
 
 const BASE_URL = "https://theteedrop.com";
 
 const breadcrumbSchema = {
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- "itemListElement": [
- { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
- { "@type": "ListItem", "position": 2, "name": "Journal", "item": `${BASE_URL}/blog` }
- ]
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+    { "@type": "ListItem", "position": 2, "name": "Journal", "item": `${BASE_URL}/blog` }
+  ]
 };
 ---
 
 <BaseLayout
- title="The Journal | Fabric Guides, Styling & Print Care | The Tee Drop"
- description="Read editorial guides from The Tee Drop. Insights on 240+ GSM heavyweight cotton, oversized styling rules, and caring for water-based DTG prints."
- schema={breadcrumbSchema}
+  title="The Journal | Fabric Guides, Styling & Print Care | The Tee Drop"
+  description="Read editorial guides from The Tee Drop. Insights on 240+ GSM heavyweight cotton, oversized styling rules, and caring for water-based DTG prints."
+  schema={breadcrumbSchema}
 >
- <div class="container">
- <nav class="breadcrumbs" aria-label="Breadcrumb">
- <a href="/">Home</a>
- <span>/</span>
- <strong>Journal</strong>
- </nav>
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <strong>Journal</strong>
+    </nav>
 
- <header class="blog-header">
- <span class="badge">The Journal</span>
- <h1>Stories, Care & Craftsmanship</h1>
- <p>Thoughtful essays on garment construction, fabric longevity, and the evolution of graphic t-shirt culture.</p>
- </header>
+    <header class="blog-header">
+      <span class="badge">The Journal</span>
+      <h1>Stories, Care & Craftsmanship</h1>
+      <p>Thoughtful essays on garment construction, fabric longevity, and the evolution of graphic t-shirt culture.</p>
+    </header>
 
- <div class="blog-grid">
- {articles.map((a) => (
- <ArticleCard article={a} />
- ))}
- </div>
- </div>
+    {articles.length > 0 ? (
+      <div class="blog-grid">
+        {articles.map((a) => (
+          <ArticleCard article={a} />
+        ))}
+      </div>
+    ) : (
+      <div class="empty-blog-card">
+        <span class="empty-tag">EDITORIAL QUEUE</span>
+        <h2>New Guides & Fabric Deep-Dives in Progress</h2>
+        <p>
+          Our technical guides on ring-spun 240+ GSM cotton care, oversized streetwear proportions, and print preservation are being finalized. In the meantime, review our garment sizing charts or explore our graphic apparel hubs.
+        </p>
+        <div class="empty-actions">
+          <a href="/size-guide" class="btn-empty-primary">View Size & Fit Guide</a>
+          <a href="/collections" class="btn-empty-secondary">Explore Collections</a>
+          <a href="/" class="btn-empty-outline">Return to Home</a>
+        </div>
+      </div>
+    )}
+
+    <!-- Internal Linking Hubs -->
+    <aside class="journal-related-hubs">
+      <h3>Explore Our Heavyweight Collections</h3>
+      <div class="related-pills">
+        {categories.map((c) => (
+          <a href={`/collections/${c.slug}`} class="related-pill">
+            {c.name}
+          </a>
+        ))}
+        <a href="/collections" class="related-pill pill-highlight">All Collections →</a>
+        <a href="/size-guide" class="related-pill">Garment Size Chart</a>
+      </div>
+    </aside>
+  </div>
 </BaseLayout>
 
 <style>
- .blog-header {
- text-align: center;
- max-width: 750px;
- margin: 20px auto 60px;
- }
- .badge {
- display: inline-block;
- background: var(--blue-light);
- color: var(--blue-hover);
- padding: 4px 14px;
- border-radius: 999px;
- font-size: 0.8rem;
- font-weight: 700;
- margin-bottom: 16px;
- }
- .blog-header h1 {
- font-size: clamp(2rem, 4vw, 2.8rem);
- font-weight: 800;
- letter-spacing: -0.8px;
- margin-bottom: 14px;
- }
- .blog-header p {
- color: var(--text-muted);
- font-size: 1.05rem;
- line-height: 1.6;
- }
- .blog-grid {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
- gap: 32px;
- margin-bottom: 80px;
- }
+  .blog-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 20px auto 50px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue-hover);
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .blog-header h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    margin-bottom: 14px;
+  }
+  .blog-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 32px;
+    margin-bottom: 80px;
+  }
+
+  /* Empty State */
+  .empty-blog-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 60px 30px;
+    text-align: center;
+    max-width: 780px;
+    margin: 20px auto 60px;
+    box-shadow: var(--shadow-sm);
+  }
+  .empty-tag {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue-hover);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  .empty-blog-card h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .empty-blog-card p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 620px;
+    margin: 0 auto 30px;
+  }
+  .empty-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-empty-primary {
+    background: var(--blue-primary);
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .btn-empty-primary:hover {
+    background: var(--blue-hover);
+  }
+  .btn-empty-secondary {
+    background: var(--bg-soft);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .btn-empty-secondary:hover {
+    border-color: var(--blue-primary);
+    color: var(--blue-primary);
+  }
+  .btn-empty-outline {
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  /* Internal Linking Matrix */
+  .journal-related-hubs {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    margin: 40px 0 80px;
+    text-align: center;
+  }
+  .journal-related-hubs h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+  .related-pills {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .related-pill {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .related-pill:hover {
+    border-color: var(--blue-primary);
+    color: var(--blue-primary);
+    transform: translateY(-1px);
+  }
+  .pill-highlight {
+    background: var(--blue-light);
+    color: var(--blue-hover);
+    border-color: transparent;
+  }
 </style>

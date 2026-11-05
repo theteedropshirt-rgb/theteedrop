@@ -6,127 +6,195 @@ import products from '../../data/products.json';
 const BASE_URL = "https://theteedrop.com";
 
 const breadcrumbSchema = {
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- "itemListElement": [
- { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
- { "@type": "ListItem", "position": 2, "name": "Collections", "item": `${BASE_URL}/collections` }
- ]
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+    { "@type": "ListItem", "position": 2, "name": "Collections", "item": `${BASE_URL}/collections` }
+  ]
 };
 ---
 
 <BaseLayout
- title="All Topic Collections & Graphic Tee Hubs | The Tee Drop"
- description="Explore all graphic tee collections by topic, profession, passion, and milestone. Heavyweight 240+ GSM cotton printed on demand."
- schema={breadcrumbSchema}
+  title="All Topic Collections & Graphic Tee Hubs | The Tee Drop"
+  description="Explore all graphic tee collections by topic, profession, passion, and milestone. Heavyweight 240+ GSM cotton printed on demand."
+  schema={breadcrumbSchema}
 >
- <div class="container">
- <nav class="breadcrumbs" aria-label="Breadcrumb">
- <a href="/">Home</a>
- <span>/</span>
- <strong>Collections</strong>
- </nav>
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <strong>Collections</strong>
+    </nav>
 
- <div class="collections-header">
- <span class="badge">Topic Catalog</span>
- <h1>All Topic Collections</h1>
- <p>Browse our curated collections organized by profession, passion, gym lifting, and milestone events. Every design is printed on our signature heavyweight combed cotton.</p>
- </div>
+    <div class="collections-header">
+      <span class="badge">Topic Catalog</span>
+      <h1>All Topic Collections</h1>
+      <p>Browse our curated collections organized by profession, passion, gym lifting, and milestone events. Every design is printed on our signature heavyweight combed cotton.</p>
+    </div>
 
- <div class="collections-grid">
- {categories.map((c) => {
- const matchingCount = products.filter(p => p.category_slug === c.slug).length;
- return (
- <a href={`/collections/${c.slug}`} class="collection-card">
- <div class="card-icon">{c.icon}</div>
- <div class="card-content">
- <span class="card-badge">{c.badge}</span>
- <h3>{c.name}</h3>
- <p>{c.intro.slice(0, 110)}...</p>
- <span class="card-link">View collection →</span>
- </div>
- </a>
- );
- })}
- </div>
- </div>
+    <div class="collections-grid">
+      {categories.map((c) => {
+        const matchingCount = products.filter(p => p.category_slug === c.slug).length;
+        return (
+          <a href={`/collections/${c.slug}`} class="collection-card">
+            <div class="card-content">
+              <span class="card-badge">{c.badge}</span>
+              <h3>{c.name}</h3>
+              <p>{c.intro.slice(0, 130)}...</p>
+              <div class="card-footer">
+                <span class="card-count">{matchingCount > 0 ? `${matchingCount} Live Drops` : 'New Batch Queued'}</span>
+                <span class="card-link">View Hub →</span>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+
+    <!-- Additional Essential Guides Internal Links -->
+    <aside class="guides-crosslink-box">
+      <h3>Need Help Sizing or Styling?</h3>
+      <p>Consult our official garment specifications and care essays before placing an order.</p>
+      <div class="guide-actions">
+        <a href="/size-guide" class="btn-guide-pill">View Sizing & Fit Guide (Inches & CM) →</a>
+        <a href="/blog" class="btn-guide-pill">The Journal: Fabric & Care Guides →</a>
+        <a href="/" class="btn-guide-pill">Return to Home →</a>
+      </div>
+    </aside>
+  </div>
 </BaseLayout>
 
 <style>
- .collections-header {
- text-align: center;
- max-width: 750px;
- margin: 20px auto 60px;
- }
- .badge {
- display: inline-block;
- background: var(--blue-light);
- color: var(--blue-hover);
- padding: 4px 14px;
- border-radius: 999px;
- font-size: 0.8rem;
- font-weight: 700;
- margin-bottom: 16px;
- }
- .collections-header h1 {
- font-size: clamp(2rem, 4vw, 2.8rem);
- font-weight: 800;
- letter-spacing: -0.8px;
- margin-bottom: 14px;
- }
- .collections-header p {
- color: var(--text-muted);
- font-size: 1.05rem;
- line-height: 1.6;
- }
- .collections-grid {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
- gap: 28px;
- margin-bottom: 80px;
- }
- .collection-card {
- background: #ffffff;
- border: 1px solid var(--border);
- border-radius: var(--radius-md);
- padding: 28px;
- display: flex;
- gap: 20px;
- transition: all 0.25s ease;
- }
- .collection-card:hover {
- transform: translateY(-3px);
- box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
- border-color: var(--border-focus);
- }
- .card-icon {
- font-size: 2.2rem;
- line-height: 1;
- }
- .card-badge {
- font-size: 0.75rem;
- font-weight: 700;
- color: var(--blue-primary);
- text-transform: uppercase;
- letter-spacing: 0.5px;
- display: block;
- margin-bottom: 6px;
- }
- .card-content h3 {
- font-size: 1.2rem;
- font-weight: 700;
- margin-bottom: 8px;
- color: var(--text);
- }
- .card-content p {
- font-size: 0.9rem;
- color: var(--text-muted);
- line-height: 1.5;
- margin-bottom: 14px;
- }
- .card-link {
- font-size: 0.85rem;
- font-weight: 600;
- color: var(--blue-primary);
- }
+  .collections-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 20px auto 60px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue-hover);
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .collections-header h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    margin-bottom: 14px;
+  }
+  .collections-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+    margin-bottom: 80px;
+  }
+  .collection-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+  }
+  .collection-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    border-color: var(--blue-primary);
+  }
+  .card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-badge {
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--blue-hover);
+    background: var(--blue-light);
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  .collection-card h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #0f172a;
+  }
+  .collection-card p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 22px;
+    flex-grow: 1;
+  }
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .card-count {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .card-link {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--blue-primary);
+  }
+
+  .guides-crosslink-box {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    margin-bottom: 90px;
+    text-align: center;
+  }
+  .guides-crosslink-box h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .guides-crosslink-box p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+  .guide-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-guide-pill {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.88rem;
+  }
+  .btn-guide-pill:hover {
+    border-color: var(--blue-primary);
+    color: var(--blue-primary);
+  }
 </style>
