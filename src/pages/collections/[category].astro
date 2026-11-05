@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import categories from '../../data/categories.json';
+import products from '../../data/products.json';
+
+export async function getStaticPaths() {
+ return categories.map((cat) => {
+ const filteredProducts = products.filter((p) => p.category_slug === cat.slug);
+ // If no direct matching products yet, provide fallback products from the catalog
+ const displayProducts = filteredProducts.length > 0 ? filteredProducts : products.slice(0, 4);
+ return {
+ params: { category: cat.slug },
+ props: { categoryData: cat, matchingProducts: displayProducts }
+ };
+ });
+}
+
+const { categoryData, matchingProducts } = Astro.props;
+const BASE_URL = "https://theteedrop.com";
+
+const breadcrumbSchema = {
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+ { "@type": "ListItem", "position": 2, "name": "Collections", "item": `${BASE_URL}/collections` },
+ { "@type": "ListItem", "position": 3, "name": categoryData.name, "item": `${BASE_URL}/collections/${categoryData.slug}` }
+ ]
+};
+
+const collectionSchema = {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": categoryData.meta_title,
+ "description": categoryData.meta_description,
+ "url": `${BASE_URL}/collections/${categoryData.slug}`,
+ "mainEntity": {
+ "@type": "ItemList",
+ "itemListElement": matchingProducts.map((p, i) => ({
+ "@type": "ListItem",
+ "position": i + 1,
+ "url": `${BASE_URL}/products/${p.slug}`,
+ "name": p.title
+ }))
+ }
+};
+
+const pageSchema = {
+ "@context": "https://schema.org",
+ "@graph": [breadcrumbSchema, collectionSchema]
+};
+---
+
+<BaseLayout
+ title={categoryData.meta_title}
+ description={categoryData.meta_description}
+ schema={pageSchema}
+>
+ <div class="container">
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <a href="/">Home</a>
+ <span>/</span>
+ <a href="/collections">Collections</a>
+ <span>/</span>
+ <strong>{categoryData.name}</strong>
+ </nav>
+
+ <div class="cat-header">
+ <div class="header-badge">{categoryData.badge}</div>
+ <h1>{categoryData.h1}</h1>
+ <p class="cat-intro">{categoryData.intro}</p>
+ 
+ <div class="meta-strip">
+ <span> 240+ GSM Heavyweight Combed Cotton</span>
+ <span> Unisex Relaxed Streetwear Drape</span>
+ <span> 3–6 Day US & European Delivery</span>
+ </div>
+ </div>
+
+ <section class="drops-container">
+ <div class="results-bar">
+ <span>Showing {matchingProducts.length} curated drops</span>
+ <a href="/size-guide" class="size-link">View Sizing Guide →</a>
+ </div>
+
+ <div class="product-grid">
+ {matchingProducts.map((p) => (
+ <ProductCard product={p} />
+ ))}
+ </div>
+ </section>
+
+ <!-- Internal Linking to Other Collections (TeeShirtPalace Style) -->
+ <aside class="related-hubs">
+ <h3>Explore Other Popular Collections</h3>
+ <div class="related-pills">
+ {categories.filter(c => c.slug !== categoryData.slug).slice(0, 6).map((c) => (
+ <a href={`/collections/${c.slug}`} class="related-pill">
+ {c.name}
+ </a>
+ ))}
+ </div>
+ </aside>
+ </div>
+</BaseLayout>
+
+<style>
+ .cat-header {
+ max-width: 850px;
+ margin: 10px auto 40px;
+ text-align: center;
+ }
+ .header-badge {
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ background: var(--blue-light);
+ color: var(--blue-hover);
+ padding: 5px 16px;
+ border-radius: 999px;
+ font-size: 0.85rem;
+ font-weight: 700;
+ margin-bottom: 18px;
+ }
+ .cat-header h1 {
+ font-size: clamp(2.2rem, 4.5vw, 3rem);
+ font-weight: 800;
+ line-height: 1.2;
+ letter-spacing: -0.8px;
+ margin-bottom: 16px;
+ }
+ .cat-intro {
+ font-size: 1.1rem;
+ color: var(--text-muted);
+ line-height: 1.6;
+ margin-bottom: 24px;
+ }
+ .meta-strip {
+ display: flex;
+ justify-content: center;
+ gap: 24px;
+ flex-wrap: wrap;
+ font-size: 0.85rem;
+ font-weight: 600;
+ color: var(--blue-primary);
+ }
+
+ .drops-container {
+ margin-bottom: 80px;
+ }
+ .results-bar {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding-bottom: 16px;
+ margin-bottom: 24px;
+ border-bottom: 1px solid var(--border);
+ font-size: 0.9rem;
+ color: var(--text-muted);
+ }
+ .size-link {
+ color: var(--blue-primary);
+ font-weight: 600;
+ }
+
+ .product-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+ gap: 32px;
+ }
+
+ .related-hubs {
+ background: var(--bg-soft);
+ border: 1px solid var(--border);
+ border-radius: var(--radius-lg);
+ padding: 40px;
+ margin: 60px 0 80px;
+ text-align: center;
+ }
+ .related-hubs h3 {
+ font-size: 1.3rem;
+ font-weight: 800;
+ margin-bottom: 20px;
+ }
+ .related-pills {
+ display: flex;
+ justify-content: center;
+ gap: 12px;
+ flex-wrap: wrap;
+ }
+ .related-pill {
+ background: #ffffff;
+ border: 1px solid var(--border);
+ padding: 8px 18px;
+ border-radius: 999px;
+ font-size: 0.85rem;
+ font-weight: 600;
+ color: var(--text);
+ }
+ .related-pill:hover {
+ border-color: var(--blue-soft);
+ color: var(--blue-primary);
+ transform: translateY(-1px);
+ }
+</style>

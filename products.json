@@ -1,0 +1,62 @@
+[
+  {
+    "id": "drop-01",
+    "slug": "vintage-cyberpunk-oversized-tee",
+    "title": "Vintage Tokyo Cyberpunk Oversized Tee",
+    "price": 28.99,
+    "compare_at_price": 42.00,
+    "category": "Streetwear & Anime",
+    "badge": "Viral Drop #01",
+    "rating": 4.9,
+    "reviews_count": 128,
+    "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80",
+    "description": "Heavyweight vintage-washed oversized graphic tee inspired by retro Tokyo cyberpunk street aesthetics. Tailored from 100% combed ringspun cotton with a relaxed drop-shoulder silhouette.",
+    "features": [
+      "100% Pre-shrunk combed ringspun cotton (240 GSM)",
+      "Drop-shoulder streetwear cut with ribbed collar",
+      "High-definition fade-proof DTG graphic print",
+      "Locally printed & shipped in the USA and Europe"
+    ],
+    "mayzing_checkout_url": "https://store.theteedrop.com/store/MNye"
+  },
+  {
+    "id": "drop-02",
+    "slug": "heavy-iron-discipline-pump-cover",
+    "title": "Heavy Iron Discipline Gym Pump Cover",
+    "price": 27.99,
+    "compare_at_price": 38.00,
+    "category": "Gym & Fitness",
+    "badge": "Best Seller",
+    "rating": 5.0,
+    "reviews_count": 94,
+    "image": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop&q=80",
+    "description": "The ultimate heavyweight pump cover engineered for lifters. Clean minimalist motivational typography on the back with subtle chest embroidery-style print.",
+    "features": [
+      "Extra roomy chest and shoulders for seamless lifting movement",
+      "Breathable moisture-absorbing heavy cotton",
+      "Double-stitched hems built to endure intense workout sessions",
+      "3-5 days delivery across the US and Canada"
+    ],
+    "mayzing_checkout_url": "https://store.theteedrop.com/store/MNye"
+  },
+  {
+    "id": "drop-03",
+    "slug": "caffeine-code-retro-graphic-tee",
+    "title": "Caffeine & Midnight Code Graphic Tee",
+    "price": 26.99,
+    "compare_at_price": 36.00,
+    "category": "Aesthetic & Lifestyle",
+    "badge": "Limited Edition",
+    "rating": 4.8,
+    "reviews_count": 67,
+    "image": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&auto=format&fit=crop&q=80",
+    "description": "Retro 90s pixel-art illustration celebrating late-night hustle, coffee, and screen culture. Printed on an ultra-soft unisex vintage black tee.",
+    "features": [
+      "Ultra-soft feel with zero scratchy tags",
+      "Eco-friendly OEKO-TEX certified inks",
+      "True-to-size unisex comfort fit",
+      "Machine washable with zero graphic cracking"
+    ],
+    "mayzing_checkout_url": "https://store.theteedrop.com/store/MNye"
+  }
+]

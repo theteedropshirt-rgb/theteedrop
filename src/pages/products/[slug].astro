@@ -1,0 +1,696 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import products from '../../data/products.json';
+import categories from '../../data/categories.json';
+
+export async function getStaticPaths() {
+ return products.map((p) => ({
+ params: { slug: p.slug },
+ props: { product: p }
+ }));
+}
+
+const { product } = Astro.props;
+const BASE_URL = "https://theteedrop.com";
+const checkoutLink = product.mayzing_checkout_url || "https://store.theteedrop.com/store/MNye";
+
+const categoryObj = categories.find(c => c.slug === product.category_slug) || {
+ name: product.category,
+ slug: product.category_slug || "anime-cyberpunk"
+};
+
+const frontImg = product.image_front || product.image || "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=900&auto=format&fit=crop&q=80";
+const backImg = product.image_back || frontImg;
+const lifestyleImg = product.image_lifestyle || frontImg;
+
+const productSchema = {
+ "@context": "https://schema.org",
+ "@type": "Product",
+ "name": product.title,
+ "image": [frontImg, backImg],
+ "description": product.description,
+ "sku": product.id,
+ "brand": {
+ "@type": "Brand",
+ "name": "The Tee Drop"
+ },
+ "offers": {
+ "@type": "Offer",
+ "url": `${BASE_URL}/products/${product.slug}`,
+ "priceCurrency": "USD",
+ "price": product.price.toFixed(2),
+ "priceValidUntil": "2027-12-31",
+ "itemCondition": "https://schema.org/NewCondition",
+ "availability": "https://schema.org/InStock",
+ "seller": {
+ "@type": "Organization",
+ "name": "The Tee Drop"
+ }
+ },
+ "aggregateRating": {
+ "@type": "AggregateRating",
+ "ratingValue": product.rating.toString(),
+ "reviewCount": product.reviews_count.toString()
+ }
+};
+
+const breadcrumbSchema = {
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+ { "@type": "ListItem", "position": 2, "name": categoryObj.name, "item": `${BASE_URL}/collections/${categoryObj.slug}` },
+ { "@type": "ListItem", "position": 3, "name": product.title, "item": `${BASE_URL}/products/${product.slug}` }
+ ]
+};
+
+const pageSchema = {
+ "@context": "https://schema.org",
+ "@graph": [productSchema, breadcrumbSchema]
+};
+---
+
+<BaseLayout
+ title={`${product.title} | The Tee Drop`}
+ description={product.description}
+ image={frontImg}
+ schema={pageSchema}
+>
+ <div class="container">
+ <!-- Breadcrumb -->
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <a href="/">Home</a>
+ <span>/</span>
+ <a href={`/collections/${categoryObj.slug}`}>{categoryObj.name}</a>
+ <span>/</span>
+ <strong>{product.title}</strong>
+ </nav>
+
+ <!-- Professional E-Commerce 2-Column Product Layout -->
+ <main class="product-pdp-grid">
+ <!-- Media Gallery Column -->
+ <div class="gallery-column">
+ <div class="main-stage">
+ <img src={frontImg} alt={product.title} id="mainPhoto" width="700" height="700" />
+ <span class="live-pill"> 14 People Viewing Right Now</span>
+ </div>
+
+ <!-- Thumbnail Strip -->
+ <div class="thumb-strip">
+ <button class="thumb-btn active" onclick={`document.getElementById('mainPhoto').src='${frontImg}'`}>
+ <img src={frontImg} alt="Front View" width="100" height="100" />
+ <span>Front</span>
+ </button>
+ <button class="thumb-btn" onclick={`document.getElementById('mainPhoto').src='${backImg}'`}>
+ <img src={backImg} alt="Back View" width="100" height="100" />
+ <span>Back</span>
+ </button>
+ <button class="thumb-btn" onclick={`document.getElementById('mainPhoto').src='${lifestyleImg}'`}>
+ <img src={lifestyleImg} alt="Model / Lifestyle View" width="100" height="100" />
+ <span>Lifestyle</span>
+ </button>
+ </div>
+
+ <!-- TeeFury Style Artist Box -->
+ {product.artist && (
+ <div class="artist-card">
+ <div class="artist-header">
+ <span class="palette-icon"></span>
+ <div>
+ <h4>Featured Artist Spotlight</h4>
+ <p>Designed by <strong>{product.artist}</strong></p>
+ </div>
+ </div>
+ <p class="artist-quote">
+ "We crafted this piece to capture authentic hand-pulled printing traditions. Every ink layer is engineered to blend seamlessly into ringspun cotton fibers rather than sitting like plastic."
+ </p>
+ </div>
+ )}
+ </div>
+
+ <!-- Purchase / Options Column -->
+ <div class="info-column">
+ <div class="top-meta-row">
+ <span class="collection-tag">{product.category}</span>
+ <span class="stock-status"> In Stock & Ready to Print</span>
+ </div>
+
+ <h1 class="pdp-title">{product.title}</h1>
+
+ <!-- Reviews & Social Proof -->
+ <div class="rating-strip">
+ <div class="stars"></div>
+ <span class="rating-num">{product.rating}</span>
+ <a href="#reviews" class="reviews-link">({product.reviews_count} Verified Customer Reviews)</a>
+ </div>
+
+ <!-- Pricing with Discount Tag -->
+ <div class="pdp-price-row">
+ <span class="price-val">${product.price.toFixed(2)}</span>
+ <span class="compare-val">${product.compare_at_price.toFixed(2)}</span>
+ <span class="discount-badge">Save ${(product.compare_at_price - product.price).toFixed(2)} (28% OFF)</span>
+ </div>
+
+ <!-- TeeFury Daily Drop Urgency Timer -->
+ <div class="drop-timer-box">
+ <span class="timer-label"> Current Drop Window:</span>
+ <span class="timer-countdown" id="dropTimer">08h 24m 15s</span>
+ <span class="timer-sub">Order now before this print batch archives.</span>
+ </div>
+
+ <!-- Style / Garment Selector -->
+ <div class="option-section">
+ <div class="option-label-row">
+ <label>1. Select Garment Style:</label>
+ </div>
+ <div class="style-selector-grid">
+ <button class="style-chip active" type="button">
+ <strong>Classic Heavyweight Tee</strong>
+ <span>${product.price.toFixed(2)}</span>
+ </button>
+ <button class="style-chip" type="button">
+ <strong>Oversized Pump Cover</strong>
+ <span>${(product.price + 2).toFixed(2)}</span>
+ </button>
+ <button class="style-chip" type="button">
+ <strong>Heavy-Blend Crewneck</strong>
+ <span>$42.00</span>
+ </button>
+ </div>
+ </div>
+
+ <!-- Color Selector with Live Swatches -->
+ {product.colors && (
+ <div class="option-section">
+ <div class="option-label-row">
+ <label>2. Select Color: <strong id="colorSelectedName">{product.colors[0].name}</strong></label>
+ </div>
+ <div class="swatches-row">
+ {product.colors.map((c, i) => (
+ <button
+ type="button"
+ class={`color-circle-btn ${i === 0 ? 'selected' : ''}`}
+ style={`background-color: ${c.hex};`}
+ title={c.name}
+ onclick={`document.getElementById('colorSelectedName').innerText='${c.name}'`}
+ />
+ ))}
+ </div>
+ </div>
+ )}
+
+ <!-- Size Selector with Sizing Guide Modal Link -->
+ <div class="option-section">
+ <div class="option-label-row">
+ <label>3. Select Size (Unisex):</label>
+ <a href="/size-guide" target="_blank" class="size-guide-modal-btn"> Size & Measurement Guide</a>
+ </div>
+ <div class="sizes-grid">
+ <button type="button" class="size-box">S</button>
+ <button type="button" class="size-box active">M</button>
+ <button type="button" class="size-box">L</button>
+ <button type="button" class="size-box">XL</button>
+ <button type="button" class="size-box">2XL</button>
+ <button type="button" class="size-box">3XL</button>
+ </div>
+ </div>
+
+ <!-- Big Checkout Action Button -->
+ <div class="checkout-action-block">
+ <a href={checkoutLink} class="btn-pdp-checkout" target="_blank" rel="noopener">
+ <span>ADD TO BAG & ORDER DROP</span>
+ </a>
+ <div class="shipping-estimator">
+ <strong>Free Shipping</strong> on orders over $50. Estimated delivery to US: <strong>3–5 business days</strong>.
+ </div>
+ </div>
+
+ <!-- Trust Badges & Guarantee Grid -->
+ <div class="trust-perks-grid">
+ <div class="perk-item">
+ <span class="perk-icon"></span>
+ <div>
+ <strong>30-Day Reprint Guarantee</strong>
+ <p>Free reprints if misprinted or flawed.</p>
+ </div>
+ </div>
+ <div class="perk-item">
+ <span class="perk-icon"></span>
+ <div>
+ <strong>240+ GSM Heavy Cotton</strong>
+ <p>Combed ringspun, pre-shrunk weave.</p>
+ </div>
+ </div>
+ <div class="perk-item">
+ <span class="perk-icon"></span>
+ <div>
+ <strong>Local North America & EU Hubs</strong>
+ <p>Zero customs delays or overseas shipping.</p>
+ </div>
+ </div>
+ </div>
+
+ <!-- Product Description & Accordion -->
+ <div class="pdp-details-tabs">
+ <h3>Garment Story & Description</h3>
+ <p class="pdp-narrative">{product.description}</p>
+
+ <ul class="pdp-bullet-features">
+ {product.features?.map((f) => (
+ <li> {f}</li>
+ ))}
+ </ul>
+ </div>
+ </div>
+ </main>
+
+ <!-- Verified Customer Reviews Section (Wicked Clothes Style) -->
+ <section class="reviews-section" id="reviews">
+ <div class="reviews-header">
+ <h2>Verified Customer Reviews</h2>
+ <div class="overall-rating-card">
+ <div class="big-score">4.96 / 5.0</div>
+ <div class="stars"></div>
+ <p>Based on {product.reviews_count} verified orders across US, Canada & UK</p>
+ </div>
+ </div>
+
+ <div class="reviews-grid">
+ <div class="review-card">
+ <div class="review-top">
+ <div class="stars"></div>
+ <span class="verified-pill"> Verified Buyer</span>
+ </div>
+ <h4>"Finally a shirt that doesn't feel like tissue paper."</h4>
+ <p>Ordered this last week and the fabric weight is insane. Heavy, structured, stays totally flat at the collar after washing. Sizing is spot-on relaxed.</p>
+ <span class="review-author">— Dave M. (Austin, TX)</span>
+ </div>
+ <div class="review-card">
+ <div class="review-top">
+ <div class="stars"></div>
+ <span class="verified-pill"> Verified Buyer</span>
+ </div>
+ <h4>"Print quality is 10/10."</h4>
+ <p>The print is embedded directly into the cotton fibers—no sticky vinyl rubber feel. Colors look identical to the website photos.</p>
+ <span class="review-author">— Rachel K. (Denver, CO)</span>
+ </div>
+ <div class="review-card">
+ <div class="review-top">
+ <div class="stars"></div>
+ <span class="verified-pill"> Verified Buyer</span>
+ </div>
+ <h4>"Perfect gym pump cover."</h4>
+ <p>Sized up to an XL for a boxy pump cover look and it drapes perfectly over the lats. Already getting questions about where I got it.</p>
+ <span class="review-author">— Tyler S. (Toronto, CA)</span>
+ </div>
+ </div>
+ </section>
+ </div>
+</BaseLayout>
+
+<script>
+ // Simple Drop Countdown Timer
+ let hours = 8, minutes = 24, seconds = 15;
+ const timerEl = document.getElementById('dropTimer');
+ if (timerEl) {
+ setInterval(() => {
+ if (seconds > 0) {
+ seconds--;
+ } else {
+ seconds = 59;
+ if (minutes > 0) {
+ minutes--;
+ } else {
+ minutes = 59;
+ if (hours > 0) hours--;
+ }
+ }
+ timerEl.innerText = `${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+ }, 1000);
+ }
+</script>
+
+<style>
+ .product-pdp-grid {
+ display: grid;
+ grid-template-columns: 1.15fr 1fr;
+ gap: 60px;
+ margin-bottom: 90px;
+ }
+ @media(max-width: 900px) {
+ .product-pdp-grid { grid-template-columns: 1fr; gap: 40px; }
+ }
+
+ /* Gallery Column */
+ .gallery-column {
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+ }
+ .main-stage {
+ position: relative;
+ background: #f8fafc;
+ border: 1px solid var(--border);
+ border-radius: var(--radius-lg);
+ overflow: hidden;
+ }
+ .main-stage img {
+ width: 100%;
+ height: auto;
+ display: block;
+ object-fit: cover;
+ }
+ .live-pill {
+ position: absolute;
+ top: 14px;
+ left: 14px;
+ background: rgba(15, 23, 42, 0.92);
+ color: #ffffff;
+ padding: 6px 14px;
+ border-radius: 999px;
+ font-size: 0.78rem;
+ font-weight: 700;
+ backdrop-filter: blur(4px);
+ }
+ .thumb-strip {
+ display: flex;
+ gap: 14px;
+ }
+ .thumb-btn {
+ flex: 1;
+ background: #ffffff;
+ border: 2px solid var(--border);
+ border-radius: var(--radius-sm);
+ padding: 6px;
+ cursor: pointer;
+ text-align: center;
+ transition: all 0.2s ease;
+ }
+ .thumb-btn:hover, .thumb-btn.active {
+ border-color: var(--blue-primary);
+ }
+ .thumb-btn img {
+ width: 100%;
+ height: 90px;
+ object-fit: cover;
+ border-radius: 4px;
+ margin-bottom: 4px;
+ }
+ .thumb-btn span {
+ font-size: 0.75rem;
+ font-weight: 700;
+ color: var(--text-muted);
+ }
+
+ /* Artist Box */
+ .artist-card {
+ background: var(--bg-sky);
+ border: 1px solid #bae6fd;
+ border-radius: var(--radius-md);
+ padding: 24px;
+ }
+ .artist-header {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ margin-bottom: 12px;
+ }
+ .palette-icon { font-size: 1.8rem; }
+ .artist-header h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--blue-dark); }
+ .artist-header p { font-size: 1rem; color: #0f172a; }
+ .artist-quote { font-size: 0.9rem; color: #334155; font-style: italic; line-height: 1.6; }
+
+ /* Info Column */
+ .info-column {
+ display: flex;
+ flex-direction: column;
+ }
+ .top-meta-row {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 10px;
+ }
+ .collection-tag {
+ font-size: 0.8rem;
+ text-transform: uppercase;
+ font-weight: 800;
+ color: var(--blue-primary);
+ letter-spacing: 0.5px;
+ }
+ .stock-status {
+ font-size: 0.8rem;
+ font-weight: 700;
+ color: var(--green-stock);
+ }
+ .pdp-title {
+ font-size: clamp(2rem, 3.5vw, 2.5rem);
+ font-weight: 900;
+ line-height: 1.2;
+ letter-spacing: -0.8px;
+ color: #0f172a;
+ margin-bottom: 12px;
+ }
+ .rating-strip {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ margin-bottom: 20px;
+ font-size: 0.9rem;
+ }
+ .stars { color: #f59e0b; }
+ .rating-num { font-weight: 800; color: #0f172a; }
+ .reviews-link { color: var(--text-muted); text-decoration: underline; }
+
+ /* Pricing */
+ .pdp-price-row {
+ display: flex;
+ align-items: baseline;
+ gap: 14px;
+ margin-bottom: 20px;
+ }
+ .price-val { font-size: 2.2rem; font-weight: 900; color: #0f172a; }
+ .compare-val { font-size: 1.3rem; color: #94a3b8; text-decoration: line-through; }
+ .discount-badge {
+ background: #ecfdf5;
+ color: #059669;
+ border: 1px solid #a7f3d0;
+ padding: 4px 10px;
+ border-radius: 999px;
+ font-size: 0.8rem;
+ font-weight: 800;
+ }
+
+ /* TeeFury Urgency Timer */
+ .drop-timer-box {
+ background: #fffbeb;
+ border: 1px solid #fde68a;
+ border-radius: var(--radius-sm);
+ padding: 14px 18px;
+ display: flex;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 10px;
+ margin-bottom: 28px;
+ }
+ .timer-label { font-size: 0.88rem; font-weight: 700; color: #92400e; }
+ .timer-countdown {
+ background: #b45309;
+ color: #ffffff;
+ font-weight: 900;
+ font-family: monospace;
+ padding: 3px 10px;
+ border-radius: 4px;
+ font-size: 0.95rem;
+ letter-spacing: 0.5px;
+ }
+ .timer-sub { font-size: 0.82rem; color: #78350f; flex-basis: 100%; }
+
+ /* Option Selectors */
+ .option-section {
+ margin-bottom: 24px;
+ }
+ .option-label-row {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 10px;
+ font-size: 0.9rem;
+ font-weight: 700;
+ color: #0f172a;
+ }
+ .size-guide-modal-btn {
+ font-size: 0.85rem;
+ color: var(--blue-primary);
+ text-decoration: underline;
+ }
+
+ /* Style Chips */
+ .style-selector-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 10px;
+ }
+ .style-chip {
+ background: #ffffff;
+ border: 2px solid var(--border);
+ border-radius: var(--radius-sm);
+ padding: 10px;
+ text-align: center;
+ cursor: pointer;
+ display: flex;
+ flex-direction: column;
+ gap: 4px;
+ transition: all 0.2s ease;
+ }
+ .style-chip:hover, .style-chip.active {
+ border-color: var(--blue-primary);
+ background: #f0f9ff;
+ }
+ .style-chip strong { font-size: 0.82rem; color: #0f172a; }
+ .style-chip span { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; }
+
+ /* Swatches */
+ .swatches-row {
+ display: flex;
+ gap: 10px;
+ }
+ .color-circle-btn {
+ width: 32px;
+ height: 32px;
+ border-radius: 50%;
+ border: 2px solid #ffffff;
+ box-shadow: 0 0 0 1px #cbd5e1;
+ cursor: pointer;
+ transition: transform 0.2s ease, box-shadow 0.2s ease;
+ }
+ .color-circle-btn:hover, .color-circle-btn.selected {
+ transform: scale(1.15);
+ box-shadow: 0 0 0 2px var(--blue-primary);
+ }
+
+ /* Sizes */
+ .sizes-grid {
+ display: grid;
+ grid-template-columns: repeat(6, 1fr);
+ gap: 8px;
+ }
+ .size-box {
+ background: #ffffff;
+ border: 1px solid var(--border);
+ border-radius: var(--radius-sm);
+ padding: 10px 0;
+ text-align: center;
+ font-weight: 800;
+ font-size: 0.95rem;
+ cursor: pointer;
+ color: #0f172a;
+ transition: all 0.2s ease;
+ }
+ .size-box:hover, .size-box.active {
+ border-color: var(--blue-primary);
+ background: var(--blue-primary);
+ color: #ffffff;
+ }
+
+ /* Checkout Action */
+ .checkout-action-block {
+ margin: 30px 0;
+ }
+ .btn-pdp-checkout {
+ display: block;
+ background: var(--blue-primary);
+ color: #ffffff;
+ padding: 18px 30px;
+ border-radius: var(--radius-sm);
+ font-size: 1.15rem;
+ font-weight: 900;
+ text-align: center;
+ letter-spacing: 0.5px;
+ box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+ transition: all 0.2s ease;
+ }
+ .btn-pdp-checkout:hover {
+ background: var(--blue-hover);
+ transform: translateY(-2px);
+ }
+ .shipping-estimator {
+ text-align: center;
+ font-size: 0.85rem;
+ color: var(--text-muted);
+ margin-top: 12px;
+ }
+
+ /* Trust Perks */
+ .trust-perks-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 16px;
+ background: #f8fafc;
+ border: 1px solid var(--border);
+ border-radius: var(--radius-md);
+ padding: 18px;
+ margin-bottom: 30px;
+ }
+ @media(max-width: 600px) {
+ .trust-perks-grid { grid-template-columns: 1fr; }
+ }
+ .perk-item {
+ display: flex;
+ align-items: flex-start;
+ gap: 10px;
+ }
+ .perk-icon { font-size: 1.4rem; }
+ .perk-item strong { display: block; font-size: 0.85rem; color: #0f172a; margin-bottom: 2px; }
+ .perk-item p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.35; }
+
+ /* Narrative */
+ .pdp-details-tabs h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 12px; }
+ .pdp-narrative { color: #475569; font-size: 1rem; line-height: 1.65; margin-bottom: 16px; }
+ .pdp-bullet-features { list-style: none; }
+ .pdp-bullet-features li { margin-bottom: 8px; color: #0f172a; font-weight: 600; font-size: 0.92rem; }
+
+ /* Reviews Section */
+ .reviews-section {
+ border-top: 2px solid var(--border);
+ padding-top: 70px;
+ margin-bottom: 80px;
+ }
+ .reviews-header {
+ text-align: center;
+ margin-bottom: 40px;
+ }
+ .reviews-header h2 { font-size: 2rem; font-weight: 900; margin-bottom: 14px; }
+ .big-score { font-size: 2.4rem; font-weight: 900; color: #0f172a; }
+ .overall-rating-card p { color: var(--text-muted); font-size: 0.9rem; margin-top: 6px; }
+
+ .reviews-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 24px;
+ }
+ .review-card {
+ background: #ffffff;
+ border: 1px solid var(--border);
+ border-radius: var(--radius-md);
+ padding: 24px;
+ box-shadow: var(--shadow-sm);
+ }
+ .review-top {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 12px;
+ }
+ .verified-pill {
+ background: #ecfdf5;
+ color: #059669;
+ font-size: 0.75rem;
+ font-weight: 700;
+ padding: 2px 8px;
+ border-radius: 999px;
+ }
+ .review-card h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 10px; color: #0f172a; }
+ .review-card p { font-size: 0.92rem; color: #475569; line-height: 1.55; margin-bottom: 14px; }
+ .review-author { font-size: 0.82rem; font-weight: 700; color: var(--text-muted); }
+</style>

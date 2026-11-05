@@ -1,0 +1,673 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import products from '../data/products.json';
+import categories from '../data/categories.json';
+import articles from '../data/articles.json';
+
+const BASE_URL = "https://theteedrop.com";
+
+const itemListSchema = {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Live Limited Drops",
+ "itemListElement": products.map((p, i) => ({
+ "@type": "ListItem",
+ "position": i + 1,
+ "url": `${BASE_URL}/products/${p.slug}`,
+ "name": p.title
+ }))
+};
+
+const faqSchema = {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Why is 240+ GSM heavyweight cotton better than ordinary t-shirts?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Standard mass-market graphic tees use 140–160 GSM lightweight blanks that curl at the collar and distort after two washes. Our 240+ GSM combed ringspun cotton retains a structured, boxy drape, sits cleanly over all body types, and provides a dense canvas that prevents graphic cracking."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "How fast is shipping to the US, Canada, UK, and Europe?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Every order is routed to the certified printing facility closest to your shipping address (USA, Canada, UK, or EU). Average transit is 3 to 5 business days for US and Canadian orders, and 4 to 7 business days for Europe."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "What is the 30-Day Reprint Guarantee?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "If your shirt arrives with any printing defect, misaligned graphic, transit damage, or sizing issue, our support team will reprint and dispatch a replacement 100% free of charge within 30 days of delivery."
+ }
+ }
+ ]
+};
+
+const pageSchema = {
+ "@context": "https://schema.org",
+ "@graph": [itemListSchema, faqSchema]
+};
+---
+
+<BaseLayout
+ title="The Tee Drop | Premium Heavyweight Graphic Tees & Streetwear"
+ description="Limited-edition graphic tees and pump covers crafted from 240+ GSM combed ringspun cotton. Printed on demand with water-based DTG inks. Local US & Europe delivery."
+ schema={pageSchema}
+>
+ <!-- Wicked Clothes Style Impact Hero -->
+ <section class="wicked-hero">
+ <div class="container hero-content-wrapper">
+ <div class="hero-text-block">
+ <div class="scarcity-pill">
+ <span class="pulsing-dot"></span> DAILY LIMITED DROPS • 240+ GSM HEAVYWEIGHT
+ </div>
+ <h1>GRAPHIC TEES FOR PEOPLE WHO HATE THIN SHIRTS.</h1>
+ <p class="hero-lead">
+ Crafted from dense, custom-knitted 240+ GSM combed ringspun cotton. Printed with soft-touch, fade-resistant water-based inks that penetrate deep into the fibers instead of peeling like plastic stickers.
+ </p>
+
+ <div class="hero-cta-cluster">
+ <a href="#drops" class="btn-hero-primary">SHOP TODAY'S DROPS</a>
+ <a href="/collections" class="btn-hero-secondary">EXPLORE ALL TOPICS →</a>
+ </div>
+
+ <div class="hero-proof-stats">
+ <div class="stat-item">
+ <strong>42,000+</strong>
+ <span>Satisfied Buyers</span>
+ </div>
+ <div class="stat-divider"></div>
+ <div class="stat-item">
+ <strong>4.96 / 5.0</strong>
+ <span>Average Review Rating</span>
+ </div>
+ <div class="stat-divider"></div>
+ <div class="stat-item">
+ <strong>3–5 Days</strong>
+ <span>Average US Delivery</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Sticky Topic / Collection Filter Bar (Wicked Clothes Style) -->
+ <section class="topic-filter-bar">
+ <div class="container">
+ <div class="filter-flex-row">
+ <span class="filter-title">Filter by Topic:</span>
+ <div class="filter-pills-scroll">
+ <a href="#drops" class="filter-pill active"> All Drops</a>
+ {categories.map((c) => (
+ <a href={`/collections/${c.slug}`} class="filter-pill">
+ <span>{c.icon}</span> {c.name}
+ </a>
+ ))}
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Main Catalog Grid -->
+ <main class="container" id="drops">
+ <div class="catalog-header-row">
+ <div>
+ <h2>LIVE LIMITED-RUN DROPS</h2>
+ <p>Each drop is produced in small print runs. When the timer expires, designs archive into our vault.</p>
+ </div>
+ <div class="sort-indicator">
+ Showing <strong>{products.length} Exclusive Releases</strong>
+ </div>
+ </div>
+
+ <!-- Interactive Product Grid (Image Flip on Hover) -->
+ <div class="pro-grid-4col">
+ {products.map((p) => (
+ <ProductCard product={p} />
+ ))}
+ </div>
+ </main>
+
+ <!-- Social Proof & UGC Section (As Seen On TikTok) -->
+ <section class="ugc-social-section">
+ <div class="container">
+ <div class="ugc-header">
+ <span class="sub-label">#TheTeeDrop Community</span>
+ <h2>WORN BY OVER 42,000+ CREATORS NATIONWIDE</h2>
+ <p>From powerlifting gyms to late-night emergency room shifts, see why our heavy blanks went viral.</p>
+ </div>
+
+ <div class="ugc-cards-grid">
+ <div class="ugc-card">
+ <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&auto=format&fit=crop&q=80" alt="Gym Pump Cover Review" loading="lazy" />
+ <div class="ugc-card-body">
+ <div class="stars"></div>
+ <p>"The only gym pump cover that doesn't shrink into a baby tee after one hot wash. The 240 GSM weight is real."</p>
+ <span class="ugc-buyer">@marcus_lifts • Verified Buyer (Austin, TX)</span>
+ </div>
+ </div>
+ <div class="ugc-card">
+ <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80" alt="Nurse Tee Review" loading="lazy" />
+ <div class="ugc-card-body">
+ <div class="stars"></div>
+ <p>"Got this for my night shift crew in the ER. So soft under scrubs and the print doesn't peel in hospital wash."</p>
+ <span class="ugc-buyer">@sarah_rn • Verified Buyer (Chicago, IL)</span>
+ </div>
+ </div>
+ <div class="ugc-card">
+ <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&auto=format&fit=crop&q=80" alt="Ukiyo-e Streetwear Review" loading="lazy" />
+ <div class="ugc-card-body">
+ <div class="stars"></div>
+ <p>"The ukiyo-e Japanese line art is so sharp. Feels like an authentic Tokyo streetwear drop but arrived in 3 days."</p>
+ <span class="ugc-buyer">@kyle_street • Verified Buyer (Seattle, WA)</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Fabric & Craftsmanship Authority Section -->
+ <section class="fabric-authority-section">
+ <div class="container">
+ <div class="authority-box">
+ <div class="authority-text">
+ <span class="quality-tag">THE 240+ GSM DIFFERENCE</span>
+ <h2>WHY CHEAP T-SHIRTS RUIN YOUR WARDROBE</h2>
+ <p>
+ Most print-on-demand sellers cut corners with cheap 140–160 GSM blanks because they cost less to ship. After two washes, the seams twist, the collar wrinkles like bacon, and the shirt clings awkwardly.
+ </p>
+ <p>
+ We custom knits our combed ringspun cotton at <strong>240+ grams per square meter</strong>. The fabric holds its boxy structure, breathes effortlessly, and drapes cleanly over your frame.
+ </p>
+
+ <div class="spec-badges-row">
+ <div class="spec-pill"> 100% Combed Ringspun Cotton</div>
+ <div class="spec-pill"> Pre-Shrunk Enzyme Washed</div>
+ <div class="spec-pill"> Lay-Flat 1-Inch Ribbed Collar</div>
+ <div class="spec-pill"> Water-Based Non-Toxic DTG Inks</div>
+ </div>
+
+ <a href="/size-guide" class="btn-learn-sizing">View Exact Size & Measurement Chart →</a>
+ </div>
+
+ <div class="authority-media">
+ <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&auto=format&fit=crop&q=80" alt="Heavyweight Combed Cotton Fabric" loading="lazy" />
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Editorial Journal Section (E-E-A-T) -->
+ <section class="container" style="margin-top: 90px; margin-bottom: 90px;">
+ <div class="catalog-header-row">
+ <div>
+ <h2>THE TEE DROP JOURNAL</h2>
+ <p>In-depth guides on fabric longevity, styling oversized drops, and apparel care.</p>
+ </div>
+ <a href="/blog" class="view-all-link">Read all articles →</a>
+ </div>
+
+ <div class="journal-3col">
+ {articles.slice(0, 3).map((a) => (
+ <ArticleCard article={a} />
+ ))}
+ </div>
+ </section>
+
+ <!-- AEO FAQ Section -->
+ <section class="faq-container-section" id="faq">
+ <div class="container">
+ <div class="faq-header-block">
+ <span class="faq-badge">Got Questions?</span>
+ <h2>FREQUENTLY ASKED QUESTIONS</h2>
+ <p>Everything you need to know about our blanks, sizing, printing, and returns.</p>
+ </div>
+
+ <div class="faq-accordion-group">
+ <details class="pro-faq-item">
+ <summary>What makes your 240+ GSM blanks different from ordinary shirts?</summary>
+ <div class="faq-body">
+ Standard mass-market graphic tees use 140–160 GSM lightweight blanks that curl at the collar and distort after two washes. Our 240+ GSM combed ringspun cotton retains a structured, boxy drape, sits cleanly over all body types, and provides a dense canvas that prevents graphic cracking over dozens of wash cycles.
+ </div>
+ </details>
+
+ <details class="pro-faq-item">
+ <summary>How fast will my order arrive in the US, Canada, UK, or Europe?</summary>
+ <div class="faq-body">
+ Every order is routed to the certified printing facility closest to your shipping address (USA, Canada, UK, or European Union). Average transit time is 3 to 5 business days for US and Canadian orders, and 4 to 7 business days for the UK and Europe, complete with real-time door-to-door tracking.
+ </div>
+ </details>
+
+ <details class="pro-faq-item">
+ <summary>How do The Tee Drop shirts fit? Should I size up?</summary>
+ <div class="faq-body">
+ Our shirts are cut with an intentional modern relaxed streetwear silhouette featuring slightly dropped shoulders and a flat-laying 1-inch ribbed collar. If you want a comfortable everyday relaxed fit, order your normal true-to-size. If you prefer a pronounced oversized skate look or gym pump cover fit, we recommend ordering one size up.
+ </div>
+ </details>
+
+ <details class="pro-faq-item">
+ <summary>What is your 30-Day Reprint Guarantee policy?</summary>
+ <div class="faq-body">
+ We stand behind every single print run. If your item arrives with any manufacturing flaw, misprinted artwork, transit damage, or sizing issue, our support team will reprint and dispatch a brand-new replacement completely free of charge within 30 days of delivery.
+ </div>
+ </details>
+ </div>
+ </div>
+ </section>
+</BaseLayout>
+
+<style>
+ /* Hero Section */
+ .wicked-hero {
+ background: radial-gradient(circle at 50% 10%, #f0f9ff 0%, #ffffff 85%);
+ border-bottom: 1px solid var(--border);
+ padding: 90px 0 70px;
+ text-align: center;
+ }
+ .hero-content-wrapper {
+ max-width: 950px;
+ }
+ .scarcity-pill {
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ background: #0f172a;
+ color: #ffffff;
+ padding: 6px 18px;
+ border-radius: 999px;
+ font-size: 0.78rem;
+ font-weight: 800;
+ letter-spacing: 0.8px;
+ margin-bottom: 24px;
+ }
+ .pulsing-dot {
+ width: 8px;
+ height: 8px;
+ background: #38bdf8;
+ border-radius: 50%;
+ animation: pulse 1.5s infinite;
+ }
+ @keyframes pulse {
+ 0% { transform: scale(0.95); opacity: 0.8; }
+ 50% { transform: scale(1.3); opacity: 1; }
+ 100% { transform: scale(0.95); opacity: 0.8; }
+ }
+
+ .wicked-hero h1 {
+ font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+ font-weight: 900;
+ line-height: 1.1;
+ letter-spacing: -1.8px;
+ color: #0f172a;
+ margin-bottom: 22px;
+ }
+ .hero-lead {
+ font-size: 1.18rem;
+ color: var(--text-muted);
+ max-width: 720px;
+ margin: 0 auto 36px;
+ line-height: 1.65;
+ }
+ .hero-cta-cluster {
+ display: flex;
+ justify-content: center;
+ gap: 16px;
+ flex-wrap: wrap;
+ margin-bottom: 50px;
+ }
+ .btn-hero-primary {
+ background: var(--blue-primary);
+ color: #ffffff;
+ padding: 16px 36px;
+ border-radius: 6px;
+ font-weight: 900;
+ font-size: 1rem;
+ letter-spacing: 0.5px;
+ box-shadow: 0 4px 18px rgba(2, 132, 199, 0.35);
+ }
+ .btn-hero-primary:hover {
+ background: var(--blue-hover);
+ transform: translateY(-2px);
+ }
+ .btn-hero-secondary {
+ background: #ffffff;
+ color: #0f172a;
+ border: 2px solid #0f172a;
+ padding: 15px 32px;
+ border-radius: 6px;
+ font-weight: 800;
+ font-size: 0.95rem;
+ }
+ .btn-hero-secondary:hover {
+ background: #0f172a;
+ color: #ffffff;
+ }
+
+ .hero-proof-stats {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 32px;
+ padding-top: 30px;
+ border-top: 1px solid var(--border);
+ flex-wrap: wrap;
+ }
+ .stat-item {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ }
+ .stat-item strong {
+ font-size: 1.5rem;
+ font-weight: 900;
+ color: #0f172a;
+ }
+ .stat-item span {
+ font-size: 0.78rem;
+ color: var(--text-muted);
+ font-weight: 600;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ }
+ .stat-divider {
+ width: 1px;
+ height: 30px;
+ background: var(--border-dark);
+ }
+
+ /* Topic Filter Bar */
+ .topic-filter-bar {
+ background: #ffffff;
+ border-bottom: 1px solid var(--border);
+ padding: 16px 0;
+ position: sticky;
+ top: 73px;
+ z-index: 100;
+ box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+ }
+ .filter-flex-row {
+ display: flex;
+ align-items: center;
+ gap: 16px;
+ }
+ .filter-title {
+ font-size: 0.85rem;
+ font-weight: 800;
+ color: #0f172a;
+ white-space: nowrap;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ }
+ .filter-pills-scroll {
+ display: flex;
+ gap: 10px;
+ overflow-x: auto;
+ scrollbar-width: none;
+ padding: 4px 0;
+ }
+ .filter-pills-scroll::-webkit-scrollbar { display: none; }
+ .filter-pill {
+ background: var(--bg-soft);
+ border: 1px solid var(--border);
+ padding: 8px 18px;
+ border-radius: 999px;
+ font-size: 0.85rem;
+ font-weight: 700;
+ color: #334155;
+ white-space: nowrap;
+ display: inline-flex;
+ align-items: center;
+ gap: 6px;
+ }
+ .filter-pill:hover, .filter-pill.active {
+ background: #0f172a;
+ color: #ffffff;
+ border-color: #0f172a;
+ }
+
+ /* Catalog Grid Header */
+ .catalog-header-row {
+ margin: 60px 0 35px;
+ display: flex;
+ justify-content: space-between;
+ align-items: flex-end;
+ }
+ .catalog-header-row h2 {
+ font-size: 1.9rem;
+ font-weight: 900;
+ letter-spacing: -0.6px;
+ color: #0f172a;
+ }
+ .catalog-header-row p {
+ color: var(--text-muted);
+ font-size: 0.95rem;
+ margin-top: 4px;
+ }
+ .sort-indicator {
+ font-size: 0.88rem;
+ color: var(--text-muted);
+ }
+
+ /* Grid */
+ .pro-grid-4col {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+ gap: 32px;
+ }
+
+ /* UGC Section */
+ .ugc-social-section {
+ background: #f8fafc;
+ border-top: 1px solid var(--border);
+ border-bottom: 1px solid var(--border);
+ padding: 85px 0;
+ margin-top: 90px;
+ }
+ .ugc-header {
+ text-align: center;
+ max-width: 750px;
+ margin: 0 auto 50px;
+ }
+ .sub-label {
+ color: var(--blue-primary);
+ font-size: 0.82rem;
+ font-weight: 800;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ display: block;
+ margin-bottom: 8px;
+ }
+ .ugc-header h2 {
+ font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+ font-weight: 900;
+ letter-spacing: -0.6px;
+ color: #0f172a;
+ margin-bottom: 12px;
+ }
+ .ugc-header p {
+ color: var(--text-muted);
+ font-size: 1.05rem;
+ }
+ .ugc-cards-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+ gap: 30px;
+ }
+ .ugc-card {
+ background: #ffffff;
+ border: 1px solid var(--border);
+ border-radius: var(--radius-md);
+ overflow: hidden;
+ box-shadow: var(--shadow-sm);
+ }
+ .ugc-card img {
+ width: 100%;
+ height: 320px;
+ object-fit: cover;
+ }
+ .ugc-card-body {
+ padding: 22px;
+ }
+ .ugc-card-body .stars {
+ color: #f59e0b;
+ margin-bottom: 10px;
+ font-size: 0.9rem;
+ }
+ .ugc-card-body p {
+ color: #334155;
+ font-size: 0.95rem;
+ font-style: italic;
+ line-height: 1.55;
+ margin-bottom: 12px;
+ }
+ .ugc-buyer {
+ font-size: 0.8rem;
+ color: var(--text-muted);
+ font-weight: 700;
+ }
+
+ /* Fabric Authority */
+ .fabric-authority-section {
+ padding: 90px 0 40px;
+ }
+ .authority-box {
+ background: #0f172a;
+ color: #ffffff;
+ border-radius: var(--radius-lg);
+ display: grid;
+ grid-template-columns: 1.2fr 1fr;
+ gap: 50px;
+ overflow: hidden;
+ box-shadow: var(--shadow-lg);
+ }
+ @media(max-width: 850px) {
+ .authority-box { grid-template-columns: 1fr; }
+ }
+ .authority-text {
+ padding: 60px 50px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ }
+ .quality-tag {
+ color: #38bdf8;
+ font-size: 0.82rem;
+ font-weight: 800;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ margin-bottom: 12px;
+ }
+ .authority-text h2 {
+ font-size: clamp(1.8rem, 3vw, 2.5rem);
+ font-weight: 900;
+ letter-spacing: -0.6px;
+ line-height: 1.2;
+ margin-bottom: 18px;
+ }
+ .authority-text p {
+ color: #cbd5e1;
+ font-size: 1.05rem;
+ line-height: 1.7;
+ margin-bottom: 20px;
+ }
+ .spec-badges-row {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 12px;
+ margin-bottom: 30px;
+ }
+ .spec-pill {
+ background: #1e293b;
+ border: 1px solid #334155;
+ padding: 10px 14px;
+ border-radius: 6px;
+ font-size: 0.85rem;
+ font-weight: 700;
+ color: #f1f5f9;
+ }
+ .btn-learn-sizing {
+ color: #38bdf8;
+ font-weight: 700;
+ font-size: 0.95rem;
+ }
+ .authority-media img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ }
+
+ .journal-3col {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+ gap: 30px;
+ }
+
+ /* FAQ */
+ .faq-container-section {
+ background: #f8fafc;
+ border-top: 1px solid var(--border);
+ padding: 90px 0;
+ }
+ .faq-header-block {
+ text-align: center;
+ max-width: 700px;
+ margin: 0 auto 50px;
+ }
+ .faq-badge {
+ background: var(--blue-light);
+ color: var(--blue-dark);
+ padding: 4px 14px;
+ border-radius: 999px;
+ font-size: 0.78rem;
+ font-weight: 800;
+ text-transform: uppercase;
+ margin-bottom: 12px;
+ display: inline-block;
+ }
+ .faq-header-block h2 {
+ font-size: 2.2rem;
+ font-weight: 900;
+ letter-spacing: -0.6px;
+ color: #0f172a;
+ margin-bottom: 10px;
+ }
+ .faq-header-block p {
+ color: var(--text-muted);
+ font-size: 1rem;
+ }
+ .faq-accordion-group {
+ max-width: 850px;
+ margin: 0 auto;
+ }
+ .pro-faq-item {
+ background: #ffffff;
+ border: 1px solid var(--border);
+ border-radius: var(--radius-sm);
+ margin-bottom: 14px;
+ overflow: hidden;
+ }
+ .pro-faq-item summary {
+ padding: 20px 24px;
+ font-size: 1.05rem;
+ font-weight: 800;
+ color: #0f172a;
+ cursor: pointer;
+ }
+ .pro-faq-item summary:hover {
+ color: var(--blue-primary);
+ }
+ .faq-body {
+ padding: 0 24px 22px;
+ color: var(--text-muted);
+ font-size: 0.98rem;
+ line-height: 1.65;
+ }
+</style>

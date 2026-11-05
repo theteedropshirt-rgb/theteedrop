@@ -1,0 +1,26 @@
+# The Tee Drop (theteedrop.com)
+
+> The official streetwear & graphic tee apparel brand. Premium heavyweight drops, limited runs, printed on demand and fulfilled locally across the US and Europe.
+
+## Brand Identity & Mission
+- **Brand Name**: The Tee Drop
+- **Domain**: https://theteedrop.com
+- **Store Checkout**: https://store.theteedrop.com
+- **Product Focus**: Premium 100% ringspun cotton graphic tees, oversized pump covers, vintage typography, and aesthetic streetwear drops.
+- **Production & Fulfillment**: Local on-demand DTG (Direct-to-Garment) printing via Mayzing's certified facilities in North America (USA, Canada) and Europe (UK, EU).
+- **Average Delivery Time**: 3-6 business days in the United States and Canada; 4-7 business days across the UK and Europe.
+
+## Key Product Specifications
+- **Apparel Base**: Heavy-blend 240+ GSM ring-spun combed cotton, pre-shrunk, reinforced double-needle stitching, seamless collar.
+- **Printing Technology**: Non-toxic, water-based, high-definition Direct-to-Garment (DTG) inks that resist cracking and fading up to 60+ wash cycles.
+- **Sizing Range**: Unisex sizing from XS up to 3XL, true-to-size with an intentional relaxed/oversized drape.
+
+## Available Collections / Drops
+- **Streetwear & Typography**: Vintage 90s aesthetic, minimalist quotes, bold back-prints.
+- **Gym & Fitness (Pump Covers)**: Heavyweight drop-shoulder graphic tees for powerlifters and athletes.
+- **Anime & Cyberpunk**: Japanese typography, dark aesthetic graphic illustrations.
+- **Seasonal & Viral Drops**: Limited-edition trending cultural and internet-aesthetic pieces.
+
+## Ordering, Shipping & Customer Protection
+- **Checkout Security**: 256-bit SSL encrypted checkout hosted at `store.theteedrop.com` with support for Apple Pay, Google Pay, Visa, Mastercard, and American Express.
+- **Guarantee**: 30-day reprint or refund guarantee on misprinted, damaged, or defective items.

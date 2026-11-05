@@ -1,0 +1,385 @@
+---
+interface Props {
+ title: string;
+ description: string;
+ image?: string;
+ canonical?: string;
+ schema?: any;
+}
+
+const {
+ title,
+ description,
+ image = "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=900&auto=format&fit=crop&q=80",
+ canonical = Astro.url.href,
+ schema
+} = Astro.props;
+
+const BASE_URL = "https://theteedrop.com";
+const MAYZING_DEFAULT = "https://store.theteedrop.com/store/MNye";
+
+const orgSchema = {
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "The Tee Drop",
+ "url": BASE_URL,
+ "logo": `${BASE_URL}/images/logo.png`,
+ "sameAs": [
+ "https://www.tiktok.com/@theteedrop",
+ "https://www.pinterest.com/theteedrop",
+ "https://www.instagram.com/theteedrop"
+ ]
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>{title}</title>
+ <meta name="description" content={description} />
+ <link rel="canonical" href={canonical} />
+
+ <!-- Open Graph -->
+ <meta property="og:type" content="website" />
+ <meta property="og:title" content={title} />
+ <meta property="og:description" content={description} />
+ <meta property="og:url" content={canonical} />
+ <meta property="og:image" content={image} />
+
+ <!-- Twitter Meta -->
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content={title} />
+ <meta name="twitter:description" content={description} />
+ <meta name="twitter:image" content={image} />
+
+ <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs Context" />
+
+ <!-- Schema.org JSON-LD -->
+ <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+ {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+
+ <style is:global>
+ :root {
+ --bg: #ffffff;
+ --bg-soft: #f8fafc;
+ --bg-sky: #f0f9ff;
+ --border: #e2e8f0;
+ --border-dark: #cbd5e1;
+ --text: #0f172a;
+ --text-muted: #475569;
+ --text-light: #94a3b8;
+ --blue-primary: #0284c7;
+ --blue-hover: #0369a1;
+ --blue-light: #e0f2fe;
+ --blue-dark: #075985;
+ --green-stock: #16a34a;
+ --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+ --shadow-md: 0 4px 14px rgba(15, 23, 42, 0.08);
+ --shadow-lg: 0 12px 30px rgba(15, 23, 42, 0.1);
+ --radius-sm: 6px;
+ --radius-md: 10px;
+ --radius-lg: 18px;
+ --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+ }
+ * { box-sizing: border-box; margin: 0; padding: 0; }
+ body {
+ background-color: var(--bg);
+ color: var(--text);
+ font-family: var(--font-sans);
+ line-height: 1.6;
+ -webkit-font-smoothing: antialiased;
+ }
+ a { color: inherit; text-decoration: none; transition: all 0.2s ease; }
+ img { max-width: 100%; display: block; }
+
+ /* Wicked Clothes & TeeFury Style Announcement Banner */
+ .promo-bar {
+ background: #0f172a;
+ color: #ffffff;
+ text-align: center;
+ padding: 9px 16px;
+ font-size: 0.85rem;
+ font-weight: 600;
+ letter-spacing: 0.3px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 16px;
+ }
+ .promo-code {
+ background: var(--blue-primary);
+ color: #ffffff;
+ padding: 2px 8px;
+ border-radius: 4px;
+ font-weight: 800;
+ font-size: 0.75rem;
+ margin-left: 6px;
+ }
+
+ /* Main Professional Header */
+    header.site-header {
+ background: #ffffff;
+ border-bottom: 1px solid var(--border);
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+ box-shadow: var(--shadow-sm);
+ }
+ .header-inner {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 16px 5%;
+ max-width: 1360px;
+ margin: 0 auto;
+ }
+ .logo-group {
+ display: flex;
+ flex-direction: column;
+ }
+ .brand-logo {
+ font-size: 1.55rem;
+ font-weight: 900;
+ letter-spacing: -1px;
+ color: #0f172a;
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ text-transform: uppercase;
+ }
+ .brand-logo span {
+ color: var(--blue-primary);
+ }
+ .brand-tagline {
+ font-size: 0.7rem;
+ color: var(--text-muted);
+ text-transform: uppercase;
+ letter-spacing: 1.2px;
+ font-weight: 700;
+ }
+
+ /* Nav Links */
+ nav.main-nav {
+ display: flex;
+ align-items: center;
+ gap: 26px;
+ font-size: 0.92rem;
+ font-weight: 600;
+ color: #334155;
+ }
+ nav.main-nav a:hover {
+ color: var(--blue-primary);
+ }
+ .nav-badge {
+ background: #ef4444;
+ color: #ffffff;
+ font-size: 0.65rem;
+ padding: 2px 6px;
+ border-radius: 999px;
+ font-weight: 800;
+ vertical-align: middle;
+ margin-left: 4px;
+ text-transform: uppercase;
+ }
+
+ /* Header Actions */
+ .header-actions {
+ display: flex;
+ align-items: center;
+ gap: 16px;
+ }
+ .currency-tag {
+ font-size: 0.8rem;
+ color: var(--text-muted);
+ font-weight: 600;
+ background: var(--bg-soft);
+ border: 1px solid var(--border);
+ padding: 6px 12px;
+ border-radius: 6px;
+ }
+ @media(max-width: 900px) {
+ nav.main-nav, .currency-tag { display: none; }
+ }
+ .btn-header-checkout {
+ background: var(--blue-primary);
+ color: #ffffff !important;
+ padding: 10px 22px;
+ border-radius: 6px;
+ font-weight: 700;
+ font-size: 0.88rem;
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+ }
+ .btn-header-checkout:hover {
+ background: var(--blue-hover);
+ transform: translateY(-1px);
+ }
+
+ .container {
+ max-width: 1280px;
+ margin: 0 auto;
+ padding: 0 24px;
+ }
+
+ /* Breadcrumbs */
+ .breadcrumbs {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ font-size: 0.85rem;
+ color: var(--text-muted);
+ margin: 20px 0 24px;
+ }
+ .breadcrumbs a:hover { color: var(--blue-primary); }
+ .breadcrumbs span { color: #cbd5e1; }
+
+ /* Professional Footer */
+ footer {
+ background: #0f172a;
+ color: #cbd5e1;
+ padding: 80px 0 40px;
+ margin-top: 100px;
+ font-size: 0.9rem;
+ }
+ .footer-grid {
+ display: grid;
+ grid-template-columns: 2fr 1fr 1fr 1.5fr;
+ gap: 50px;
+ margin-bottom: 60px;
+ }
+ @media(max-width: 850px) {
+ .footer-grid { grid-template-columns: 1fr; gap: 35px; }
+ }
+ .footer-brand h4 { color: #ffffff; font-size: 1.3rem; margin-bottom: 14px; font-weight: 900; }
+ .footer-brand p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; max-width: 360px; }
+ .footer-col h5 { color: #ffffff; font-size: 0.92rem; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 800; }
+ .footer-col ul { list-style: none; }
+ .footer-col ul li { margin-bottom: 10px; }
+ .footer-col ul li a { color: #94a3b8; }
+ .footer-col ul li a:hover { color: #38bdf8; }
+ .newsletter-box p { color: #94a3b8; font-size: 0.88rem; margin-bottom: 14px; }
+ .newsletter-input-group {
+ display: flex;
+ gap: 8px;
+ }
+ .newsletter-input {
+ background: #1e293b;
+ border: 1px solid #334155;
+ padding: 10px 14px;
+ border-radius: 6px;
+ color: #ffffff;
+ font-size: 0.88rem;
+ flex-grow: 1;
+ }
+ .newsletter-btn {
+ background: var(--blue-primary);
+ color: #ffffff;
+ border: none;
+ padding: 10px 18px;
+ border-radius: 6px;
+ font-weight: 700;
+ font-size: 0.85rem;
+ cursor: pointer;
+ }
+ .footer-bottom {
+ border-top: 1px solid #1e293b;
+ padding-top: 30px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 16px;
+ font-size: 0.85rem;
+ color: #64748b;
+ }
+ </style>
+</head>
+<body>
+
+ <!-- Promo Banner -->
+ <div class="promo-bar">
+ <span> LIMITED RUN EVENT: Free US & EU Delivery on Orders Over $50</span>
+ <span>Use Code: <strong class="promo-code">DROP20</strong> for 20% Off</span>
+ </div>
+
+ <!-- Header -->
+ <header class="site-header">
+ <div class="header-inner">
+ <div class="logo-group">
+ <a href="/" class="brand-logo">
+ The Tee <span>Drop</span>
+ </a>
+ <span class="brand-tagline">Heavyweight Graphic Apparel</span>
+ </div>
+
+ <nav class="main-nav">
+ <a href="/#drops">Today's Drops <span class="nav-badge">Live</span></a>
+ <a href="/collections">All Collections</a>
+ <a href="/collections/spooky-dark-humor">Spooky & Occult </a>
+ <a href="/collections/gym-pump-covers">Gym Pump Covers </a>
+ <a href="/blog">The Journal</a>
+ <a href="/size-guide">Size Chart</a>
+ </nav>
+
+ <div class="header-actions">
+ <div class="currency-tag"> USD ($)</div>
+ <a href={MAYZING_DEFAULT} class="btn-header-checkout" target="_blank" rel="noopener">
+ <span>Checkout</span>
+ </a>
+ </div>
+ </div>
+ </header>
+
+ <slot />
+
+ <!-- Professional E-Commerce Footer -->
+ <footer>
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <h4>THE TEE DROP</h4>
+ <p>DTC graphic tee brand crafting limited-edition drops on 240+ GSM combed ringspun cotton. Printed on demand and fulfilled locally across the US, UK, and European Union.</p>
+ </div>
+ <div class="footer-col">
+ <h5>Collections</h5>
+ <ul>
+ <li><a href="/collections/spooky-dark-humor">Spooky & Dark Humor</a></li>
+ <li><a href="/collections/gym-pump-covers">Heavy Gym Pump Covers</a></li>
+ <li><a href="/collections/anime-cyberpunk">Japanese Ukiyo-e</a></li>
+ <li><a href="/collections/nurses-healthcare">Healthcare & Nurses</a></li>
+ <li><a href="/collections/vintage-streetwear">90s Vintage Typography</a></li>
+ <li><a href="/collections">All 10+ Categories →</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h5>Customer Care</h5>
+ <ul>
+ <li><a href="/size-guide">Size Chart & Measurement Guide</a></li>
+ <li><a href="/#faq">Order Tracking & Shipping Times</a></li>
+ <li><a href="/#faq">30-Day Reprint Guarantee</a></li>
+ <li><a href={MAYZING_DEFAULT} target="_blank">Mayzing Secure Checkout</a></li>
+ <li><a href="/llms.txt" target="_blank">LLMs / AI Entity Data</a></li>
+ </ul>
+ </div>
+ <div class="footer-col newsletter-box">
+ <h5>Get VIP Drop Alerts</h5>
+ <p>Be the first to hear when limited drops go live before they sell out.</p>
+ <div class="newsletter-input-group">
+ <input type="email" placeholder="Enter your email" class="newsletter-input" />
+ <button class="newsletter-btn">Subscribe</button>
+ </div>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <p>© {new Date().getFullYear()} The Tee Drop (theteedrop.com). All rights reserved. Secure fulfillment powered by Mayzing Global.</p>
+ <p> 256-Bit SSL Encrypted Checkout • Certified DTG Water-Based Printing</p>
+ </div>
+ </div>
+ </footer>
+
+</body>
+</html>

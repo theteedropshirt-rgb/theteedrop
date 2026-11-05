@@ -1,0 +1,31 @@
+# The Tee Drop (theteedrop.com)
+
+> The official streetwear & graphic tee apparel brand. Premium heavyweight drops, limited runs, printed on demand and fulfilled locally across the US and Europe.
+
+## Brand Identity & Mission
+- **Brand Name**: The Tee Drop
+- **Domain**: https://theteedrop.com
+- **Store Checkout**: https://store.theteedrop.com
+- **Product Focus**: Premium 100% ringspun combed cotton graphic tees, oversized pump covers, vintage typography, and aesthetic lifestyle drops.
+- **Production & Fulfillment**: Local on-demand DTG (Direct-to-Garment) printing via Mayzing's certified facilities in North America (USA, Canada) and Europe (UK, EU).
+- **Average Delivery Time**: 3-6 business days in the United States and Canada; 4-7 business days across the UK and Europe.
+
+## Key Product Specifications
+- **Apparel Base**: Heavy-blend 240+ GSM ring-spun combed cotton, pre-shrunk, reinforced double-needle stitching, seamless collar.
+- **Printing Technology**: Non-toxic, water-based, high-definition Direct-to-Garment (DTG) inks that resist cracking and fading up to 60+ wash cycles.
+- **Sizing Range**: Unisex sizing from XS up to 3XL, true-to-size with an intentional relaxed/oversized drape.
+
+## Available Collections & Topic Hubs
+- **Gym Pump Covers & Lifting**: Oversized boxy gym tees for powerlifters and strength athletes.
+- **Nurses & Healthcare**: Relatable off-duty and night-shift graphic tees for RNs and hospital workers.
+- **90s Vintage Streetwear**: Retro typography, faded wash aesthetics, and bold back prints.
+- **Coffee & Caffeine Culture**: Understated typography celebrating pour-overs and espresso.
+- **Anime & Japanese Cyberpunk**: Intricate neo-Tokyo artwork and kanji street styling.
+- **Software Engineers & Tech**: Minimalist developer culture and clean terminal typography.
+- **Dog & Cat Lovers**: Relatable pet-owner weekend tees.
+- **Teachers & Educators**: Wholesome and witty classroom apparel.
+- **Vintage Milestone Birthdays**: Distressed milestone year designs (1974, 1984, 1994).
+
+## Ordering, Shipping & Customer Protection
+- **Checkout Security**: 256-bit SSL encrypted checkout hosted at `store.theteedrop.com` with support for Apple Pay, Google Pay, Visa, Mastercard, and American Express.
+- **Guarantee**: 30-day reprint or refund guarantee on misprinted, damaged, or defective items.

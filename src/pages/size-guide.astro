@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const BASE_URL = "https://theteedrop.com";
+
+const breadcrumbSchema = {
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+ { "@type": "ListItem", "position": 2, "name": "Size Guide", "item": `${BASE_URL}/size-guide` }
+ ]
+};
+---
+
+<BaseLayout
+ title="Graphic Tee Size & Measurement Guide | The Tee Drop"
+ description="Comprehensive sizing chart and measurement instructions for The Tee Drop heavyweight graphic tees. Inches and centimeters from Small up to 3XL."
+ schema={breadcrumbSchema}
+>
+ <div class="container">
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <a href="/">Home</a>
+ <span>/</span>
+ <strong>Size Guide</strong>
+ </nav>
+
+ <header class="guide-header">
+ <span class="badge">Fit & Dimensions</span>
+ <h1>How Our Graphic Tees Fit</h1>
+ <p>All drops are cut with a modern relaxed streetwear silhouette featuring slightly dropped shoulders and a flat-laying ribbed collar. Use the exact measurement table below to find your ideal fit.</p>
+ </header>
+
+ <div class="tables-wrapper">
+ <h3>Size Chart (Inches)</h3>
+ <div class="table-responsive">
+ <table>
+ <thead>
+ <tr>
+ <th>Size</th>
+ <th>Chest Width (Inches)</th>
+ <th>Body Length (Inches)</th>
+ <th>Sleeve Length (Inches)</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr><td><strong>Small (S)</strong></td><td>18"</td><td>28"</td><td>15.6"</td></tr>
+ <tr><td><strong>Medium (M)</strong></td><td>20"</td><td>29"</td><td>17.0"</td></tr>
+ <tr><td><strong>Large (L)</strong></td><td>22"</td><td>30"</td><td>18.5"</td></tr>
+ <tr><td><strong>X-Large (XL)</strong></td><td>24"</td><td>31"</td><td>20.0"</td></tr>
+ <tr><td><strong>2X-Large (2XL)</strong></td><td>26"</td><td>32"</td><td>21.5"</td></tr>
+ <tr><td><strong>3X-Large (3XL)</strong></td><td>28"</td><td>33"</td><td>22.8"</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 style="margin-top: 40px;">Size Chart (Centimeters)</h3>
+ <div class="table-responsive">
+ <table>
+ <thead>
+ <tr>
+ <th>Size</th>
+ <th>Chest Width (cm)</th>
+ <th>Body Length (cm)</th>
+ <th>Sleeve Length (cm)</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr><td><strong>Small (S)</strong></td><td>45.7 cm</td><td>71.1 cm</td><td>39.6 cm</td></tr>
+ <tr><td><strong>Medium (M)</strong></td><td>50.8 cm</td><td>73.7 cm</td><td>43.2 cm</td></tr>
+ <tr><td><strong>Large (L)</strong></td><td>55.9 cm</td><td>76.2 cm</td><td>47.0 cm</td></tr>
+ <tr><td><strong>X-Large (XL)</strong></td><td>61.0 cm</td><td>78.7 cm</td><td>50.8 cm</td></tr>
+ <tr><td><strong>2X-Large (2XL)</strong></td><td>66.0 cm</td><td>81.3 cm</td><td>54.6 cm</td></tr>
+ <tr><td><strong>3X-Large (3XL)</strong></td><td>71.1 cm</td><td>83.8 cm</td><td>57.9 cm</td></tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+
+ <!-- Measurement Tips -->
+ <div class="measurement-tips">
+ <h3>How To Measure Your Best Fitting Shirt</h3>
+ <div class="tips-grid">
+ <div class="tip-card">
+ <h4>1. Chest Width</h4>
+ <p>Lay your favorite t-shirt flat on a table. Measure 1 inch below the armhole across the chest from edge to edge.</p>
+ </div>
+ <div class="tip-card">
+ <h4>2. Body Length</h4>
+ <p>Measure from the highest point of the shoulder seam straight down to the bottom hem of the shirt.</p>
+ </div>
+ <div class="tip-card">
+ <h4>3. Need a Pump Cover Fit?</h4>
+ <p>If you prefer an oversized boxy aesthetic or gym pump cover silhouette, we recommend ordering one size above your standard size.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+</BaseLayout>
+
+<style>
+ .guide-header {
+ text-align: center;
+ max-width: 750px;
+ margin: 20px auto 50px;
+ }
+ .badge {
+ display: inline-block;
+ background: var(--blue-light);
+ color: var(--blue-hover);
+ padding: 4px 14px;
+ border-radius: 999px;
+ font-size: 0.8rem;
+ font-weight: 700;
+ margin-bottom: 16px;
+ }
+ .guide-header h1 {
+ font-size: clamp(2rem, 4vw, 2.6rem);
+ font-weight: 800;
+ margin-bottom: 14px;
+ }
+ .guide-header p {
+ color: var(--text-muted);
+ font-size: 1.05rem;
+ line-height: 1.6;
+ }
+
+ .tables-wrapper {
+ max-width: 850px;
+ margin: 0 auto 60px;
+ }
+ .tables-wrapper h3 {
+ font-size: 1.25rem;
+ font-weight: 800;
+ margin-bottom: 16px;
+ }
+ .table-responsive {
+ overflow-x: auto;
+ border: 1px solid var(--border);
+ border-radius: var(--radius-md);
+ }
+ table {
+ width: 100%;
+ border-collapse: collapse;
+ text-align: left;
+ font-size: 0.95rem;
+ }
+ thead {
+ background: var(--bg-soft);
+ border-bottom: 1px solid var(--border);
+ }
+ th {
+ padding: 14px 18px;
+ font-weight: 700;
+ color: var(--text);
+ }
+ td {
+ padding: 14px 18px;
+ border-bottom: 1px solid var(--border);
+ color: var(--text-muted);
+ }
+ tr:last-child td { border-bottom: none; }
+ tbody tr:hover { background: var(--bg-sky); }
+
+ .measurement-tips {
+ max-width: 850px;
+ margin: 40px auto 80px;
+ background: var(--bg-soft);
+ border: 1px solid var(--border);
+ border-radius: var(--radius-lg);
+ padding: 40px;
+ }
+ .measurement-tips h3 {
+ font-size: 1.3rem;
+ font-weight: 800;
+ margin-bottom: 24px;
+ text-align: center;
+ }
+ .tips-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+ gap: 24px;
+ }
+ .tip-card h4 {
+ font-size: 1rem;
+ font-weight: 700;
+ margin-bottom: 8px;
+ color: var(--text);
+ }
+ .tip-card p {
+ font-size: 0.9rem;
+ color: var(--text-muted);
+ line-height: 1.5;
+ }
+</style>

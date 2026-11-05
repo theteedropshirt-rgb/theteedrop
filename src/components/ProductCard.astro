@@ -1,0 +1,277 @@
+---
+interface Props {
+ product: {
+ id: string;
+ slug: string;
+ title: string;
+ price: number;
+ compare_at_price: number;
+ category: string;
+ artist?: string;
+ badge?: string;
+ rating: number;
+ reviews_count: number;
+ colors?: { name: string; hex: string }[];
+ image_front?: string;
+ image_back?: string;
+ image?: string;
+ description: string;
+ mayzing_checkout_url?: string;
+ };
+}
+
+const { product } = Astro.props;
+const checkoutLink = product.mayzing_checkout_url || "https://store.theteedrop.com/store/MNye";
+const frontImg = product.image_front || product.image || "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=900&auto=format&fit=crop&q=80";
+const backImg = product.image_back || product.image_front || frontImg;
+---
+
+<article class="pro-product-card">
+ <!-- Card Header & Badge -->
+ <div class="card-badge-row">
+ <span class="scarcity-badge">{product.badge || "Daily Drop"}</span>
+ <span class="save-badge">Save ${(product.compare_at_price - product.price).toFixed(0)}</span>
+ </div>
+
+ <!-- Image Switch Container (Wicked Clothes Signature Effect) -->
+ <a href={`/products/${product.slug}`} class="image-switch-wrapper">
+ <img src={frontImg} alt={`${product.title} - Front View`} class="img-front" loading="lazy" width="400" height="400" />
+ <img src={backImg} alt={`${product.title} - Back/Detail View`} class="img-back" loading="lazy" width="400" height="400" />
+ <span class="hover-tip">Quick View →</span>
+ </a>
+
+ <!-- Product Details -->
+ <div class="card-body">
+ <!-- Artist Byline (Human Touch) -->
+ {product.artist && (
+ <div class="artist-byline">
+ <span class="brush-icon"></span> Designed by {product.artist}
+ </div>
+ )}
+
+ <!-- Title -->
+ <h3 class="product-title">
+ <a href={`/products/${product.slug}`}>{product.title}</a>
+ </h3>
+
+ <!-- Social Proof Rating -->
+ <div class="rating-row">
+ <span class="stars"></span>
+ <span class="rating-score">{product.rating}</span>
+ <span class="reviews-count">({product.reviews_count} reviews)</span>
+ </div>
+
+ <!-- Color Swatches (Wicked Clothes Style) -->
+ {product.colors && product.colors.length > 0 && (
+ <div class="color-swatches" title="Available Colors">
+ {product.colors.map((c) => (
+ <span class="swatch-circle" style={`background-color: ${c.hex};`} title={c.name} />
+ ))}
+ <span class="swatch-text">{product.colors.length} Colors</span>
+ </div>
+ )}
+
+ <!-- Price and Quick Checkout CTA -->
+ <div class="card-footer">
+ <div class="price-stack">
+ <span class="current-price">${product.price.toFixed(2)}</span>
+ <span class="compare-price">${product.compare_at_price.toFixed(2)}</span>
+ </div>
+ <a href={checkoutLink} class="btn-quick-order" target="_blank" rel="noopener">
+ Order Drop
+ </a>
+ </div>
+ </div>
+</article>
+
+<style>
+ .pro-product-card {
+ background: #ffffff;
+ border: 1px solid var(--border);
+ border-radius: var(--radius-md);
+ overflow: hidden;
+ display: flex;
+ flex-direction: column;
+ position: relative;
+ transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+ }
+ .pro-product-card:hover {
+ transform: translateY(-5px);
+ box-shadow: var(--shadow-lg);
+ border-color: #cbd5e1;
+ }
+
+ .card-badge-row {
+ position: absolute;
+ top: 12px;
+ left: 12px;
+ right: 12px;
+ display: flex;
+ justify-content: space-between;
+ z-index: 5;
+ pointer-events: none;
+ }
+ .scarcity-badge {
+ background: rgba(15, 23, 42, 0.92);
+ color: #ffffff;
+ padding: 4px 10px;
+ border-radius: 4px;
+ font-size: 0.72rem;
+ font-weight: 800;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ backdrop-filter: blur(4px);
+ }
+ .save-badge {
+ background: #ecfdf5;
+ color: #059669;
+ border: 1px solid #a7f3d0;
+ padding: 3px 8px;
+ border-radius: 4px;
+ font-size: 0.72rem;
+ font-weight: 800;
+ }
+
+ /* Wicked Clothes Image Flip */
+ .image-switch-wrapper {
+ display: block;
+ position: relative;
+ width: 100%;
+ height: 380px;
+ background: #f8fafc;
+ overflow: hidden;
+ }
+ .img-front, .img-back {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ transition: opacity 0.35s ease, transform 0.4s ease;
+ }
+ .img-back {
+ opacity: 0;
+ }
+ .image-switch-wrapper:hover .img-front {
+ opacity: 0;
+ transform: scale(1.03);
+ }
+ .image-switch-wrapper:hover .img-back {
+ opacity: 1;
+ transform: scale(1.03);
+ }
+ .hover-tip {
+ position: absolute;
+ bottom: 12px;
+ left: 50%;
+ transform: translateX(-50%) translateY(20px);
+ background: rgba(255, 255, 255, 0.95);
+ color: #0f172a;
+ padding: 6px 14px;
+ border-radius: 999px;
+ font-size: 0.75rem;
+ font-weight: 700;
+ opacity: 0;
+ transition: all 0.25s ease;
+ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+ }
+ .image-switch-wrapper:hover .hover-tip {
+ opacity: 1;
+ transform: translateX(-50%) translateY(0);
+ }
+
+ .card-body {
+ padding: 20px;
+ display: flex;
+ flex-direction: column;
+ flex-grow: 1;
+ }
+ .artist-byline {
+ font-size: 0.75rem;
+ color: var(--text-muted);
+ font-weight: 600;
+ margin-bottom: 6px;
+ display: flex;
+ align-items: center;
+ gap: 4px;
+ }
+ .product-title {
+ font-size: 1.05rem;
+ font-weight: 800;
+ line-height: 1.35;
+ margin-bottom: 8px;
+ color: #0f172a;
+ }
+ .product-title a:hover {
+ color: var(--blue-primary);
+ }
+ .rating-row {
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ font-size: 0.8rem;
+ margin-bottom: 12px;
+ }
+ .stars { color: #f59e0b; }
+ .rating-score { font-weight: 800; color: #0f172a; }
+ .reviews-count { color: var(--text-muted); }
+
+ /* Swatches */
+ .color-swatches {
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ margin-bottom: 16px;
+ }
+ .swatch-circle {
+ width: 14px;
+ height: 14px;
+ border-radius: 50%;
+ border: 1px solid #cbd5e1;
+ display: inline-block;
+ }
+ .swatch-text {
+ font-size: 0.75rem;
+ color: var(--text-muted);
+ margin-left: 4px;
+ font-weight: 500;
+ }
+
+ .card-footer {
+ margin-top: auto;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding-top: 14px;
+ border-top: 1px solid var(--border);
+ }
+ .price-stack {
+ display: flex;
+ align-items: baseline;
+ gap: 8px;
+ }
+ .current-price {
+ font-size: 1.35rem;
+ font-weight: 900;
+ color: #0f172a;
+ }
+ .compare-price {
+ font-size: 0.9rem;
+ color: #94a3b8;
+ text-decoration: line-through;
+ }
+ .btn-quick-order {
+ background: var(--blue-primary);
+ color: #ffffff;
+ padding: 9px 18px;
+ border-radius: 6px;
+ font-weight: 700;
+ font-size: 0.85rem;
+ transition: all 0.2s ease;
+ }
+ .btn-quick-order:hover {
+ background: var(--blue-hover);
+ transform: translateY(-1px);
+ }
+</style>
