@@ -10,20 +10,21 @@
     "compare_at_price": 28.00,
     "category": "Coffee & Caffeine Culture",
     "category_slug": "coffee-obsessed",
-    "badge": "Holiday Best Seller",
+    "badge": "",
     "rating": 5.0,
     "reviews_count": 24,
     "colors": [
       { "name": "White", "hex": "#ffffff" },
-      { "name": "Ash Grey", "hex": "#d1d5db" },
+      { "name": "Ash Grey", "hex": "#e5e7eb" },
       { "name": "Charcoal", "hex": "#4b5563" },
       { "name": "Dark Heather", "hex": "#374151" },
+      { "name": "Graphite Heather", "hex": "#6b7280" },
       { "name": "Light Blue", "hex": "#bfdbfe" },
       { "name": "Light Pink", "hex": "#fbcfe8" },
-      { "name": "Sand", "hex": "#e5e7eb" }
+      { "name": "Sand", "hex": "#d6d3d1" }
     ],
-    "image_front": "https://buyer-experience-gateway.mayzing.com/stores/25ej/mockups/id:miz0accu8c18,sig:N1EWIIhnT-_C7vAC4XKZEORErD4TGXU_02_aps2XeAI,c:GILDAN-WHITE,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aee5562e539c4b0f80989f1,dv:1,cpd:pdz0accu8c0,w:800/image.png",
-    "image_back": "https://buyer-experience-gateway.mayzing.com/stores/25ej/mockups/id:miz0accu8c0,sig:2X8LLwtFL-E8N8QluLo0nKurGl4Iq1_trsT-QiSsjxU,c:GILDAN-WHITE,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aee5562e539c4b0f80989f1,dv:1,cpd:pdz0accu8c0,w:800/image.png",
+    "image_front": "/images/products/christmas-cafe-tour-front.png",
+    "image_back": "/images/products/christmas-cafe-tour-flat.png",
     "description": "Celebrate the holiday season with this Brew York Christmas Coffee T-Shirt, featuring a charming vintage-inspired design with a classic car, festive Christmas tree, cozy coffee cup, and winter city skyline. Printed on premium 100% combed ringspun cotton.",
     "features": [
       "100% Combed Ringspun Cotton for ultra-soft handfeel",
@@ -33,215 +34,5 @@
       "Printed on demand and shipped with door-to-door tracking"
     ],
     "mayzing_checkout_url": "https://ecotwins.store/christmas-cafe-tour"
-  },
-  {
-    "id": "drop-02",
-    "slug": "tokyo-midnight-jdm",
-    "title": "Tokyo Midnight JDM Skyline",
-    "subtitle": "T-Shirt unisexe classique",
-    "type": "T-Shirts",
-    "gender": "Unisexe",
-    "price": 22.99,
-    "compare_at_price": 32.00,
-    "category": "JDM & Automotive",
-    "category_slug": "jdm-automotive",
-    "badge": "Trending Drop",
-    "rating": 4.9,
-    "reviews_count": 42,
-    "colors": [
-      { "name": "Washed Black", "hex": "#1f2937" },
-      { "name": "Charcoal", "hex": "#374151" },
-      { "name": "White", "hex": "#ffffff" },
-      { "name": "Heather Grey", "hex": "#9ca3af" }
-    ],
-    "image_front": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&auto=format&fit=crop&q=80",
-    "image_back": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&auto=format&fit=crop&q=80",
-    "description": "Nostalgic 90s Kanjozoku aesthetic meets modern streetwear. Heavyweight cotton graphic tee with vibrant multi-pass DTG print.",
-    "features": [
-      "Heavyweight 240 GSM combed ringspun cotton",
-      "Reinforced double-stitched sleeves and bottom hem",
-      "Oversized boxy streetwear drape",
-      "Eco-certified non-fading discharge ink"
-    ],
-    "mayzing_checkout_url": "https://ecotwins.store"
-  },
-  {
-    "id": "drop-03",
-    "slug": "heavyweight-pump-cover",
-    "title": "Iron & Discipline Pump Cover",
-    "subtitle": "T-Shirt oversize lourd 240 GSM",
-    "type": "T-Shirts",
-    "gender": "Hommes",
-    "price": 24.99,
-    "compare_at_price": 34.00,
-    "category": "Gym & Pump Covers",
-    "category_slug": "gym-pump-covers",
-    "badge": "Lifter Favorite",
-    "rating": 5.0,
-    "reviews_count": 89,
-    "colors": [
-      { "name": "Pitch Black", "hex": "#111827" },
-      { "name": "Military Green", "hex": "#4b5320" },
-      { "name": "Gunmetal", "hex": "#4b5563" }
-    ],
-    "image_front": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop&q=80",
-    "image_back": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop&q=80",
-    "description": "The ultimate gym warm-up tee. Cut oversized with dropped shoulders to hold shape over a full pump without clinging.",
-    "features": [
-      "250 GSM dense jersey cotton",
-      "Zero polyester, pure natural breathability",
-      "Dropped shoulders with relaxed elbow-length sleeves",
-      "Resistant to chalk, barbell knurling, and heavy wash cycles"
-    ],
-    "mayzing_checkout_url": "https://ecotwins.store"
-  },
-  {
-    "id": "drop-04",
-    "slug": "midnight-espresso-crewneck",
-    "title": "Midnight Roast Espresso Society",
-    "subtitle": "Sweat-shirt molletonné premium",
-    "type": "Sweat-shirts",
-    "gender": "Unisexe",
-    "price": 34.99,
-    "compare_at_price": 48.00,
-    "category": "Coffee & Caffeine Culture",
-    "category_slug": "coffee-obsessed",
-    "badge": "Winter Warmth",
-    "rating": 4.9,
-    "reviews_count": 31,
-    "colors": [
-      { "name": "Charcoal Grey", "hex": "#374151" },
-      { "name": "Forest Green", "hex": "#1e3a1e" },
-      { "name": "Oatmeal Sand", "hex": "#e5e7eb" }
-    ],
-    "image_front": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80",
-    "image_back": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80",
-    "description": "Thick 350 GSM fleece crewneck sweatshirt for late-night coffee grinds and early morning roasts.",
-    "features": [
-      "350 GSM heavy brushed fleece interior",
-      "1x1 athletic rib cuffs and waistband with spandex",
-      "Split-stitch double-needle sewing on all seams",
-      "Pill-resistant air-jet yarn finish"
-    ],
-    "mayzing_checkout_url": "https://ecotwins.store"
-  },
-  {
-    "id": "drop-05",
-    "slug": "spooky-ghost-club",
-    "title": "Socially Anxious Ghost Club",
-    "subtitle": "T-Shirt unisexe classique",
-    "type": "T-Shirts",
-    "gender": "Unisexe",
-    "price": 21.99,
-    "compare_at_price": 30.00,
-    "category": "Spooky & Dark Humor",
-    "category_slug": "spooky-dark-humor",
-    "badge": "Cult Classic",
-    "rating": 5.0,
-    "reviews_count": 67,
-    "colors": [
-      { "name": "Black", "hex": "#111827" },
-      { "name": "Bone White", "hex": "#f3f4f6" },
-      { "name": "Washed Slate", "hex": "#4b5563" }
-    ],
-    "image_front": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&auto=format&fit=crop&q=80",
-    "image_back": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&auto=format&fit=crop&q=80",
-    "description": "For people who love staying inside. Dark comedy graphic printed with micro-screen precision on our signature heavy blank.",
-    "features": [
-      "100% ringspun combed cotton",
-      "Soft breathable water-based screenprint",
-      "Pre-shrunk, side-seamed construction",
-      "Tear-away neck tag for itch-free wear"
-    ],
-    "mayzing_checkout_url": "https://ecotwins.store"
-  },
-  {
-    "id": "drop-06",
-    "slug": "retro-arcade-longsleeve",
-    "title": "Insert Coin Retro Arcade 1989",
-    "subtitle": "T-Shirt manches longues",
-    "type": "Manches longues",
-    "gender": "Unisexe",
-    "price": 26.99,
-    "compare_at_price": 36.00,
-    "category": "Retro Gaming",
-    "category_slug": "retro-gaming",
-    "badge": "Retro Pixel",
-    "rating": 4.8,
-    "reviews_count": 29,
-    "colors": [
-      { "name": "Charcoal Black", "hex": "#1f2937" },
-      { "name": "Heather Grey", "hex": "#9ca3af" },
-      { "name": "Midnight Navy", "hex": "#1e3a5f" }
-    ],
-    "image_front": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&auto=format&fit=crop&q=80",
-    "image_back": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&auto=format&fit=crop&q=80",
-    "description": "Classic ribbed long sleeve with sleeve prints and retro 16-bit arcade artwork on the back chest.",
-    "features": [
-      "220 GSM combed jersey with ribbed wrist cuffs",
-      "Full arm print detail and centered chest graphic",
-      "Comfort neck band with taped shoulder seams",
-      "Durable non-crack waterbase ink"
-    ],
-    "mayzing_checkout_url": "https://ecotwins.store"
-  },
-  {
-    "id": "drop-07",
-    "slug": "neo-tokyo-cyberpunk-hoodie",
-    "title": "Neo-Tokyo 2099 Cyberpunk Hoodie",
-    "subtitle": "Sweat-shirt à capuche lourd",
-    "type": "Sweat-shirts",
-    "gender": "Unisexe",
-    "price": 39.99,
-    "compare_at_price": 54.00,
-    "category": "Anime & Cyberpunk",
-    "category_slug": "anime-cyberpunk",
-    "badge": "Heavyweight Fleece",
-    "rating": 5.0,
-    "reviews_count": 55,
-    "colors": [
-      { "name": "Jet Black", "hex": "#0f172a" },
-      { "name": "Ash Grey", "hex": "#d1d5db" }
-    ],
-    "image_front": "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=800&auto=format&fit=crop&q=80",
-    "image_back": "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=800&auto=format&fit=crop&q=80",
-    "description": "Double-layered hood, heavy kangaroo pocket, and oversized drop shoulder streetwear fit with detailed Japanese typography.",
-    "features": [
-      "380 GSM ultra-heavyweight cotton fleece",
-      "Double-lined hood with metal eyelets and thick drawstrings",
-      "Pouch pocket with reinforced bar-tacks",
-      "Boxy Japanese streetwear profile"
-    ],
-    "mayzing_checkout_url": "https://ecotwins.store"
-  },
-  {
-    "id": "drop-08",
-    "slug": "vintage-botanical-fern",
-    "title": "Ancient Ferns Botanical Archive",
-    "subtitle": "T-Shirt femme coupe décontractée",
-    "type": "T-Shirts",
-    "gender": "Femmes",
-    "price": 21.99,
-    "compare_at_price": 29.00,
-    "category": "Botanical & Plants",
-    "category_slug": "botanical-plants",
-    "badge": "Eco Heritage",
-    "rating": 4.9,
-    "reviews_count": 38,
-    "colors": [
-      { "name": "Sage Green", "hex": "#84a98c" },
-      { "name": "Sand Cream", "hex": "#e9d8a6" },
-      { "name": "Soft White", "hex": "#ffffff" }
-    ],
-    "image_front": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80",
-    "image_back": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80",
-    "description": "Detailed 19th century vintage botanical lithograph printed on ultra-soft combed ringspun cotton.",
-    "features": [
-      "100% certified organic combed ringspun cotton",
-      "Relaxed feminine drape with gentle side shaping",
-      "Enzyme-washed for effortless vintage softness",
-      "Eco-friendly GOTS-certified water-based dyes"
-    ],
-    "mayzing_checkout_url": "https://ecotwins.store"
   }
 ]

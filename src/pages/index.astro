@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import products from '../data/products.json';
-import categories from '../data/categories.json';
 
 const BASE_URL = "https://theteedrop.com";
 
@@ -21,7 +20,7 @@ const itemListSchema = {
 
 <BaseLayout
   title="theteedrop | Boutique de Graphic Tees & Vêtements Streetwear"
-  description="Boutique officielle The Tee Drop. Graphic tees de haute qualité, sweats et manches longues imprimés sur commande avec livraison internationale suivie."
+  description="Boutique officielle The Tee Drop. Graphic tees imprimés sur commande avec expédition internationale suivie."
   schema={itemListSchema}
 >
   <main class="storefront-page">
@@ -59,12 +58,7 @@ const itemListSchema = {
             </div>
             <div class="filter-options">
               <label class="filter-radio-label">
-                <input type="radio" name="filter-cat" value="ALL" checked class="filter-input-radio" />
-                <span class="custom-radio"></span>
-                <span class="filter-text">Tous les articles</span>
-              </label>
-              <label class="filter-radio-label">
-                <input type="radio" name="filter-cat" value="T-Shirts" class="filter-input-radio" />
+                <input type="radio" name="filter-cat" value="T-Shirts" checked class="filter-input-radio" />
                 <span class="custom-radio"></span>
                 <span class="filter-text">T-Shirts</span>
               </label>
@@ -101,30 +95,10 @@ const itemListSchema = {
                 <span class="filter-text">Femmes</span>
               </label>
               <label class="filter-checkbox-label">
-                <input type="checkbox" name="filter-gender" value="Unisexe" class="filter-input-checkbox" />
+                <input type="checkbox" name="filter-gender" value="Unisexe" checked class="filter-input-checkbox" />
                 <span class="custom-checkbox"></span>
                 <span class="filter-text">Unisexe</span>
               </label>
-            </div>
-          </div>
-
-          <!-- Popular Niche Collections Section -->
-          <div class="filter-group">
-            <div class="filter-group-header">
-              <h4>Collections</h4>
-              <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="18 15 12 9 6 15"></polyline>
-              </svg>
-            </div>
-            <div class="filter-options collection-links-list">
-              <a href="/collections" class="sidebar-cat-link">Toutes les 45+ Collections →</a>
-              <a href="/collections/coffee-obsessed" class="sidebar-cat-link">Coffee & Caffeine</a>
-              <a href="/collections/gym-pump-covers" class="sidebar-cat-link">Gym Pump Covers</a>
-              <a href="/collections/jdm-automotive" class="sidebar-cat-link">JDM & Automotive</a>
-              <a href="/collections/spooky-dark-humor" class="sidebar-cat-link">Spooky & Dark Humor</a>
-              <a href="/collections/retro-gaming" class="sidebar-cat-link">Retro Gaming 1989</a>
-              <a href="/collections/anime-cyberpunk" class="sidebar-cat-link">Anime & Cyberpunk</a>
-              <a href="/collections/botanical-plants" class="sidebar-cat-link">Botanical & Nature</a>
             </div>
           </div>
 
@@ -156,7 +130,7 @@ const itemListSchema = {
 
 <style>
   .storefront-page {
-    padding: 24px 0 60px;
+    padding: 16px 0 60px;
     background: #ffffff;
     min-height: 80vh;
   }
@@ -166,7 +140,7 @@ const itemListSchema = {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px;
+    padding: 12px 0 16px;
     margin-bottom: 24px;
     border-bottom: 1px solid var(--border);
   }
@@ -177,7 +151,7 @@ const itemListSchema = {
     background: none;
     border: none;
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 500;
     color: #111827;
     cursor: pointer;
     padding: 6px 10px;
@@ -190,13 +164,13 @@ const itemListSchema = {
   .store-count-status {
     font-size: 0.88rem;
     color: #4b5563;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   /* Storefront Layout (2 Columns) */
   .storefront-layout {
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 260px 1fr;
     gap: 36px;
     align-items: start;
     transition: all 0.3s ease;
@@ -212,14 +186,11 @@ const itemListSchema = {
   .store-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
   }
   .filter-group {
     border-bottom: 1px solid var(--border);
-    padding-bottom: 20px;
-  }
-  .filter-group:last-child {
-    border-bottom: none;
+    padding-bottom: 18px;
   }
   .filter-group-header {
     display: flex;
@@ -229,8 +200,8 @@ const itemListSchema = {
     cursor: pointer;
   }
   .filter-group-header h4 {
-    font-size: 0.95rem;
-    font-weight: 700;
+    font-size: 0.92rem;
+    font-weight: 600;
     color: #111827;
   }
   .chevron-icon {
@@ -264,7 +235,7 @@ const itemListSchema = {
   .custom-radio {
     width: 18px;
     height: 18px;
-    border: 2px solid #d1d5db;
+    border: 1.5px solid #6b7280;
     border-radius: 50%;
     display: inline-block;
     position: relative;
@@ -278,8 +249,8 @@ const itemListSchema = {
     position: absolute;
     top: 3px;
     left: 3px;
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: #111827;
   }
@@ -288,8 +259,8 @@ const itemListSchema = {
   .custom-checkbox {
     width: 18px;
     height: 18px;
-    border: 2px solid #d1d5db;
-    border-radius: 4px;
+    border: 1.5px solid #6b7280;
+    border-radius: 3px;
     display: inline-block;
     position: relative;
     transition: all 0.15s ease;
@@ -301,59 +272,26 @@ const itemListSchema = {
   .filter-input-checkbox:checked ~ .custom-checkbox::after {
     content: '✓';
     position: absolute;
-    top: -1px;
+    top: -2px;
     left: 3px;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: #ffffff;
     font-weight: 800;
   }
 
-  .collection-links-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .sidebar-cat-link {
-    font-size: 0.85rem;
-    color: #6b7280;
-    transition: color 0.15s ease;
-  }
-  .sidebar-cat-link:hover {
-    color: #111827;
-    font-weight: 600;
-  }
-
   /* Products Grid */
   .products-grid-catalog {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 24px;
   }
-  @media(min-width: 1300px) {
-    .products-grid-catalog {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  @media(max-width: 1024px) {
-    .products-grid-catalog {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
+
   @media(max-width: 768px) {
     .storefront-layout {
       grid-template-columns: 1fr;
     }
     .store-sidebar {
       margin-bottom: 24px;
-    }
-    .products-grid-catalog {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-  }
-  @media(max-width: 480px) {
-    .products-grid-catalog {
-      grid-template-columns: 1fr;
     }
   }
 
@@ -362,33 +300,31 @@ const itemListSchema = {
     text-align: center;
     padding: 60px 20px;
     background: #f9fafb;
-    border-radius: 12px;
+    border-radius: 8px;
     border: 1px dashed var(--border);
-    margin-top: 20px;
+    margin-top: 10px;
+    width: 100%;
   }
   .no-results-state h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
+    font-size: 1.1rem;
+    font-weight: 600;
     color: #111827;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
   .no-results-state p {
     color: #6b7280;
-    font-size: 0.9rem;
-    margin-bottom: 18px;
+    font-size: 0.88rem;
+    margin-bottom: 16px;
   }
   .btn-reset-filters {
     background: #111827;
     color: #ffffff;
     border: none;
-    padding: 9px 20px;
+    padding: 8px 18px;
     border-radius: 6px;
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-size: 0.85rem;
+    font-weight: 500;
     cursor: pointer;
-  }
-  .btn-reset-filters:hover {
-    background: #374151;
   }
 </style>
 
@@ -397,9 +333,8 @@ const itemListSchema = {
     const searchInput = document.getElementById('store-search-input');
     const categoryRadios = document.querySelectorAll('input[name="filter-cat"]');
     const genderCheckboxes = document.querySelectorAll('input[name="filter-gender"]');
-    const productCards = document.querySelectorAll('.mayzing-product-card');
+    const cards = document.querySelectorAll('.mayzing-card-wrapper');
     const visibleCountEl = document.getElementById('visible-count');
-    const totalCountEl = document.getElementById('total-count');
     const noResultsEl = document.getElementById('no-results');
     const btnReset = document.getElementById('btn-reset-filters');
     const btnToggleFilters = document.getElementById('btn-toggle-filters');
@@ -415,13 +350,11 @@ const itemListSchema = {
     function filterStore() {
       const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
       
-      // Selected Category
-      let selectedCat = 'ALL';
+      let selectedCat = '';
       categoryRadios.forEach(r => {
         if (r.checked) selectedCat = r.value;
       });
 
-      // Selected Genders
       const selectedGenders = [];
       genderCheckboxes.forEach(cb => {
         if (cb.checked) selectedGenders.push(cb.value);
@@ -429,13 +362,13 @@ const itemListSchema = {
 
       let visibleCount = 0;
 
-      productCards.forEach(card => {
+      cards.forEach(card => {
         const title = (card.getAttribute('data-title') || '').toLowerCase();
         const category = card.getAttribute('data-category') || '';
         const gender = card.getAttribute('data-gender') || '';
 
         const matchesSearch = !query || title.includes(query) || category.toLowerCase().includes(query);
-        const matchesCategory = (selectedCat === 'ALL') || (category === selectedCat);
+        const matchesCategory = !selectedCat || (category === selectedCat);
         const matchesGender = (selectedGenders.length === 0) || selectedGenders.includes(gender) || (gender === 'Unisexe');
 
         if (matchesSearch && matchesCategory && matchesGender) {
@@ -452,7 +385,6 @@ const itemListSchema = {
       }
     }
 
-    // Attach listeners
     if (searchInput) {
       searchInput.addEventListener('input', filterStore);
     }
@@ -462,8 +394,8 @@ const itemListSchema = {
     if (btnReset) {
       btnReset.addEventListener('click', () => {
         if (searchInput) searchInput.value = '';
-        categoryRadios.forEach(r => { r.checked = (r.value === 'ALL'); });
-        genderCheckboxes.forEach(cb => { cb.checked = false; });
+        categoryRadios.forEach(r => { r.checked = (r.value === 'T-Shirts'); });
+        genderCheckboxes.forEach(cb => { cb.checked = (cb.value === 'Unisexe'); });
         filterStore();
       });
     }
