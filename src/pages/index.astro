@@ -3,9 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import products from '../data/products.json';
 import categories from '../data/categories.json';
+import articles from '../data/articles.json';
 
 const BASE_URL = "https://theteedrop.com";
 const MAYZING_STORE = "https://store.theteedrop.com/store/MNye";
+
+const featuredCategories = categories.slice(0, 12);
 
 const itemListSchema = products.length > 0 ? {
   "@context": "https://schema.org",
@@ -60,8 +63,8 @@ const pageSchema = {
 ---
 
 <BaseLayout
-  title="The Tee Drop | Premium Heavyweight Graphic Apparel"
-  description="DTC graphic apparel printed on demand on custom 240+ GSM combed ringspun cotton blanks. Local US & European fulfillment."
+  title="The Tee Drop | Premium Heavyweight Graphic Tees & Streetwear"
+  description="DTC graphic apparel printed on demand on custom 240+ GSM combed ringspun cotton blanks. 45+ curated niche hubs and local US & European fulfillment."
   schema={pageSchema}
 >
   <!-- Hero Section -->
@@ -77,7 +80,7 @@ const pageSchema = {
         </p>
 
         <div class="hero-cta-cluster">
-          <a href={MAYZING_STORE} target="_blank" rel="noopener" class="btn-hero-primary">VISIT STOREFRONT</a>
+          <a href="/collections" class="btn-hero-primary">EXPLORE 45+ COLLECTIONS</a>
           <a href="/size-guide" class="btn-hero-secondary">VIEW SIZE CHART →</a>
         </div>
 
@@ -88,8 +91,8 @@ const pageSchema = {
           </div>
           <div class="stat-divider"></div>
           <div class="stat-item">
-            <strong>100% Cotton</strong>
-            <span>Ringspun & Pre-Shrunk</span>
+            <strong>45+ Hubs</strong>
+            <span>Curated Topics & Niches</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat-item">
@@ -101,30 +104,54 @@ const pageSchema = {
     </div>
   </section>
 
-  <!-- Category Filter Bar (Only shown when categories exist) -->
-  {categories.length > 0 && (
-    <section class="topic-filter-bar">
-      <div class="container">
-        <div class="filter-flex-row">
-          <span class="filter-title">Filter by Topic:</span>
-          <div class="filter-pills-scroll">
-            <a href="/collections" class="filter-pill active">All Collections</a>
-            {categories.map((c) => (
-              <a href={`/collections/${c.slug}`} class="filter-pill">
-                {c.name}
-              </a>
-            ))}
-          </div>
+  <!-- Topic Filter Bar -->
+  <section class="topic-filter-bar">
+    <div class="container">
+      <div class="filter-flex-row">
+        <span class="filter-title">Quick Jump:</span>
+        <div class="filter-pills-scroll">
+          <a href="/collections" class="filter-pill active">All 45+ Collections</a>
+          {featuredCategories.map((c) => (
+            <a href={`/collections/${c.slug}`} class="filter-pill">
+              {c.name}
+            </a>
+          ))}
         </div>
       </div>
-    </section>
-  )}
+    </div>
+  </section>
+
+  <!-- Master Topic Hubs Matrix (Internal Backlink Powerhouse) -->
+  <section class="topic-showcase-section">
+    <div class="container">
+      <div class="showcase-header">
+        <span class="sub-label">Topic Directory</span>
+        <h2>EXPLORE DROPS BY PASSION, CAREER & AESTHETIC</h2>
+        <p>Direct access to each curated subculture hub. 45+ dedicated collections crafted on our signature 240+ GSM combed blanks.</p>
+      </div>
+
+      <div class="topic-showcase-grid">
+        {featuredCategories.map((c) => (
+          <a href={`/collections/${c.slug}`} class="topic-card">
+            <span class="topic-badge">{c.badge}</span>
+            <h3>{c.name}</h3>
+            <p>{c.intro.slice(0, 115)}...</p>
+            <span class="topic-link">Explore Hub →</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="view-all-center">
+        <a href="/collections" class="btn-view-all-collections">View All 45+ Specialized Topic Hubs →</a>
+      </div>
+    </div>
+  </section>
 
   <!-- Main Drops Container -->
   <main class="container" id="drops">
     <div class="catalog-header-row">
       <div>
-        <h2>CURRENT RELEASES</h2>
+        <h2>LIVE DROPS & PRODUCT ARCHIVE</h2>
         <p>Heavyweight graphic drops printed on demand and fulfilled via Mayzing.</p>
       </div>
       <div class="sort-indicator">
@@ -145,13 +172,13 @@ const pageSchema = {
       </div>
     ) : (
       <div class="empty-state-card">
-        <span class="empty-state-badge">STOREFRONT READY</span>
-        <h3>Zero Listings Live Yet</h3>
+        <span class="empty-state-badge">READY FOR DROPS</span>
+        <h3>Zero Listings Published Yet</h3>
         <p>
           Your storefront framework is configured and ready to receive your products from Mayzing. Once you add your drops, they will appear right here with high-resolution imagery and direct checkout links.
         </p>
         <div class="empty-state-actions">
-          <a href={MAYZING_STORE} target="_blank" rel="noopener" class="btn-empty-hero">Open Mayzing Storefront →</a>
+          <a href={MAYZING_STORE} target="_blank" rel="noopener" class="btn-empty-hero">Visit Mayzing Storefront →</a>
           <a href="/size-guide" class="btn-empty-outline">Check Sizing & Fit Specs</a>
         </div>
       </div>
@@ -181,7 +208,7 @@ const pageSchema = {
 
           <div class="authority-actions">
             <a href="/size-guide" class="btn-learn-sizing">View Exact Size & Measurement Chart →</a>
-            <a href={MAYZING_STORE} target="_blank" rel="noopener" class="btn-learn-secondary">Go to Mayzing Store →</a>
+            <a href="/collections" class="btn-learn-secondary">Explore All 45+ Collections →</a>
           </div>
         </div>
 
@@ -189,6 +216,31 @@ const pageSchema = {
           <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&auto=format&fit=crop&q=80" alt="Heavyweight Combed Cotton Fabric" loading="lazy" />
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Editorial Journal Section (E-E-A-T) -->
+  <section class="container" style="margin-top: 90px; margin-bottom: 90px;">
+    <div class="catalog-header-row">
+      <div>
+        <h2>THE TEE DROP JOURNAL</h2>
+        <p>In-depth guides on fabric longevity, styling oversized drops, and apparel care.</p>
+      </div>
+      <a href="/blog" class="view-all-link">Read all 6 guides →</a>
+    </div>
+
+    <div class="journal-3col">
+      {articles.slice(0, 3).map((a) => (
+        <a href={`/blog/${a.slug}`} class="article-preview-card">
+          <img src={a.image} alt={a.title} loading="lazy" />
+          <div class="article-body">
+            <span class="art-cat">{a.category}</span>
+            <h3>{a.title}</h3>
+            <p>{a.excerpt}</p>
+            <span class="read-more">Read article ({a.read_time}) →</span>
+          </div>
+        </a>
+      ))}
     </div>
   </section>
 
@@ -397,6 +449,104 @@ const pageSchema = {
     border-color: var(--blue-primary);
   }
 
+  /* Topic Showcase Section */
+  .topic-showcase-section {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 0;
+  }
+  .showcase-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 50px;
+  }
+  .sub-label {
+    display: inline-block;
+    color: var(--blue-primary);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .showcase-header h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+  .showcase-header p {
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+  .topic-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 22px;
+  }
+  .topic-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+  }
+  .topic-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--blue-primary);
+  }
+  .topic-badge {
+    align-self: flex-start;
+    background: var(--blue-light);
+    color: var(--blue-hover);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .topic-card h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .topic-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+  .topic-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--blue-primary);
+  }
+  .view-all-center {
+    text-align: center;
+    margin-top: 45px;
+  }
+  .btn-view-all-collections {
+    display: inline-block;
+    background: #ffffff;
+    border: 1px solid var(--border-dark);
+    color: var(--text);
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .btn-view-all-collections:hover {
+    border-color: var(--blue-primary);
+    color: var(--blue-primary);
+    box-shadow: var(--shadow-sm);
+  }
+
   /* Main Catalog */
   main#drops {
     padding-top: 60px;
@@ -589,6 +739,70 @@ const pageSchema = {
     width: 100%;
     height: 480px;
     object-fit: cover;
+  }
+
+  /* Journal Section */
+  .view-all-link {
+    color: var(--blue-primary);
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .journal-3col {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 32px;
+  }
+  .article-preview-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .article-preview-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--blue-primary);
+  }
+  .article-preview-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+  .article-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .art-cat {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--blue-primary);
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+  }
+  .article-body h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.35;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+  .article-body p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 18px;
+    flex-grow: 1;
+  }
+  .read-more {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--blue-primary);
   }
 
   /* FAQ */

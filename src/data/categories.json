@@ -1,1 +1,452 @@
-[]
+[
+  {
+    "slug": "spooky-dark-humor",
+    "name": "Spooky, Occult & Dark Humor",
+    "meta_title": "Spooky & Dark Humor Graphic Tees | Heavyweight Occult Apparel",
+    "meta_description": "Shop wicked occult, tarot, and dark humor graphic tees. Custom 240+ GSM combed cotton with medieval woodcut prints. Printed on demand with water-based inks.",
+    "h1": "Spooky, Occult & Dark Humor Graphic Tees",
+    "intro": "For those whose wardrobe consists of 90% black and 10% dark charcoal. Inspired by medieval grimoires, vintage tarot woodcuts, and chaotic familiars. Crafted on our custom 240+ GSM heavyweight combed blanks that hold their shape through all seasons.",
+    "badge": "Wicked Aesthetic",
+    "group": "subculture"
+  },
+  {
+    "slug": "anime-cyberpunk",
+    "name": "Japanese Ukiyo-e & Anime",
+    "meta_title": "Ukiyo-e Anime Graphic Tees & Japanese Streetwear | The Tee Drop",
+    "meta_description": "Authentic Japanese woodblock anime and neo-Tokyo cyberpunk graphic tees. Heavyweight combed ringspun cotton with high-def DTG prints. Local US & EU shipping.",
+    "h1": "Japanese Ukiyo-e & Anime Streetwear Tees",
+    "intro": "Traditional Edo woodblock artistry meets modern cyberpunk street culture. Intricate brushstrokes and kanji calligraphy rendered with sharp, breathable water-based inks that penetrate deep into natural cotton fibers.",
+    "badge": "Artist Series",
+    "group": "subculture"
+  },
+  {
+    "slug": "gym-pump-covers",
+    "name": "Gym Pump Covers & Lifting",
+    "meta_title": "Heavyweight Gym Pump Covers & Lifting Graphic Tees | The Tee Drop",
+    "meta_description": "Shop oversized heavyweight gym pump covers. 240+ GSM breathable combed cotton tailored for shoulder mobility and heavy lifting. Local US & EU shipping.",
+    "h1": "Heavyweight Gym Pump Covers & Lifting Tees",
+    "intro": "Every lifter knows the difference between an ordinary t-shirt and a true pump cover. Tailored from 240+ GSM combed ringspun cotton, our lifting tees provide the structured drop-shoulder drape you need during warmup sets without clinging to your lats.",
+    "badge": "Lifter Favorite",
+    "group": "subculture"
+  },
+  {
+    "slug": "vintage-streetwear",
+    "name": "90s Vintage Streetwear",
+    "meta_title": "90s Vintage Streetwear Graphic Tees | Retro Typography & Aesthetic",
+    "meta_description": "Discover authentic 90s vintage streetwear graphic tees. Heavyweight boxy silhouettes with retro typography and distressed artwork. Printed on demand in US & EU.",
+    "h1": "90s Vintage Streetwear & Typography Tees",
+    "intro": "Inspired by the golden era of skate culture and late-90s music flyers. Each piece features distressed typography and bold back-prints on our signature heavyweight vintage-washed blanks.",
+    "badge": "Streetwear Favorite",
+    "group": "subculture"
+  },
+  {
+    "slug": "retro-gaming",
+    "name": "Retro Gaming & 16-Bit Nostalgia",
+    "meta_title": "Retro Gaming Graphic Tees | 16-Bit & Arcade Apparel | The Tee Drop",
+    "meta_description": "Nostalgic 8-bit and 16-bit arcade graphic tees. High-density DTG prints on 240+ GSM ringspun cotton blanks for retro gaming fans. Free shipping over $50.",
+    "h1": "Retro Gaming & 16-Bit Arcade Graphic Tees",
+    "intro": "Honoring the golden age of coin-op arcades and CRT monitors. Classic pixel art and CRT scanline graphics printed with durable water-based inks on our dense cotton blanks.",
+    "badge": "Arcade Drop",
+    "group": "subculture"
+  },
+  {
+    "slug": "programmer-tech",
+    "name": "Programmers & Terminal Tech",
+    "meta_title": "Programmer & Developer Graphic Tees | Tech Humor Streetwear",
+    "meta_description": "Clever programming and terminal command graphic tees for software engineers, Linux sysadmins, and tech nerds. Heavyweight combed cotton blanks.",
+    "h1": "Programmer, Developer & Terminal Tech Tees",
+    "intro": "Clean syntax, dark mode terminals, and dry software engineering humor. Printed on heavy 240+ GSM cotton that keeps its collar flat through marathon debugging sessions.",
+    "badge": "Dev Essential",
+    "group": "subculture"
+  },
+  {
+    "slug": "dark-academia",
+    "name": "Dark Academia & Literature",
+    "meta_title": "Dark Academia Graphic Tees | Vintage Bookish Apparel | The Tee Drop",
+    "meta_description": "Atmospheric Dark Academia graphic tees featuring vintage literary quotes, botanical sketches, and gothic architecture on heavyweight cotton.",
+    "h1": "Dark Academia & Literary Graphic Tees",
+    "intro": "For midnight readers, antiquarian book collectors, and coffee-stained notebook scribblers. Victorian typography and botanical wood engravings printed on soft, structured combed cotton.",
+    "badge": "Literary Drop",
+    "group": "subculture"
+  },
+  {
+    "slug": "true-crime",
+    "name": "True Crime & Mystery Podcasts",
+    "meta_title": "True Crime Graphic Tees | Mystery & Detective Apparel | The Tee Drop",
+    "meta_description": "Sarcastic and atmospheric true crime graphic tees for mystery podcast binge-listeners. Heavyweight combed ringspun cotton with water-based prints.",
+    "h1": "True Crime & Mystery Podcast Graphic Tees",
+    "intro": "For anyone who falls asleep to murder mystery documentaries and forensic podcasts. Case file graphics and dry detective humor printed on dense 240+ GSM blanks.",
+    "badge": "Podcast Fan Favorite",
+    "group": "subculture"
+  },
+  {
+    "slug": "cosmic-scifi",
+    "name": "Cosmic Horror & Deep Space",
+    "meta_title": "Cosmic Horror & Sci-Fi Graphic Tees | Astrophotography Apparel",
+    "meta_description": "Interstellar nebulae, retro sci-fi blueprints, and Eldritch cosmic horror illustrations printed in high-resolution on heavyweight streetwear tees.",
+    "h1": "Cosmic Horror & Deep Space Sci-Fi Tees",
+    "intro": "Deep space astrophotography meets Eldritch cosmic mythology. Dense, rich color prints that hold their vibrance through dozens of washes on pre-shrunk combed cotton.",
+    "badge": "Cosmic Series",
+    "group": "subculture"
+  },
+  {
+    "slug": "metal-grunge",
+    "name": "Heavy Metal, Thrash & Grunge",
+    "meta_title": "Heavy Metal & Grunge Graphic Tees | Distressed Band Aesthetic",
+    "meta_description": "Raw, aggressive typography and distressed illustrations inspired by 90s thrash metal and grunge culture. Thick 240+ GSM cotton blanks.",
+    "h1": "Heavy Metal & Grunge Aesthetic Tees",
+    "intro": "Raw thrash energy, jagged blackletter typography, and vintage concert flyer aesthetics. Printed on heavyweight enzyme-washed blanks with a natural distressed finish.",
+    "badge": "Underground Drop",
+    "group": "subculture"
+  },
+  {
+    "slug": "tabletop-rpg",
+    "name": "Tabletop RPG & Fantasy Dice",
+    "meta_title": "Tabletop RPG & D20 Graphic Tees | Fantasy Dice Apparel | The Tee Drop",
+    "meta_description": "Epic critical rolls, dungeon cartography, and tabletop RPG humor printed on 240+ GSM heavyweight cotton for game masters and adventurers.",
+    "h1": "Tabletop RPG & Fantasy Roleplay Tees",
+    "intro": "Whether you rolled a natural 20 or critically failed your stealth check. Detailed fantasy engravings and dungeon master humor printed on breathable, structured combed cotton.",
+    "badge": "Critical Roll",
+    "group": "subculture"
+  },
+  {
+    "slug": "jdm-automotive",
+    "name": "JDM & Automotive Enthusiasts",
+    "meta_title": "JDM & Car Enthusiast Graphic Tees | Turbo & Drift Streetwear",
+    "meta_description": "Japanese domestic market classics, turbo blueprints, and canyon runner graphics on boxy heavyweight streetwear blanks.",
+    "h1": "JDM & Automotive Enthusiast Graphic Tees",
+    "intro": "Inspired by 90s Touge mountain passes, classic Japanese chassis codes, and late-night garage builds. Cut with a boxy drop-shoulder fit that moves with you in the shop.",
+    "badge": "Garage Series",
+    "group": "subculture"
+  },
+  {
+    "slug": "coffee-obsessed",
+    "name": "Coffee & Espresso Culture",
+    "meta_title": "Coffee Lover Graphic Tees | Espresso & Caffeine Streetwear",
+    "meta_description": "Minimalist and witty coffee graphic tees for espresso purists, cold brew addicts, and early morning grinders. 240+ GSM heavyweight cotton.",
+    "h1": "Coffee & Espresso Culture Graphic Tees",
+    "intro": "Because life before morning espresso is purely hypothetical. Clean typographic layouts and cafe culture illustrations printed with soft-touch water-based inks.",
+    "badge": "Daily Ritual",
+    "group": "subculture"
+  },
+  {
+    "slug": "music-vinyl",
+    "name": "Vinyl Records & Indie Music",
+    "meta_title": "Vinyl Record & Indie Music Graphic Tees | Audiophile Apparel",
+    "meta_description": "Analog audio nostalgia, turntable mechanics, and indie record crate digging graphics on heavyweight combed cotton tees.",
+    "h1": "Vinyl Record & Indie Music Graphic Tees",
+    "intro": "Dedicated to warm analog sound, basement record stores, and crackling needle drops. Clean retro sleeve artwork printed on dense, durable 240+ GSM blanks.",
+    "badge": "Analog Drop",
+    "group": "subculture"
+  },
+  {
+    "slug": "chaotic-pets",
+    "name": "Chaotic Cats & Sarcastic Dogs",
+    "meta_title": "Chaotic Cat & Dog Graphic Tees | Funny Pet Humor Apparel",
+    "meta_description": "Hilariously relatable cat chaos, goblin energy, and loyal rescue dog humor on custom heavyweight streetwear cotton blanks.",
+    "h1": "Chaotic Cats & Sarcastic Dogs Graphic Tees",
+    "intro": "For those whose pets run the household with complete impunity. Chaotic feline energy and goofy canine loyalty captured in sharp woodcut and linocut illustrations.",
+    "badge": "Pet Chaos",
+    "group": "subculture"
+  },
+  {
+    "slug": "outdoors-adventure",
+    "name": "National Parks & Mountain Trails",
+    "meta_title": "National Park & Hiking Graphic Tees | Mountain Trail Apparel",
+    "meta_description": "Vintage topographical maps, alpine peaks, and wilderness trail heritage graphics on breathable 240+ GSM combed cotton.",
+    "h1": "National Parks & Wilderness Adventure Tees",
+    "intro": "Classic retro ranger badges, alpine elevation lines, and backcountry trail heritage. Crafted on 100% natural combed cotton that breathes easily on and off the trail.",
+    "badge": "Backcountry",
+    "group": "subculture"
+  },
+  {
+    "slug": "botanical-plants",
+    "name": "Botanical Plants & Greenery",
+    "meta_title": "Botanical & Plant Lover Graphic Tees | Houseplant Addict Apparel",
+    "meta_description": "Monstera, vintage greenhouse illustrations, and botanical taxonomy sketches on heavyweight, enzyme-washed cotton tees.",
+    "h1": "Botanical Greenery & Plant Addict Tees",
+    "intro": "When your living room looks like a tropical rainforest and you still have room for one more propagation cutting. Elegant vintage greenhouse art on heavy combed cotton.",
+    "badge": "Botanical Drop",
+    "group": "subculture"
+  },
+  {
+    "slug": "minimalist-type",
+    "name": "Minimalist Typography & Swiss Grid",
+    "meta_title": "Minimalist Typography Graphic Tees | Swiss Design & Bauhaus Apparel",
+    "meta_description": "Swiss modernism, Helvetica grids, and clean typographic statements printed on premium 240+ GSM boxy streetwear tees.",
+    "h1": "Minimalist Typography & Swiss Grid Tees",
+    "intro": "Strict grid systems, functional modernist kerning, and understated monochrome statements. The ultimate staple for graphic designers, architects, and minimalist dressers.",
+    "badge": "Modernist Drop",
+    "group": "subculture"
+  },
+  {
+    "slug": "nurses-healthcare",
+    "name": "Nurses & Healthcare Heroes",
+    "meta_title": "Nurse Graphic Tees | Relatable Healthcare Apparel | The Tee Drop",
+    "meta_description": "Authentic nurse and medical worker graphic tees. Durable, soft 240+ GSM cotton for 12-hour shifts and well-earned off-duty days.",
+    "h1": "Relatable Nurse & Healthcare Worker Tees",
+    "intro": "Dedicated to the night shifters, ICU warriors, and coffee-fueled heroes. Our healthcare collection features honest medical humor printed with fade-proof inks that survive endless wash cycles.",
+    "badge": "Healthcare Favorite",
+    "group": "profession"
+  },
+  {
+    "slug": "teachers-education",
+    "name": "Teachers & Elementary Educators",
+    "meta_title": "Teacher Graphic Tees | Relatable Educator Apparel | The Tee Drop",
+    "meta_description": "Witty and heartwarming teacher graphic tees. Soft, comfortable heavyweight combed cotton for long classroom days and grading marathons.",
+    "h1": "Relatable Teacher & Educator Graphic Tees",
+    "intro": "For the educators shaping young minds on pure caffeine and sheer patience. Durable combed cotton blanks that keep their shape through busy school days.",
+    "badge": "Educator Essential",
+    "group": "profession"
+  },
+  {
+    "slug": "electricians-trades",
+    "name": "Electricians & High-Voltage Linemen",
+    "meta_title": "Electrician & Lineman Graphic Tees | Blue Collar Trades Apparel",
+    "meta_description": "High-voltage humor and blue-collar pride graphic tees for electricians, apprentices, and utility linemen. Heavyweight durable cotton.",
+    "h1": "Electrician & High-Voltage Lineman Tees",
+    "intro": "Built tough for the sparkies keeping the lights on. Heavyweight 240+ GSM ringspun cotton blanks that hold up under heavy work shirts or off the clock on weekends.",
+    "badge": "Trades Pride",
+    "group": "profession"
+  },
+  {
+    "slug": "welding-fabrication",
+    "name": "Welders & Metal Fabricators",
+    "meta_title": "Welder & Fabrication Graphic Tees | Hood Down Trades Apparel",
+    "meta_description": "TIG, MIG, and stick welding graphic tees with clean bead artwork and fabricator humor on heavy cotton blanks.",
+    "h1": "Welder & Metal Fabricator Graphic Tees",
+    "intro": "Dimes, arc flashes, and honest American iron. Designed for craftsmen who spend their days behind the hood and take pride in laying down structural perfection.",
+    "badge": "Shop Favorite",
+    "group": "profession"
+  },
+  {
+    "slug": "culinary-chefs",
+    "name": "Line Cooks, Chefs & Kitchen Crew",
+    "meta_title": "Chef & Line Cook Graphic Tees | Back of House Culinary Apparel",
+    "meta_description": "Back of house humor, sharp knife artwork, and culinary grit graphics printed on breathable heavyweight cotton for cooks and kitchen staff.",
+    "h1": "Line Cook & Culinary Kitchen Crew Tees",
+    "intro": "Dedicated to the 500-ticket dinner rush, blistered fingers, and after-shift beers behind the dumpster. Heavy breathable cotton built to survive extreme kitchen heat.",
+    "badge": "Back of House",
+    "group": "profession"
+  },
+  {
+    "slug": "firefighters-ems",
+    "name": "Firefighters & Paramedics",
+    "meta_title": "Firefighter & Paramedic Graphic Tees | First Responder Apparel",
+    "meta_description": "First responder brotherhood and emergency service graphic tees printed on durable heavyweight ringspun cotton blanks.",
+    "h1": "Firefighter & Paramedic First Responder Tees",
+    "intro": "Built with respect for the men and women running toward the smoke when sirens sound. Authentic station house pride printed on rugged, structured combed cotton.",
+    "badge": "First Responder",
+    "group": "profession"
+  },
+  {
+    "slug": "truckers-highway",
+    "name": "Long-Haul Truckers & Freight",
+    "meta_title": "Trucker Graphic Tees | Highway Long-Haul Freight Apparel",
+    "meta_description": "Semi-truck engine graphics, diesel pride, and open highway freedom shirts on comfortable heavyweight cotton blanks.",
+    "h1": "Long-Haul Trucker & Highway Freight Tees",
+    "intro": "Millions of highway miles keeping the country supplied through storm and night. Comfortable, relaxed-fit cotton cut for long hours in the sleeper cab.",
+    "badge": "Highway Hauler",
+    "group": "profession"
+  },
+  {
+    "slug": "dental-hygiene",
+    "name": "Dental Hygienists & Assistants",
+    "meta_title": "Dental Hygienist Graphic Tees | Teeth & Floss Humor Apparel",
+    "meta_description": "Witty dental office humor and enamel appreciation graphic tees for hygienists, assistants, and dentists. Heavy combed cotton.",
+    "h1": "Dental Hygienist & Clinic Humor Tees",
+    "intro": "Reminding people to floss since day one. Playful dental anatomy illustrations and clinic humor printed on ultra-soft heavyweight combed cotton.",
+    "badge": "Clinic Essential",
+    "group": "profession"
+  },
+  {
+    "slug": "mechanics-garage",
+    "name": "Auto Mechanics & Diesel Techs",
+    "meta_title": "Auto Mechanic Graphic Tees | Wrench & Diesel Tech Apparel",
+    "meta_description": "10mm socket humor, engine cylinder heads, and garage mechanic pride printed on durable 240+ GSM combed cotton blanks.",
+    "h1": "Auto Mechanic & Diesel Tech Graphic Tees",
+    "intro": "For those whose hands always have a little motor oil under the fingernails. Heavyweight fabric that resists stretching when you are leaning over the engine bay.",
+    "badge": "Wrench Crew",
+    "group": "profession"
+  },
+  {
+    "slug": "plumbers-pipefitters",
+    "name": "Plumbers & Master Pipefitters",
+    "meta_title": "Plumber & Pipefitter Graphic Tees | Tradesman Pride Apparel",
+    "meta_description": "Pipe wrench graphics, union pride, and honest plumbing trade humor printed on heavy duty 240+ GSM cotton t-shirts.",
+    "h1": "Plumber & Master Pipefitter Graphic Tees",
+    "intro": "Because a civilization without clean water and functioning drainage is just a campsite. Rugged graphics honoring the plumbers who keep things flowing smoothly.",
+    "badge": "Union Proud",
+    "group": "profession"
+  },
+  {
+    "slug": "baristas-cafes",
+    "name": "Specialty Baristas & Roasters",
+    "meta_title": "Specialty Barista Graphic Tees | Coffee Roaster & Cafe Apparel",
+    "meta_description": "Portafilter diagrams, pour-over rituals, and specialty coffee roasting graphics on premium heavyweight streetwear tees.",
+    "h1": "Specialty Barista & Roaster Graphic Tees",
+    "intro": "Dialing in extraction ratios, steaming silky microfoam, and surviving morning rushes. Modern street-style graphics made for the specialty coffee community.",
+    "badge": "Cafe Series",
+    "group": "profession"
+  },
+  {
+    "slug": "engineers-makers",
+    "name": "Mechanical Engineers & Makers",
+    "meta_title": "Engineer & Maker Graphic Tees | Blueprint & CAD Apparel",
+    "meta_description": "CAD blueprints, tolerance callouts, and mechanical engineering humor printed with sharp DTG precision on heavyweight cotton.",
+    "h1": "Mechanical Engineer & Maker Graphic Tees",
+    "intro": "In engineering, we trust tolerances and empirical data. Clean orthographic projection prints on dense combed cotton that keeps its collar flat all day.",
+    "badge": "CAD Tested",
+    "group": "profession"
+  },
+  {
+    "slug": "milestone-birthdays",
+    "name": "Milestone Birthdays (30th, 40th, 50th)",
+    "meta_title": "Milestone Birthday Graphic Tees | 30th, 40th & 50th Birthday Gifts",
+    "meta_description": "Vintage limited-edition birthday graphic tees. Celebrate turning 30, 40, 50, or 60 in style with authentic vintage typography on heavy cotton.",
+    "h1": "Milestone Birthday Celebration Graphic Tees",
+    "intro": "Aged to perfection like vintage denim. Skip the tacky novelty shirts and celebrate major life milestones with tasteful, timeless retro typography on 240+ GSM blanks.",
+    "badge": "Milestone Series",
+    "group": "gifts"
+  },
+  {
+    "slug": "30th-birthday-tees",
+    "name": "30th Birthday Vintage Legend",
+    "meta_title": "30th Birthday T-Shirts | Vintage 1990s Milestone Apparel",
+    "meta_description": "Celebrate entering your thirties with authentic 90s vintage t-shirt designs. Premium heavyweight combed ringspun cotton that looks great anywhere.",
+    "h1": "30th Birthday Vintage Legend Graphic Tees",
+    "intro": "Leaving your twenties behind never looked this good. Distressed 90s typography and vintage cassette aesthetics printed on our signature heavyweight blank.",
+    "badge": "30th Milestone",
+    "group": "gifts"
+  },
+  {
+    "slug": "40th-birthday-tees",
+    "name": "40th Birthday Made in the 80s",
+    "meta_title": "40th Birthday T-Shirts | Vintage 1980s Classic Edition Apparel",
+    "meta_description": "Classic 40th birthday graphic tees for men and women born in the 1980s. Premium boxy streetwear cut with lay-flat ribbed collars.",
+    "h1": "40th Birthday Classic Edition Graphic Tees",
+    "intro": "Four decades of quality and grit. Tasteful retro badge designs printed on heavyweight cotton that holds up through dozens of weekend barbecues and celebrations.",
+    "badge": "40th Milestone",
+    "group": "gifts"
+  },
+  {
+    "slug": "50th-birthday-tees",
+    "name": "50th Birthday Half-Century Club",
+    "meta_title": "50th Birthday T-Shirts | Vintage Half-Century Graphic Apparel",
+    "meta_description": "Celebrate half a century of greatness with vintage 1970s milestone graphic tees. Heavyweight pre-shrunk cotton for maximum comfort.",
+    "h1": "50th Birthday Half-Century Graphic Tees",
+    "intro": "Fifty years of original parts and timeless resilience. High-quality vintage automotive and classic badge illustrations printed on soft, structured combed cotton.",
+    "badge": "50th Milestone",
+    "group": "gifts"
+  },
+  {
+    "slug": "dad-jokes-gifts",
+    "name": "Sarcastic Dad Jokes & Fatherhood",
+    "meta_title": "Dad Joke Graphic Tees | Funny Fatherhood Apparel Gifts",
+    "meta_description": "Unapologetic dad jokes, grill master humor, and fatherhood pride printed on heavy 240+ GSM combed cotton. The perfect Father's Day gift.",
+    "h1": "Sarcastic Dad Jokes & Fatherhood Graphic Tees",
+    "intro": "For the dads who never saw a thermostat they did not want to protect. High-quality funny graphic tees that actually look good and do not shrink into toddler sizes.",
+    "badge": "Dad Favorite",
+    "group": "gifts"
+  },
+  {
+    "slug": "mom-life-apparel",
+    "name": "Real Mom Life & Motherhood",
+    "meta_title": "Mom Life Graphic Tees | Relatable Motherhood Apparel Gifts",
+    "meta_description": "Honest, funny, and cozy mom life graphic tees. Soft heavyweight combed ringspun cotton tailored for relaxed everyday streetwear drape.",
+    "h1": "Relatable Mom Life & Motherhood Tees",
+    "intro": "Fueled by lukewarm coffee and unconditional love. Clean modern typography and witty motherhood humor on premium heavyweight blanks that survive daily wear.",
+    "badge": "Mom Favorite",
+    "group": "gifts"
+  },
+  {
+    "slug": "gifts-for-lifters",
+    "name": "Best Gifts for Powerlifters & Lifters",
+    "meta_title": "Gifts for Gym Lifters & Bodybuilders | Heavyweight Pump Covers",
+    "meta_description": "Find the perfect gift for powerlifters and gym rats. Oversized 240+ GSM pump covers engineered for mobility, squats, and bench presses.",
+    "h1": "Curated Gifts for Powerlifters & Gym Rats",
+    "intro": "Never guess what to buy the lifter in your life. Our oversized heavyweight cotton tees are renowned in the fitness community for their durable drop-shoulder drape.",
+    "badge": "Gym Gift Guide",
+    "group": "gifts"
+  },
+  {
+    "slug": "gifts-for-nurses",
+    "name": "Thoughtful Gifts for Nurses & Medics",
+    "meta_title": "Gifts for Nurses & Healthcare Workers | Heavyweight Shift Apparel",
+    "meta_description": "Thoughtful, funny, and comfortable gifts for registered nurses, nursing school grads, and healthcare staff. Premium combed cotton.",
+    "h1": "Thoughtful Gifts for Nurses & Healthcare Staff",
+    "intro": "Give a gift that actually gets worn on rotation. Ultra-comfortable 240+ GSM combed cotton tees designed for post-shift relaxation and clinical crew pride.",
+    "badge": "Nurse Gift Guide",
+    "group": "gifts"
+  },
+  {
+    "slug": "secret-santa-humor",
+    "name": "White Elephant & Secret Santa Tees",
+    "meta_title": "White Elephant & Secret Santa Funny Graphic Tees | The Tee Drop",
+    "meta_description": "Clever, sarcastic, and unforgettable White Elephant gift t-shirts. High-quality 240+ GSM cotton blanks that make you the star of any gift exchange.",
+    "h1": "White Elephant & Secret Santa Graphic Tees",
+    "intro": "The shirts everyone will fight over in the holiday gift swap. Sharp wit and high-grade printing on our signature heavyweight blanks.",
+    "badge": "Holiday Exchange",
+    "group": "gifts"
+  },
+  {
+    "slug": "retirement-legend",
+    "name": "Official Retirement & Off-Duty",
+    "meta_title": "Retirement Graphic Tees | Off Duty Legend Apparel Gifts",
+    "meta_description": "Celebrate a hard-earned career and official retirement with comfortable, stylish vintage graphic tees. Heavyweight pre-shrunk cotton.",
+    "h1": "Official Retirement & Off-Duty Graphic Tees",
+    "intro": "Goodbye alarm clocks, hello freedom. Classic celebratory t-shirts honoring a lifetime of hard work on comfortable, structured 240+ GSM cotton.",
+    "badge": "Retirement Milestone",
+    "group": "gifts"
+  },
+  {
+    "slug": "heavyweight-blanks",
+    "name": "240+ GSM Heavyweight Combed Cotton",
+    "meta_title": "240+ GSM Heavyweight Graphic Tees | Thick Streetwear Blanks",
+    "meta_description": "Explore our signature 240+ GSM heavyweight t-shirt collection. Custom knit combed ringspun cotton that will never curl at the collar.",
+    "h1": "Signature 240+ GSM Heavyweight Graphic Tees",
+    "intro": "Our flagship blank specification. Dense, structured, and soft to the touch with an impenetrable weave that ensures water-based inks stay vibrant through years of wear.",
+    "badge": "Core Fabric",
+    "group": "style"
+  },
+  {
+    "slug": "oversized-streetwear",
+    "name": "Boxy Cut Drop-Shoulder Tees",
+    "meta_title": "Boxy Cut Drop-Shoulder Graphic Tees | Oversized Streetwear Fit",
+    "meta_description": "Modern boxy cut graphic tees featuring dropped shoulder seams and relaxed silhouettes. 100% heavyweight combed ringspun cotton.",
+    "h1": "Boxy Cut Drop-Shoulder Streetwear Tees",
+    "intro": "Designed intentionally with wide shoulders, relaxed sleeves, and a structured drape that falls cleanly without bunching up at the waist.",
+    "badge": "Streetwear Cut",
+    "group": "style"
+  },
+  {
+    "slug": "vintage-distressed",
+    "name": "Acid Washed & Distressed Tees",
+    "meta_title": "Acid Washed & Vintage Distressed Graphic Tees | The Tee Drop",
+    "meta_description": "Enzyme washed vintage graphic tees with natural subtle distress and lived-in softness on heavy 240+ GSM cotton blanks.",
+    "h1": "Acid Washed & Vintage Distressed Graphic Tees",
+    "intro": "The look and feel of a prized thrift find from 1994, built with modern structural integrity and reinforced collar stitching.",
+    "badge": "Washed Series",
+    "group": "style"
+  },
+  {
+    "slug": "minimalist-pocket",
+    "name": "Subtle Chest Artwork & Pocket Tees",
+    "meta_title": "Subtle Chest Artwork & Pocket Graphic Tees | Clean Aesthetic",
+    "meta_description": "Understated small chest artwork and pocket graphic t-shirts. Clean, versatile everyday streetwear on heavyweight combed cotton.",
+    "h1": "Subtle Chest Artwork & Minimalist Graphic Tees",
+    "intro": "For days when you want a quiet, tasteful graphic that lets the quality and drape of the fabric do the talking. Clean small-chest prints.",
+    "badge": "Clean Minimal",
+    "group": "style"
+  },
+  {
+    "slug": "graphic-back-prints",
+    "name": "Bold Oversized Back Graphic Tees",
+    "meta_title": "Bold Back Graphic Tees | Oversized Statement Streetwear",
+    "meta_description": "Statement oversized back graphic prints with minimal front typography. Printed in 1200 DPI DTG resolution on 240+ GSM heavyweight blanks.",
+    "h1": "Bold Back Graphic Statement T-Shirts",
+    "intro": "Subtle on the chest, loud on the back. Expansive 14-inch back illustrations printed with soft-touch water-based inks that flex naturally with the cotton.",
+    "badge": "Statement Back",
+    "group": "style"
+  }
+]
