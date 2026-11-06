@@ -31,7 +31,7 @@ def main():
     parser.add_argument("--category-slug", default="vintage-streetwear", help="Category slug")
     parser.add_argument("--badge", default="New Drop", help="Badge text")
     parser.add_argument("--image", help="Image URL or local path")
-    parser.add_argument("--checkout", default="https://store.theteedrop.com/store/MNye", help="Mayzing product checkout URL")
+    parser.add_argument("--checkout", default="https://ecotwins.store", help="Mayzing product checkout URL")
     
     args = parser.parse_args()
 

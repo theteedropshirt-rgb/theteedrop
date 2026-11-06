@@ -21,7 +21,7 @@ interface Props {
 }
 
 const { product } = Astro.props;
-const checkoutLink = product.mayzing_checkout_url || "https://store.theteedrop.com/store/MNye";
+const checkoutLink = product.mayzing_checkout_url || "https://ecotwins.store";
 const frontImg = product.image_front || product.image || "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=900&auto=format&fit=crop&q=80";
 const backImg = product.image_back || product.image_front || frontImg;
 ---

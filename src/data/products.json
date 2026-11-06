@@ -1,1 +1,31 @@
-[]
+[
+  {
+    "id": "drop-01",
+    "slug": "christmas-cafe-tour",
+    "title": "Christmas Cafe Tour Holiday T-Shirt",
+    "price": 19.99,
+    "compare_at_price": 28.00,
+    "category": "Coffee & Caffeine Culture",
+    "category_slug": "coffee-obsessed",
+    "badge": "Holiday Special Drop",
+    "rating": 5.0,
+    "reviews_count": 18,
+    "colors": [
+      { "name": "White", "hex": "#ffffff" },
+      { "name": "Ash Grey", "hex": "#e5e5e5" },
+      { "name": "Charcoal", "hex": "#535459" },
+      { "name": "Dark Heather", "hex": "#576b70" }
+    ],
+    "image_front": "https://buyer-experience-gateway.mayzing.com/stores/25ej/mockups/id:miz0accu8c18,sig:N1EWIIhnT-_C7vAC4XKZEORErD4TGXU_02_aps2XeAI,c:GILDAN-WHITE,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aee5562e539c4b0f80989f1,dv:1,cpd:pdz0accu8c0,w:800/image.png",
+    "image_back": "https://buyer-experience-gateway.mayzing.com/stores/25ej/mockups/id:miz0accu8c18,sig:N1EWIIhnT-_C7vAC4XKZEORErD4TGXU_02_aps2XeAI,c:GILDAN-WHITE,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aee5562e539c4b0f80989f1,dv:1,cpd:pdz0accu8c0,w:800/image.png",
+    "description": "Celebrate the holiday season with the Christmas Cafe Tour graphic tee. Featuring festive espresso and holiday cafe illustrations, printed on soft 100% ringspun combed cotton with durable water-based inks.",
+    "features": [
+      "100% Combed Ringspun Cotton for ultra-soft handfeel",
+      "High-density water-based DTG print that will never crack or peel",
+      "Pre-shrunk fabric to maintain perfect fit after 40+ wash cycles",
+      "Tear-away neck label and ribbed lay-flat collar",
+      "Printed on demand and shipped with door-to-door tracking"
+    ],
+    "mayzing_checkout_url": "https://ecotwins.store/christmas-cafe-tour"
+  }
+]
