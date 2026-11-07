@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import products from '../../data/products.json';
-import categories from '../../data/categories.json';
+
 
 export async function getStaticPaths() {
  return products.map((p) => ({
@@ -14,10 +14,7 @@ const { product } = Astro.props;
 const BASE_URL = "https://theteedrop.com";
 const checkoutLink = product.mayzing_checkout_url || "https://ecotwins.store";
 
-const categoryObj = categories.find(c => c.slug === product.category_slug) || {
- name: product.category,
- slug: product.category_slug || "anime-cyberpunk"
-};
+
 
 const frontImg = product.image_front || product.image || "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=900&auto=format&fit=crop&q=80";
 const backImg = product.image_back || frontImg;
@@ -55,13 +52,12 @@ const productSchema = {
 };
 
 const breadcrumbSchema = {
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- "itemListElement": [
- { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
- { "@type": "ListItem", "position": 2, "name": categoryObj.name, "item": `${BASE_URL}/collections/${categoryObj.slug}` },
- { "@type": "ListItem", "position": 3, "name": product.title, "item": `${BASE_URL}/products/${product.slug}` }
- ]
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+    { "@type": "ListItem", "position": 2, "name": product.title, "item": `${BASE_URL}/products/${product.slug}` }
+  ]
 };
 
 const pageSchema = {
@@ -79,12 +75,10 @@ const pageSchema = {
  <div class="container">
  <!-- Breadcrumb -->
  <nav class="breadcrumbs" aria-label="Breadcrumb">
- <a href="/">Home</a>
- <span>/</span>
- <a href={`/collections/${categoryObj.slug}`}>{categoryObj.name}</a>
- <span>/</span>
- <strong>{product.title}</strong>
- </nav>
+      <a href="/">Home</a>
+      <span>/</span>
+      <strong>{product.title}</strong>
+    </nav>
 
  <!-- Professional E-Commerce 2-Column Product Layout -->
  <main class="product-pdp-grid">
