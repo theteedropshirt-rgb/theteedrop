@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- T-Shirt Silhouette -->
+  <path d="M 10 4 
+           C 11 6, 13 7, 16 7 
+           C 19 7, 21 6, 22 4 
+           L 28 8 
+           L 25 13 
+           L 23 12 
+           L 23 27 
+           C 23 27.5, 22.5 28, 22 28 
+           L 10 28 
+           C 9.5 28, 9 27.5, 9 27 
+           L 9 12 
+           L 7 13 
+           L 4 8 
+           Z" 
+        fill="#111827" />
+  
+  <!-- Double Horizontal White Stripes on Chest -->
+  <rect x="12" y="13.5" width="8" height="2.2" rx="1.1" fill="#ffffff" />
+  <rect x="12" y="17.5" width="8" height="2.2" rx="1.1" fill="#ffffff" />
+</svg>

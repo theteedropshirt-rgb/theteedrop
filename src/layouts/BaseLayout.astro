@@ -41,6 +41,12 @@ const orgSchema = {
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content={title} />
@@ -123,6 +129,9 @@ const orgSchema = {
       color: #111827;
       text-transform: lowercase;
       white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     /* Search Bar in Header */
@@ -285,9 +294,14 @@ const orgSchema = {
   <!-- Modern Storefront Header (Mayzing Aesthetic) -->
   <header class="site-header">
     <div class="header-inner">
-      <!-- Logo -->
+      <!-- Logo with T-Shirt Icon -->
       <a href="/" class="brand-logo" title="The Tee Drop Storefront">
-        theteedrop
+        <svg class="brand-shirt-icon" width="24" height="24" viewBox="0 0 32 32" fill="none">
+          <path d="M 10 4 C 11 6.5, 13 7, 16 7 C 19 7, 21 6.5, 22 4 L 28.5 8.5 L 25.5 13.5 L 22.5 12 L 22.5 27.5 L 9.5 27.5 L 9.5 12 L 6.5 13.5 L 3.5 8.5 Z" fill="#111827" />
+          <rect x="12" y="14" width="8" height="2.2" rx="1.1" fill="#ffffff" />
+          <rect x="12" y="18" width="8" height="2.2" rx="1.1" fill="#ffffff" />
+        </svg>
+        <span>theteedrop</span>
       </a>
 
       <!-- Search Bar -->
