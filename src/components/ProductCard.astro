@@ -24,7 +24,7 @@ interface Props {
 }
 
 const { product } = Astro.props;
-const targetLink = `/products/${product.slug}`;
+const targetLink = product.mayzing_checkout_url || `/products/${product.slug}`;
 const frontImg = product.image_front || product.image || "/images/products/christmas-cafe-tour-front.png";
 const backImg = product.image_back || frontImg;
 const colors = product.colors || [{ name: "White", hex: "#ffffff" }];
@@ -33,7 +33,7 @@ const extraColorsCount = colors.length > 7 ? colors.length - 7 : 0;
 ---
 
 <div class="mayzing-card-wrapper" data-category={product.type || "T-Shirts"} data-gender={product.gender || "Unisexe"} data-title={product.title.toLowerCase()}>
-  <a href={targetLink} class="mayzing-product-card">
+  <a href={targetLink} class="mayzing-product-card" target="_blank" rel="noopener">
     <!-- Image Box -->
     <div class="card-image-box">
       <img src={frontImg} alt={product.title} class="card-img-front" loading="lazy" />
