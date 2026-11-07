@@ -20,7 +20,7 @@ const itemListSchema = {
 
 <BaseLayout
   title="theteedrop | Boutique de Graphic Tees & Vêtements Streetwear"
-  description="Boutique officielle The Tee Drop. Graphic tees imprimés sur commande avec expédition internationale suivie."
+  description="Boutique officielle The Tee Drop. Graphic tees, sweats et manches longues imprimés sur commande avec expédition internationale suivie."
   schema={itemListSchema}
 >
   <main class="storefront-page">
@@ -58,17 +58,17 @@ const itemListSchema = {
             </div>
             <div class="filter-options">
               <label class="filter-radio-label">
-                <input type="radio" name="filter-cat" value="T-Shirts" checked class="filter-input-radio" />
+                <input type="checkbox" name="filter-cat" value="T-Shirts" class="filter-input-checkbox" />
                 <span class="custom-radio"></span>
                 <span class="filter-text">T-Shirts</span>
               </label>
               <label class="filter-radio-label">
-                <input type="radio" name="filter-cat" value="Sweat-shirts" class="filter-input-radio" />
+                <input type="checkbox" name="filter-cat" value="Sweat-shirts" class="filter-input-checkbox" />
                 <span class="custom-radio"></span>
                 <span class="filter-text">Sweat-shirts</span>
               </label>
               <label class="filter-radio-label">
-                <input type="radio" name="filter-cat" value="Manches longues" class="filter-input-radio" />
+                <input type="checkbox" name="filter-cat" value="Manches longues" class="filter-input-checkbox" />
                 <span class="custom-radio"></span>
                 <span class="filter-text">Manches longues</span>
               </label>
@@ -95,7 +95,7 @@ const itemListSchema = {
                 <span class="filter-text">Femmes</span>
               </label>
               <label class="filter-checkbox-label">
-                <input type="checkbox" name="filter-gender" value="Unisexe" checked class="filter-input-checkbox" />
+                <input type="checkbox" name="filter-gender" value="Unisexe" class="filter-input-checkbox" />
                 <span class="custom-checkbox"></span>
                 <span class="filter-text">Unisexe</span>
               </label>
@@ -224,14 +224,13 @@ const itemListSchema = {
     cursor: pointer;
     user-select: none;
   }
-  .filter-input-radio,
   .filter-input-checkbox {
     position: absolute;
     opacity: 0;
     cursor: pointer;
   }
 
-  /* Custom Radio styling */
+  /* Custom Radio styling (circular toggle) */
   .custom-radio {
     width: 18px;
     height: 18px;
@@ -241,10 +240,10 @@ const itemListSchema = {
     position: relative;
     transition: border-color 0.15s ease;
   }
-  .filter-input-radio:checked ~ .custom-radio {
+  .filter-input-checkbox:checked ~ .custom-radio {
     border-color: #111827;
   }
-  .filter-input-radio:checked ~ .custom-radio::after {
+  .filter-input-checkbox:checked ~ .custom-radio::after {
     content: '';
     position: absolute;
     top: 3px;
@@ -255,7 +254,7 @@ const itemListSchema = {
     background: #111827;
   }
 
-  /* Custom Checkbox styling */
+  /* Custom Checkbox styling (square toggle) */
   .custom-checkbox {
     width: 18px;
     height: 18px;
@@ -281,9 +280,15 @@ const itemListSchema = {
 
   /* Products Grid */
   .products-grid-catalog {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+  }
+
+  @media(max-width: 1100px) {
+    .products-grid-catalog {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media(max-width: 768px) {
@@ -292,6 +297,16 @@ const itemListSchema = {
     }
     .store-sidebar {
       margin-bottom: 24px;
+    }
+    .products-grid-catalog {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+
+  @media(max-width: 480px) {
+    .products-grid-catalog {
+      grid-template-columns: 1fr;
     }
   }
 
@@ -331,7 +346,7 @@ const itemListSchema = {
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('store-search-input');
-    const categoryRadios = document.querySelectorAll('input[name="filter-cat"]');
+    const categoryCheckboxes = document.querySelectorAll('input[name="filter-cat"]');
     const genderCheckboxes = document.querySelectorAll('input[name="filter-gender"]');
     const cards = document.querySelectorAll('.mayzing-card-wrapper');
     const visibleCountEl = document.getElementById('visible-count');
@@ -350,9 +365,9 @@ const itemListSchema = {
     function filterStore() {
       const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
       
-      let selectedCat = '';
-      categoryRadios.forEach(r => {
-        if (r.checked) selectedCat = r.value;
+      const selectedCats = [];
+      categoryCheckboxes.forEach(cb => {
+        if (cb.checked) selectedCats.push(cb.value);
       });
 
       const selectedGenders = [];
@@ -368,7 +383,7 @@ const itemListSchema = {
         const gender = card.getAttribute('data-gender') || '';
 
         const matchesSearch = !query || title.includes(query) || category.toLowerCase().includes(query);
-        const matchesCategory = !selectedCat || (category === selectedCat);
+        const matchesCategory = (selectedCats.length === 0) || selectedCats.includes(category);
         const matchesGender = (selectedGenders.length === 0) || selectedGenders.includes(gender) || (gender === 'Unisexe');
 
         if (matchesSearch && matchesCategory && matchesGender) {
@@ -388,14 +403,14 @@ const itemListSchema = {
     if (searchInput) {
       searchInput.addEventListener('input', filterStore);
     }
-    categoryRadios.forEach(r => r.addEventListener('change', filterStore));
+    categoryCheckboxes.forEach(cb => cb.addEventListener('change', filterStore));
     genderCheckboxes.forEach(cb => cb.addEventListener('change', filterStore));
 
     if (btnReset) {
       btnReset.addEventListener('click', () => {
         if (searchInput) searchInput.value = '';
-        categoryRadios.forEach(r => { r.checked = (r.value === 'T-Shirts'); });
-        genderCheckboxes.forEach(cb => { cb.checked = (cb.value === 'Unisexe'); });
+        categoryCheckboxes.forEach(cb => { cb.checked = false; });
+        genderCheckboxes.forEach(cb => { cb.checked = false; });
         filterStore();
       });
     }

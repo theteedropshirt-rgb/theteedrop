@@ -10,7 +10,6 @@
     "compare_at_price": 28.00,
     "category": "Coffee & Caffeine Culture",
     "category_slug": "coffee-obsessed",
-    "badge": "",
     "rating": 5.0,
     "reviews_count": 24,
     "colors": [
@@ -33,6 +32,66 @@
       "Tear-away neck label and ribbed lay-flat collar",
       "Printed on demand and shipped with door-to-door tracking"
     ],
-    "mayzing_checkout_url": "https://ecotwins.store/christmas-cafe-tour"
+    "mayzing_checkout_url": "https://ecotwins.store/christmas-cafe-tour?productId=6aee5609d61c00b33230b901"
+  },
+  {
+    "id": "drop-02",
+    "slug": "christmas-cafe-tour-sweatshirt",
+    "title": "Christmas Cafe Tour Sweatshirt",
+    "subtitle": "Sweat-shirt unisexe",
+    "type": "Sweat-shirts",
+    "gender": "Unisexe",
+    "price": 24.99,
+    "compare_at_price": 38.00,
+    "category": "Coffee & Caffeine Culture",
+    "category_slug": "coffee-obsessed",
+    "rating": 5.0,
+    "reviews_count": 16,
+    "colors": [
+      { "name": "Dark Heather", "hex": "#374151" },
+      { "name": "Ash Grey", "hex": "#e5e7eb" },
+      { "name": "Charcoal", "hex": "#4b5563" },
+      { "name": "Black", "hex": "#111827" }
+    ],
+    "image_front": "/images/products/christmas-sweatshirt-front.png",
+    "image_back": "/images/products/christmas-sweatshirt-flat.png",
+    "description": "Brew York Christmas Coffee Sweatshirt. Warm brushed fleece interior, athletic ribbed cuffs and waistband, printed on demand via Mayzing.",
+    "features": [
+      "Heavyweight brushed fleece for premium winter warmth",
+      "Air-jet spun yarn for softer feel and reduced pilling",
+      "Double-needle stitching at shoulder, armhole, neck, and cuffs",
+      "Printed on demand and fulfilled via Mayzing"
+    ],
+    "mayzing_checkout_url": "https://ecotwins.store/christmas-cafe-tour?productId=6aee5609d2bd9d186b43718b"
+  },
+  {
+    "id": "drop-03",
+    "slug": "christmas-cafe-tour-longsleeve",
+    "title": "Christmas Cafe Tour Manches Longues",
+    "subtitle": "T-Shirt manches longues",
+    "type": "Manches longues",
+    "gender": "Unisexe",
+    "price": 24.99,
+    "compare_at_price": 34.00,
+    "category": "Coffee & Caffeine Culture",
+    "category_slug": "coffee-obsessed",
+    "rating": 4.9,
+    "reviews_count": 12,
+    "colors": [
+      { "name": "White", "hex": "#ffffff" },
+      { "name": "Ash Grey", "hex": "#e5e7eb" },
+      { "name": "Charcoal", "hex": "#4b5563" },
+      { "name": "Dark Heather", "hex": "#374151" }
+    ],
+    "image_front": "/images/products/christmas-longsleeve-front.png",
+    "image_back": "/images/products/christmas-longsleeve-flat.png",
+    "description": "Brew York Christmas Coffee Long Sleeve T-Shirt. Classic fit with ribbed cuffs and durable water-based print.",
+    "features": [
+      "100% combed ringspun cotton jersey",
+      "Ribbed collar and sleeve cuffs",
+      "Double-stitched bottom hem",
+      "Printed on demand and fulfilled via Mayzing"
+    ],
+    "mayzing_checkout_url": "https://ecotwins.store/christmas-cafe-tour?productId=6aee5608d2bd9d186b436e62"
   }
 ]
