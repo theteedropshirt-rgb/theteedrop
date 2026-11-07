@@ -54,6 +54,10 @@ const orgSchema = {
   <meta property="og:url" content={canonical} />
   <meta property="og:image" content={image} />
 
+  <!-- Search Engine Verifications -->
+  <meta name="google-site-verification" content="N_VmOVPpWFGUEkJ6uCh1SMpM-Su79DJtBhm0kNppf2w" />
+  <meta name="msvalidate.01" content="799575A1237A39DE0E2D569433CC24FF" />
+
   <!-- Twitter Meta -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
@@ -182,6 +186,20 @@ const orgSchema = {
       display: flex;
       align-items: center;
       gap: 20px;
+    }
+    .header-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #4b5563;
+    }
+    .header-nav-links a:hover {
+      color: #111827;
+    }
+    @media(max-width: 768px) {
+      .header-nav-links { display: none; }
     }
     .header-nav-links {
       display: flex;
@@ -325,6 +343,11 @@ const orgSchema = {
 
       <!-- Actions -->
       <div class="header-right-actions">
+        <nav class="header-nav-links">
+          <a href="/blog">Journal</a>
+          <a href="/size-guide">Guide des tailles</a>
+        </nav>
+
         <a href={MAYZING_DEFAULT} class="cart-btn" target="_blank" rel="noopener" aria-label="Panier">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>

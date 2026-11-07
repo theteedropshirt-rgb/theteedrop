@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import articles from '../../data/articles.json';
+
+const BASE_URL = "https://theteedrop.com";
+
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "The Tee Drop Journal | Stories & Holiday Drops",
+  "url": `${BASE_URL}/blog`,
+  "description": "Guides d'événements, lookbooks, histoires des designs et conseils de style pour vos t-shirts graphiques."
+};
+---
+
+<BaseLayout
+  title="Le Journal | Stories, Événements & Drops | The Tee Drop"
+  description="Découvrez l'histoire de nos drops graphiques, nos guides de cadeaux de fin d'année et nos conseils de style streetwear pour l'hiver."
+  schema={blogSchema}
+>
+  <main class="blog-index-page">
+    <div class="container">
+      <div class="blog-header">
+        <span class="blog-tag">Le Journal Officiel</span>
+        <h1>Drops, Événements & Culture</h1>
+        <p>L'envers du décor de chaque création : la genèse des designs, nos guides pour les fêtes et les conseils d'entretien.</p>
+      </div>
+
+      <!-- Articles Grid -->
+      <div class="articles-grid">
+        {articles.map((art) => (
+          <article class="article-card">
+            <a href={`/blog/${art.slug}`} class="article-img-box">
+              <img src={art.image} alt={art.title} loading="lazy" />
+              <span class="event-badge">{art.event}</span>
+            </a>
+            <div class="article-card-body">
+              <div class="article-meta">
+                <span class="art-cat">{art.category}</span>
+                <span class="meta-dot">•</span>
+                <span class="art-time">{art.read_time}</span>
+              </div>
+              <h2 class="art-title">
+                <a href={`/blog/${art.slug}`}>{art.title}</a>
+              </h2>
+              <p class="art-excerpt">{art.excerpt}</p>
+              <div class="art-footer">
+                <span class="art-date">{art.date}</span>
+                <a href={`/blog/${art.slug}`} class="read-link">Lire l'article →</a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .blog-index-page {
+    padding: 30px 0 80px;
+    background: #ffffff;
+  }
+  .blog-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+  .blog-tag {
+    display: inline-block;
+    background: #f3f4f6;
+    color: #4b5563;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .blog-header h1 {
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .blog-header p {
+    color: #6b7280;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  @media(max-width: 1024px) {
+    .articles-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media(max-width: 680px) {
+    .articles-grid { grid-template-columns: 1fr; }
+  }
+
+  .article-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  }
+
+  .article-img-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: #f9fafb;
+    overflow: hidden;
+    display: block;
+  }
+  .article-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .article-card:hover .article-img-box img {
+    transform: scale(1.03);
+  }
+  .event-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(17, 24, 39, 0.9);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+
+  .article-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #0284c7;
+    margin-bottom: 8px;
+  }
+  .meta-dot { color: #d1d5db; }
+  .art-time { color: #6b7280; font-weight: 400; }
+
+  .art-title {
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  .art-title a { color: inherit; text-decoration: none; }
+  .art-title a:hover { color: #0284c7; }
+
+  .art-excerpt {
+    font-size: 0.88rem;
+    color: #6b7280;
+    line-height: 1.55;
+    margin-bottom: 16px;
+    flex: 1;
+  }
+
+  .art-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid #f3f4f6;
+    font-size: 0.82rem;
+  }
+  .art-date { color: #9ca3af; }
+  .read-link { font-weight: 600; color: #111827; text-decoration: none; }
+  .read-link:hover { color: #0284c7; }
+</style>

@@ -1,0 +1,279 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const BASE_URL = "https://theteedrop.com";
+
+const sizeGuideSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Guide des Tailles | The Tee Drop",
+  "description": "Tableaux des tailles exacts en pouces et centimètres pour T-Shirts, Sweatshirts et Manches Longues The Tee Drop.",
+  "url": `${BASE_URL}/size-guide`
+};
+---
+
+<BaseLayout
+  title="Guide des Tailles | The Tee Drop"
+  description="Guide complet des mesures et coupes (Inches / Centimètres) pour T-Shirts, Sweat-shirts et Manches Longues. Conseils pour choisir votre taille idéale."
+  schema={sizeGuideSchema}
+>
+  <div class="container size-guide-container">
+    <div class="size-header">
+      <span class="sub-badge">Précision & Ajustement</span>
+      <h1>Guide Officiel des Tailles</h1>
+      <p>
+        Toutes les mesures sont prises à plat. Nos vêtements sont conçus en coton peigné et molleton pré-rétréci pour conserver leurs dimensions lavage après lavage.
+      </p>
+    </div>
+
+    <!-- T-Shirt Size Table -->
+    <section class="size-table-card">
+      <div class="table-card-header">
+        <div>
+          <h2>1. T-Shirt Unisexe Classique</h2>
+          <p>Coupe standard régulière. Pour un effet streetwear oversize, prenez une taille au-dessus.</p>
+        </div>
+        <span class="fit-tag">Coupe Régulière</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="size-data-table">
+          <thead>
+            <tr>
+              <th>Taille</th>
+              <th>Poitrine / Largeur (Inches)</th>
+              <th>Longueur (Inches)</th>
+              <th>Largeur (CM)</th>
+              <th>Longueur (CM)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>S</strong></td><td>18"</td><td>28"</td><td>46 cm</td><td>71 cm</td></tr>
+            <tr><td><strong>M</strong></td><td>20"</td><td>29"</td><td>51 cm</td><td>74 cm</td></tr>
+            <tr><td><strong>L</strong></td><td>22"</td><td>30"</td><td>56 cm</td><td>76 cm</td></tr>
+            <tr><td><strong>XL</strong></td><td>24"</td><td>31"</td><td>61 cm</td><td>79 cm</td></tr>
+            <tr><td><strong>2XL</strong></td><td>26"</td><td>32"</td><td>66 cm</td><td>81 cm</td></tr>
+            <tr><td><strong>3XL</strong></td><td>28"</td><td>33"</td><td>71 cm</td><td>84 cm</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Sweatshirt Size Table -->
+    <section class="size-table-card">
+      <div class="table-card-header">
+        <div>
+          <h2>2. Sweat-shirt Molletonné Unisexe</h2>
+          <p>Intérieur gratté ultra doux, poignets et taille côtelés athlétiques.</p>
+        </div>
+        <span class="fit-tag">Coupe Confort</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="size-data-table">
+          <thead>
+            <tr>
+              <th>Taille</th>
+              <th>Poitrine / Largeur (Inches)</th>
+              <th>Longueur (Inches)</th>
+              <th>Largeur (CM)</th>
+              <th>Longueur (CM)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>S</strong></td><td>20"</td><td>27"</td><td>51 cm</td><td>69 cm</td></tr>
+            <tr><td><strong>M</strong></td><td>22"</td><td>28"</td><td>56 cm</td><td>71 cm</td></tr>
+            <tr><td><strong>L</strong></td><td>24"</td><td>29"</td><td>61 cm</td><td>74 cm</td></tr>
+            <tr><td><strong>XL</strong></td><td>26"</td><td>30"</td><td>66 cm</td><td>76 cm</td></tr>
+            <tr><td><strong>2XL</strong></td><td>28"</td><td>31"</td><td>71 cm</td><td>79 cm</td></tr>
+            <tr><td><strong>3XL</strong></td><td>30"</td><td>32"</td><td>76 cm</td><td>81 cm</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Long Sleeve Size Table -->
+    <section class="size-table-card">
+      <div class="table-card-header">
+        <div>
+          <h2>3. T-Shirt Manches Longues</h2>
+          <p>Manches ajustées avec poignets côtelés confortables.</p>
+        </div>
+        <span class="fit-tag">Coupe Décontractée</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="size-data-table">
+          <thead>
+            <tr>
+              <th>Taille</th>
+              <th>Poitrine / Largeur (Inches)</th>
+              <th>Longueur (Inches)</th>
+              <th>Largeur (CM)</th>
+              <th>Longueur (CM)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>S</strong></td><td>18"</td><td>28"</td><td>46 cm</td><td>71 cm</td></tr>
+            <tr><td><strong>M</strong></td><td>20"</td><td>29"</td><td>51 cm</td><td>74 cm</td></tr>
+            <tr><td><strong>L</strong></td><td>22"</td><td>30"</td><td>56 cm</td><td>76 cm</td></tr>
+            <tr><td><strong>XL</strong></td><td>24"</td><td>31"</td><td>61 cm</td><td>79 cm</td></tr>
+            <tr><td><strong>2XL</strong></td><td>26"</td><td>32"</td><td>66 cm</td><td>81 cm</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Tips on How to Measure -->
+    <div class="measure-tips-card">
+      <h3>Comment prendre vos mesures à la maison :</h3>
+      <ul>
+        <li><strong>Largeur (Poitrine) :</strong> Posez votre t-shirt préféré bien à plat et mesurez d'une aisselle à l'autre, 2 cm sous la couture.</li>
+        <li><strong>Longueur :</strong> Mesurez depuis le point le plus haut de l'épaule (à côté du col) jusqu'au bas de l'ourlet.</li>
+        <li><strong>Conseil Coupe Oversize :</strong> Si vous hésitez entre deux tailles ou souhaitez un tombé boxy streetwear, choisissez systématiquement la taille supérieure.</li>
+      </ul>
+      <div class="measure-cta">
+        <a href="/" class="btn-return-store">Retourner à la boutique →</a>
+      </div>
+    </div>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .size-guide-container {
+    max-width: 900px;
+    margin: 40px auto 80px;
+  }
+  .size-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .sub-badge {
+    display: inline-block;
+    background: #f3f4f6;
+    color: #4b5563;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .size-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+  .size-header p {
+    color: #6b7280;
+    font-size: 1rem;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .size-table-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  }
+  .table-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .table-card-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  .table-card-header p {
+    font-size: 0.88rem;
+    color: #6b7280;
+  }
+  .fit-tag {
+    background: #111827;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+  .size-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+  .size-data-table th {
+    background: #f9fafb;
+    color: #374151;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .size-data-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #f3f4f6;
+    color: #4b5563;
+  }
+  .size-data-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .measure-tips-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 28px;
+    margin-top: 40px;
+  }
+  .measure-tips-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 14px;
+  }
+  .measure-tips-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #4b5563;
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .measure-cta {
+    margin-top: 24px;
+    text-align: center;
+  }
+  .btn-return-store {
+    display: inline-block;
+    background: #111827;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .btn-return-store:hover {
+    background: #374151;
+  }
+</style>

@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import hubs from '../../data/hubs.json';
+import products from '../../data/products.json';
+
+export async function getStaticPaths() {
+  return hubs.map((h) => ({
+    params: { slug: h.slug },
+    props: { hub: h }
+  }));
+}
+
+const { hub } = Astro.props;
+const BASE_URL = "https://theteedrop.com";
+
+const hubSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": hub.meta_title || hub.h1,
+  "description": hub.meta_description,
+  "url": `${BASE_URL}/hubs/${hub.slug}`
+};
+---
+
+<BaseLayout
+  title={`${hub.meta_title || hub.name} | The Tee Drop`}
+  description={hub.meta_description}
+  schema={hubSchema}
+>
+  <main class="hub-page">
+    <div class="container">
+      
+      <!-- Breadcrumb -->
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Accueil</a>
+        <span>/</span>
+        <strong>{hub.name}</strong>
+      </nav>
+
+      <!-- Hub Header -->
+      <header class="hub-header">
+        <span class="hub-badge-pill">{hub.badge || "Collection Spéciale"}</span>
+        <h1>{hub.h1}</h1>
+        <p class="hub-intro-text">{hub.intro}</p>
+      </header>
+
+      <!-- Featured Live Products Section -->
+      <section class="hub-drops-section">
+        <div class="section-title-row">
+          <h2>Drops Disponibles</h2>
+          <span class="item-count">3 modèles imprimés sur commande</span>
+        </div>
+
+        <div class="products-grid-catalog">
+          {products.map((p) => (
+            <ProductCard product={p} />
+          ))}
+        </div>
+      </section>
+
+      <!-- Authority Box -->
+      <section class="hub-quality-box">
+        <div class="quality-grid">
+          <div class="quality-item">
+            <strong>Qualité 100% Coton Peigné</strong>
+            <p>Fibres naturelles denses et pré-rétrécies pour éviter toute déformation au lavage.</p>
+          </div>
+          <div class="quality-item">
+            <strong>Impression Haute Définition DTG</strong>
+            <p>Encres écologiques à base d'eau qui pénètrent la fibre sans craqueler.</p>
+          </div>
+          <div class="quality-item">
+            <strong>Expédition Rapide & Suivie</strong>
+            <p>Production et expédition directe via Mayzing avec numéro de suivi international.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Return CTA -->
+      <div class="hub-back-cta">
+        <a href="/" class="btn-back-home">Voir toute la boutique →</a>
+      </div>
+
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .hub-page {
+    padding: 20px 0 80px;
+    background: #ffffff;
+  }
+  .hub-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 10px auto 40px;
+  }
+  .hub-badge-pill {
+    display: inline-block;
+    background: #f3f4f6;
+    color: #4b5563;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .hub-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+  }
+  .hub-intro-text {
+    font-size: 1.05rem;
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  .hub-drops-section {
+    margin-bottom: 50px;
+  }
+  .section-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 14px;
+    margin-bottom: 24px;
+  }
+  .section-title-row h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+  }
+  .item-count {
+    font-size: 0.85rem;
+    color: #6b7280;
+  }
+
+  .products-grid-catalog {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .hub-quality-box {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 40px;
+  }
+  .quality-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media(max-width: 768px) {
+    .quality-grid { grid-template-columns: 1fr; gap: 20px; }
+  }
+  .quality-item strong {
+    display: block;
+    font-size: 0.95rem;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .quality-item p {
+    font-size: 0.88rem;
+    color: #6b7280;
+    line-height: 1.5;
+  }
+
+  .hub-back-cta {
+    text-align: center;
+  }
+  .btn-back-home {
+    display: inline-block;
+    background: #111827;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .btn-back-home:hover {
+    background: #374151;
+  }
+</style>
